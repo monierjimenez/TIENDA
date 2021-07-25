@@ -5,7 +5,34 @@
                 <div class="phone-service"> <i class=" fa fa-phone"></i> +1 6511188888 </div>
             </div>
             <div class="ht-right">
-                <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                @guest
+                    <a href="{{ route('welcome') }}" class="login-panel"><i class="fa fa-user"></i> Login</a>
+                @else
+                    <nav class="login-panel navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" style="padding: 0px 0px; color: #252525;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fa fa-user"></i>{{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                My orders
+                            </a>
+
+                            @if ( auth()->user()->permissions != null )
+                                <a class="dropdown-item" href="{{ route('admin') }}">
+                                    Administration
+                                </a>
+                            @endif
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                {{ csrf_field() }}
+                                <button class="dropdown-item btn btn-default btn-flat btn-block">
+                                    {{ __('Logout') }}
+                                </button>
+                            </form>
+                        </div>
+                    </nav>
+
+                @endguest
 
                 {{--                <div class="lan-selector">--}}
                 {{--                    <select class="language_drop" name="countries" id="countries" style="width:300px;">--}}
@@ -60,46 +87,46 @@
                                 <span>3</span>
                             </a>
 
-                            <div class="cart-hover">
-                                <div class="select-items">
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td class="si-pic"><img src="images/select-product-1.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="fa fa-close"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="si-pic"><img src="images/select-product-2.jpg" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="fa fa-close"></i>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="select-total">
-                                    <span>total:</span>
-                                    <h5>$120.00</h5>
-                                </div>
-                                <div class="select-button">
-                                    <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                </div>
-                            </div>
+{{--                            <div class="cart-hover">--}}
+{{--                                <div class="select-items">--}}
+{{--                                    <table>--}}
+{{--                                        <tbody>--}}
+{{--                                        <tr>--}}
+{{--                                            <td class="si-pic"><img src="images/select-product-1.jpg" alt=""></td>--}}
+{{--                                            <td class="si-text">--}}
+{{--                                                <div class="product-selected">--}}
+{{--                                                    <p>$60.00 x 1</p>--}}
+{{--                                                    <h6>Kabino Bedside Table</h6>--}}
+{{--                                                </div>--}}
+{{--                                            </td>--}}
+{{--                                            <td class="si-close">--}}
+{{--                                                <i class="fa fa-close"></i>--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
+{{--                                        <tr>--}}
+{{--                                            <td class="si-pic"><img src="images/select-product-2.jpg" alt=""></td>--}}
+{{--                                            <td class="si-text">--}}
+{{--                                                <div class="product-selected">--}}
+{{--                                                    <p>$60.00 x 1</p>--}}
+{{--                                                    <h6>Kabino Bedside Table</h6>--}}
+{{--                                                </div>--}}
+{{--                                            </td>--}}
+{{--                                            <td class="si-close">--}}
+{{--                                                <i class="fa fa-close"></i>--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
+{{--                                        </tbody>--}}
+{{--                                    </table>--}}
+{{--                                </div>--}}
+{{--                                <div class="select-total">--}}
+{{--                                    <span>total:</span>--}}
+{{--                                    <h5>$120.00</h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="select-button" style="margin-top: -190px;">--}}
+{{--                                    <a href="#" class="primary-btn view-card">VIEW CARD</a>--}}
+{{--                                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </li>
                         <li class="cart-price">$150.00</li>
                     </ul>

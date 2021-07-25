@@ -21,7 +21,7 @@ class AdminController extends Controller
             return view('admin.dashboard');
         }
         else{
-            return redirect()->route('home');
+            return redirect()->route('welcome');
             // return view('welcome');
         }
     }

@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
     });
 
     Auth::routes();
-    Route::get('/home', 'HomeController@index')->name('home');
+  //  Route::get('login1', 'HomeController@index')->name('login1');
+    Route::get('welcome', 'HomeController@index')->name('welcome');
 
 // Route::get('/admin', 'HomeController@admin')->name('admin');
 

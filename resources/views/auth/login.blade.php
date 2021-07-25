@@ -1,119 +1,98 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | Log in</title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" href="./adminlte/bootstrap/css/bootstrap.min.css">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
-        <!-- iCheck -->
-        <link rel="stylesheet" href="/adminlte/plugins/iCheck/square/blue.css">
+@extends('layouts.layouts')
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-
-    <body class="hold-transition login-page">
-        <div class="login-box" style="margin: 0% auto; !important;">
-            <div class="login-logo">
-                <b>{{ config('app.name', 'Laravel') }}
-            </div>
-
-            <div class="login-box-body">
-                <p class="login-box-msg">Ingreses sus datos para iniciar su sesión</p>
-
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
-                        <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        @error('email')
-                            <span class="invalid-feedback has-error">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+@section('content')
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home</a>
+                        <span>Login</span>
                     </div>
-
-                    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
-                        <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <div class="checkbox icheck">
-                                <label>
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </label>            
-                            </div>
-                        </div>
-
-                        <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Login') }}
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                
-                <div class="social-auth-links text-center">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                        Facebook</a>
-                    <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                        Google+</a>
                 </div>
-          <!--  -->
-                @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
-                @endif
-                <br>
-                <!-- <a href="register.html" class="text-center">Register a new membership</a> -->
             </div>
         </div>
+    </div>
+    <!-- Breadcrumb Form Section Begin -->
 
-        <!-- jQuery 2.2.3 -->
-        <script src="/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
-        <!-- Bootstrap 3.3.6 -->
-        <script src="/adminlte/bootstrap/js/bootstrap.min.js"></script>
-        <!-- iCheck -->
-        <script src="/adminlte/plugins/iCheck/icheck.min.js"></script>
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="login-form">
+                        <h2>Login</h2>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
+                                <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                    @error('email')
+                                        <span class="invalid-feedback has-error">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
 
-        <script>
-            $(function () {
-                $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-                });
-            });
-        </script>
-    </body>
-</html>
+                            <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
+                                <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
 
+                            <div class="group-input gi-check">
+                                <div class="gi-more">
+                                   <span class="pull-left">
+
+                                       <input type="checkbox" name="remember" id="remember">
+                                       <spam class="remember-pass" >
+                                           {{ __('Remember Me') }}
+                                       </spam>
+
+                                   </span>
+
+                                    <span class="pull-right">
+                                        @if (Route::has('password.request'))
+                                            <a class="btn btn-link forget-pass" href="{{ route('password.request') }}">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
+                                        @endif
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="submit" class="site-btn login-btn">{{ __('Login') }}</button>
+                        </form>
+
+                        <div class="switch-login">
+                            <a href="./register.html" class="or-login">Or Create An Account</a>
+                        </div>
+                        <br>
+                        <div class="social-auth-links text-center">
+                            <p>- OR -</p>
+                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                                Facebook</a>
+                            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+                                Google+</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form Section End -->
+@stop
+
+@push('styles')
+
+@endpush
+
+@push('script')
+
+@endpush
 
 
 
