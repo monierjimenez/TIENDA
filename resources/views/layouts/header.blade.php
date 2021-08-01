@@ -6,7 +6,7 @@
             </div>
             <div class="ht-right">
                 @guest
-                    <a href="{{ route('welcome') }}" class="login-panel"><i class="fa fa-user"></i> Login</a>
+                    <a href="{{ route('login') }}" class="login-panel"><i class="fa fa-user"></i> Login</a>
                 @else
                     <nav class="login-panel navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" style="padding: 0px 0px; color: #252525;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
