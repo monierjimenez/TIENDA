@@ -15,7 +15,9 @@
     <div class="box-header">
       <h3 class="box-title">List the Products</h3>
 {{--      <a href="{{ route('articuloallpdf') }}" class="btn btn-success pull-right" style="margin-left: 8px;" title="Exportar a PDF."><i class="fa fa-file-pdf-o"></i></a>--}}
-      <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalProduct"> <i class="fa fa-plus"></i> Crear Articulo</button>
+      <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalProduct" data-backdrop="static" data-keyboard="false">
+          <i class="fa fa-plus"></i> Crear Articulo
+      </button>
     </div>
 
     <!-- /.box-header -->

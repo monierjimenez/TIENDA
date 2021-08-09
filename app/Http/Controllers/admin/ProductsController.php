@@ -24,14 +24,14 @@ class ProductsController extends Controller
         //	return $request ;
         $this->validate($request, ['sku' => 'required|unique:products,sku']);
 
-        $almacene = Cliente::create([
-            'compania' => $request->get('compania'),
-            'url' => Str::slug($request->get('compania')),
-            'tipo_pago' => '0',
-            'tipo_pago_tele' => '0',
-        ]);
+//        $product = Product::create([
+//            'compania' => $request->get('compania'),
+//            'url' => Str::slug($request->get('compania')),
+//            'tipo_pago' => '0',
+//            'tipo_pago_tele' => '0',
+//        ]);
 
-        return redirect()->route('admin.almacenes.edit', $almacene);
+        return redirect()->route('admin.products.edit', $product);
     }
 
 //    public function show(User $user)

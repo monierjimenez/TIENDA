@@ -18,10 +18,9 @@
 		    		{!! $errors->first('sku', '<span class="help-block">:message</span>') !!}
 		    	</div>
 		  </div>
-
         </div>
         <div class="modal-footer">
-{{--          <button class="btn btn-default" data-dismiss="modal">Close</button>--}}
+          <button class="btn btn-default" data-dismiss="modal">Close</button>
           <button class="btn btn-primary">Add Product</button>
         </div>
       </div>
