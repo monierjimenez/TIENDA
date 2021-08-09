@@ -412,6 +412,9 @@ desired effect
        immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div>
+
+    @stack('modal')
+
     <!-- ./wrapper -->
 
     <!-- REQUIRED JS SCRIPTS -->
@@ -458,9 +461,6 @@ desired effect
                 toastr.error("An error has occurred, check the delivered data");
             </script>
         @endif
-
-
-
 
 {{--    @if( session()->has('flash') )--}}
 {{--        <script>--}}

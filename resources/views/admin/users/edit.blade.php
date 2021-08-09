@@ -173,25 +173,25 @@
                             <div class="col-md-4">
                                 <div class="box box-solid">
                                     <div class="box-header with-border">
-                                        Permissions Users
+                                        Permissions Products
                                     </div>
 
                                     <div class="box-body">
                                         <p>
-                                            {!! checkrights('PUV', $user->permissions) ?
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PUV" checked> '
-                                                 :
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PUV" > ' !!}View User<br>
+                                            {!! checkrights('PUPV', $user->permissions) ?
+                                            '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPV" checked> '
+                                                    :
+                                            '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPV" > ' !!}View Products<br>
 
-                                            {!! checkrights('PUE', $user->permissions) ?
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PUE" checked> '
-                                                 :
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PUE" > ' !!}Edit User<br>
+                                            {!! checkrights('PUPE', $user->permissions) ?
+                                           '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPE" checked> '
+                                                   :
+                                           '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPE" > ' !!}Edit Products<br>
 
-                                            {!! checkrights('PUD', $user->permissions) ?
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PUD" checked> '
-                                                 :
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PUD" > ' !!}Delete User
+                                            {!! checkrights('PUPD', $user->permissions) ?
+                                            '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPD" checked> '
+                                                   :
+                                            '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPD" > ' !!}Delete Products<br>
                                         </p>
                                     </div>
                                 </div>

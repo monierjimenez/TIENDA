@@ -6,23 +6,21 @@
             </div>
             <div class="ht-right">
                 @guest
-                    <a href="{{ route('login') }}" class="login-panel"><i class="fa fa-user"></i> Login</a>
+                    <a href="{{ route('login') }}" class="login-panel"><i class="fa fa-user"></i> {{ __('Login') }}</a>
                 @else
                     <nav class="login-panel navbar navbar-expand-md navbar-light bg-white shadow-sm">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" style="padding: 0px 0px; color: #252525;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <i class="fa fa-user"></i>{{ Auth::user()->name }}
+                            <i class="fa fa-user"></i> {{ Str::limit(Auth::user()->name, 10) }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('admin') }}">
                                 My orders
                             </a>
-
                             @if ( auth()->user()->permissions != null )
                                 <a class="dropdown-item" href="{{ route('admin') }}">
                                     Administration
                                 </a>
                             @endif
-
                             <form method="POST" action="{{ route('logout') }}">
                                 {{ csrf_field() }}
                                 <button class="dropdown-item btn btn-default btn-flat btn-block">
@@ -31,17 +29,19 @@
                             </form>
                         </div>
                     </nav>
-
                 @endguest
-
-                {{--                <div class="lan-selector">--}}
-                {{--                    <select class="language_drop" name="countries" id="countries" style="width:300px;">--}}
-                {{--                        <option value='yt' data-image="images/flag-1.jpg" data-imagecss="flag yt"--}}
-                {{--                                data-title="English">English</option>--}}
-                {{--                        <option value='yu' data-image="images/flag-2.jpg" data-imagecss="flag yu"--}}
-                {{--                                data-title="Bangladesh">German </option>--}}
-                {{--                    </select>--}}
-                {{--                </div>--}}
+                     <nav class="login-panel navbar navbar-expand-md navbar-light bg-white shadow-sm" style="border-left: 0px solid #e5e5e5;">
+                         <a id="navbarDropdown" class="nav-link dropdown-toggle" style="padding: 0px 0px; color: #252525;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               {{ Config::get('languages')[App::getLocale()]['display'] }}
+                         </a>
+                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="min-width: 0rem;">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    @if ($lang != App::getLocale())
+                                        <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{ $language['display'] }} </a>
+                                    @endif
+                                @endforeach
+                         </div>
+                     </nav>
 
                 <div class="top-social">
                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -68,7 +68,7 @@
                         {{--                            <option data-image="images/flag-1.jpg">All Categories</option>--}}
                         {{--                        </select>--}}
                         <div class="input-group">
-                            <input type="text" placeholder="What do you need?">
+                            <input type="text" placeholder="{{ __('What do you need?') }}">
                             <button type="button"><i class="fa fa-search"></i></button>
                         </div>
                     </div>

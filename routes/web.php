@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
         return view('welcome');
     });
 
+    Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
+
     Auth::routes();
   //  Route::get('login1', 'HomeController@index')->name('login1');
     Route::get('welcome', 'HomeController@index')->name('welcome');

@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="login-form">
-                        <h2>Login</h2>
+                        <h2>{{ __('Login') }}</h2>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
-                                <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">

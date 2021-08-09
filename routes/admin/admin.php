@@ -2,7 +2,6 @@
 use Illuminate\Support\Facades\Route;
 
 //ROUTE THE ADMINISTRATOR
-
     // para acceder a la administracion
     Route::get('/', 'AdminController@index')->name('admin');
     //USER
@@ -10,7 +9,8 @@ use Illuminate\Support\Facades\Route;
     //ROLE
     Route::resource('roles', 'RolesController', ['as' => 'admin']);
 
-
+    //PRODUCTS
+    Route::resource('products', 'ProductsController', ['as' => 'admin']);
 
     //movimientos
     Route::get('records-users', 'RecordController@index')->name('admin.records');

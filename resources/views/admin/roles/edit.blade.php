@@ -118,19 +118,25 @@
                     <div class="col-md-3">
                         <div class="box box-solid">
                             <div class="box-header with-border">
-                                Permissions ???
+                                Permissions Products
                             </div>
 
                             <div class="box-body">
                                 <p>
-                                    <input type="checkbox" name="encargado" class="minimal flat-red" value="1" >
-                                    View User<br>
+                                    {!! checkrights('PUPV', $role->permissions) ?
+                                    '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPV" checked> '
+                                            :
+                                    '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPV" > ' !!}View Products<br>
 
-                                    <input type="checkbox" name="encargado" class="minimal flat-red" value="1" >
-                                    Edit User<br>
+                                    {!! checkrights('PUPE', $role->permissions) ?
+                                   '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPE" checked> '
+                                           :
+                                   '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPE" > ' !!}Edit Products<br>
 
-                                    <input type="checkbox" name="encargado" class="minimal flat-red" value="1" >
-                                    Delete User
+                                    {!! checkrights('PUPD', $role->permissions) ?
+                                    '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPD" checked> '
+                                           :
+                                    '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPD" > ' !!}Delete Products<br>
                                 </p>
                             </div>
                         </div>
