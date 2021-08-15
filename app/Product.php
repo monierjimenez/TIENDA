@@ -9,9 +9,23 @@ class Product extends Model
 {
     protected $guarded = [];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($product){
+            $product->photos->each->delete();
+        });
+    }
+
     public function getRouteKeyName()
     {
         return 'url';
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 
     public function setNameAttribute($name)

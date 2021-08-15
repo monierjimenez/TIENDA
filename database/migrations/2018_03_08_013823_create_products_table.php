@@ -17,12 +17,14 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
-            $table->double('cost_price', 8, 2);
+            $table->string('categorie_id')->nullable();
+            $table->string('colore_id')->nullable();
+            $table->double('cost_price'); //, 8, 2
             $table->double('sale_price_before');
             $table->double('sale_price');
             $table->double('shipping_price');
             $table->double('bulk_weight');
-            $table->string('color');
+          //  $table->string('color');
             $table->bigInteger('stock');
             $table->longText('description');
             $table->string('brand');

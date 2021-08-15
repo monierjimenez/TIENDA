@@ -51,9 +51,9 @@
               <td class="text-center">sdf</td>
               <td class="text-center">sdf</td>
               <td>
-                <a href="{{ route('admin.articulos.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
+                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
 
-                <form method="POST" action="{{ route('admin.articulos.destroy', $product) }}" style="display: inline">
+                <form method="POST" action="{{ route('admin.products.destroy', $product) }}" style="display: inline">
                     @csrf {{ method_field('DELETE') }}
                     <button class="btn btn-xs btn-danger" onclick="return confirm('Estas seguro de eliminar este articulo.')">
                     <i class="fa fa-trash"></i>

@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
     //rutas datatables ajax
     Route::get('record/generales', 'RecordController@recordGeneral');
 
-
+    //photo articulos
+    Route::post('products/{product}/photos', 'PhotosController@store')->name('admin.products.photos.store');
+    Route::delete('photos/{photo}', 'PhotosController@destroy')->name('admin.photos.destroy');
 
 //Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth'],  function(){
 //});

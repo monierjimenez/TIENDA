@@ -65,7 +65,7 @@ class RolesController extends Controller
         $data = $request->validate($rules);
         $role->update($data) ;
         generaRecords('Role updated', 'Role successfully updated, for '. auth()->user()->name .'.');
-        return back()->with('flash', 'Role successfully updated.');
+        return redirect()->route('admin.roles.edit', $role)->with('flash', 'Role successfully updated.');
     }
 
     public function destroy(Role $role)

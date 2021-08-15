@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Brand;
+use App\Modelp;
 use App\Product;
+use App\Category;
+use App\Colore;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,15 +25,25 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        //	return $request ;
         $this->validate($request, ['sku' => 'required|unique:products,sku']);
 
-//        $product = Product::create([
-//            'compania' => $request->get('compania'),
-//            'url' => Str::slug($request->get('compania')),
-//            'tipo_pago' => '0',
-//            'tipo_pago_tele' => '0',
-//        ]);
+        $product = Product::create([
+            'name' => '',
+            'url' => Str::slug($request->get('sku')),
+            'cost_price' => '0',
+            'sale_price_before' => '0',
+            'sale_price' => '0',
+            'shipping_price' => '0',
+            'bulk_weight' => '0',
+            'color' => '',
+            'stock' => '0',
+            'description' => '',
+            'brand' => '',
+            'model' => '',
+            'features' => '',
+            'payment_cuba' => '',
+            'sku' => $request->get('sku'),
+        ]);
 
         return redirect()->route('admin.products.edit', $product);
     }
@@ -43,59 +57,81 @@ class ProductsController extends Controller
 //        return view('admin.users.show', compact('user'));
 //    }
 //
-//    public function edit(User $user)
-//    {
-//        //return auth()->user()->permissions;
-//        if ( !in_array('PUE', explode(".", auth()->user()->permissions)) )
-//            return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
-//
-//        $roles = Role::all();
-//        return view('admin.users.edit', compact('user', 'roles'));
-//    }
-//
-//    public function update(Request $request, User $user)
-//    {
-//        $rules = [
-//            'name' => 'required',
-//            'email' => ['required', Rule::unique('users')->ignore($user->id)],
-//            'phone' => 'required|numeric',
-//            'role' => 'required',
-//        ];
-//
-//        if ( $request->role != $user->role ) {
-//            $rol = Role::find($request->role);
-//            $user->permissions = $rol->permissions;
-//        }else {
-//            $user->permissions = updaterights($request->permissions);
-//            $user->save();
-//        }
-//
-//        //Artisan::call('cache:clear');
-//        if( $request->filled('password'))
-//        {
-//            $rules['password'] = ['confirmed', 'min:5'];
-//        }
-//        //return $request;
-//        if( $request->hasFile('avatar') )
-//		 {
-//			if ( $user->avatar != '' && $user->avatar != 'unnamed.jpg'){
-//				unlink(public_path().'/images/'.$user->avatar);
-//			}
-//			$file = $request->file('avatar');
-//
-//			$nombrearchivo  = time().'-'.$file->getClientOriginalName();
-//            $file->move(public_path().'/images/avatar', $nombrearchivo);
-//            $user->avatar = 'avatar/'.$nombrearchivo;
-//            $user->save();
-//		 }
-//        $data = $request->validate($rules);
-//
-//        $user->update($data) ;
-//        $user->password = bcrypt($request->password);
-//
-//        generaRecords('User updated', 'User ' .$user->name. ', updated successfully, for '. auth()->user()->name .'.');
-//        return back()->with('flash', 'User has been updated successfully.');
-//    }
+    public function edit(Product $product)
+    {
+        if ( !in_array('PUPE', explode(".", auth()->user()->permissions)) )
+            return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
+
+        $categorys = Category::all();
+        $colores = Colore::all();
+        $brands = Brand::all();
+        $models = Modelp::all();
+        return view('admin.products.edit', compact('product','categorys', 'colores', 'brands', 'models'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        //return $request ;
+        $this->validate($request, [
+            'sku' => 'required',
+            'name' => 'required',
+            'categorie_id' => 'required',
+            //'email' => ['required', Rule::unique('users')->ignore($user->id)],
+        ]);
+
+            $product->categorie_id = Category::find($cat = $request->input('categorie_id'))
+            ? $cat
+            : Category::create([
+                'name' => $cat
+            ])->id;
+
+            if ( $request->input('colore_id') != null )
+            {
+                $colore = '';
+                $cant = count($request->input('colore_id'));
+                $cont = 1 ;
+                $pp = null;
+                foreach ($request->input('colore_id') as $colores ){
+                    $colore = Colore::find($colores) ? $colores
+                        : Colore::create(['name' => $colores])->id;
+
+                    if( $cant > $cont )
+                        $pp = $colore.'.'.$pp;
+                    else
+                        $pp = $pp.$colore;
+                    $cont++;
+                }
+                $product->colore_id = $pp;
+            }
+
+            if ( $request->input('brand') != null )
+            {
+                $product->brand = Brand::find($cat = $request->input('brand'))
+                    ? $cat
+                    : Brand::create(['name' => $cat])->id;
+            } else $product->brand = '' ;
+
+            if ( $request->input('model') != null )
+            {
+                $product->model = Modelp::find($cat = $request->input('model')) ? $cat
+                    : Modelp::create([
+                        'name' => $cat,
+                        'brand_id' => $product->brand
+                    ])->id;
+            } else $product->model = '' ;
+
+            $product->update([
+            'sku' => strtoupper(str_replace(" ", "-", $request->sku)),
+            'name' => $request->input('name'),
+            ]);
+        $product->save();
+
+        //$product->update($data) ;
+
+       // generaRecords('User updated', 'User ' .$user->name. ', updated successfully, for '. auth()->user()->name .'.');
+        //return back()->with('flash', 'User has been updated successfully.');
+        return redirect()->route('admin.products.edit', $product)->with('flash', 'Product has been updated successfully.');
+    }
 //
 //    public function destroy(User $user)
 //    {
