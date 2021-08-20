@@ -26,12 +26,14 @@ class CreateProductsTable extends Migration
             $table->double('bulk_weight');
           //  $table->string('color');
             $table->bigInteger('stock');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->string('brand');
             $table->string('model');
             $table->longText('features');
             $table->string('payment_cuba');
             $table->string('sku');
+            $table->bigInteger('condition');
+            $table->string('products_id');
             $table->timestamps();
         });
     }

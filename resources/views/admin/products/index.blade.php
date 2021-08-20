@@ -15,9 +15,12 @@
     <div class="box-header">
       <h3 class="box-title">List the Products</h3>
 {{--      <a href="{{ route('articuloallpdf') }}" class="btn btn-success pull-right" style="margin-left: 8px;" title="Exportar a PDF."><i class="fa fa-file-pdf-o"></i></a>--}}
-      <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalProduct" data-backdrop="static" data-keyboard="false">
-          <i class="fa fa-plus"></i> Crear Articulo
-      </button>
+
+        @if( checkrights('PUPE', auth()->user()->permissions) )
+            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalProduct" data-backdrop="static" data-keyboard="false">
+                <i class="fa fa-plus"></i> Create Product
+            </button>
+        @endif
     </div>
 
     <!-- /.box-header -->
@@ -25,47 +28,40 @@
       <table id="post-table" class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th>Codigo</th>
-            <th>Producto</th>
-            <th>Categoria</th>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Category</th>
             <th>Stock</th>
-            <th>Costo/Publico</th>
-            <th>Costo Total</th>
+            <th>Cost/Public</th>
+            <th>Condition</th>
             <th>Acciones</th>
           </tr>
         </thead>
-
         <tbody>
-            @php
-				$costo_total = 0;
-				$cantidad_alamcen = 0;
-			@endphp
           @foreach ($products as $product)
             <tr>
-              <td>sdf</td>
-              <td>dsf</td>
+              <td>{{ $product->sku }}</td>
+              <td>{{ $product->name }}</td>
+              <td>{{ $product->categorie->name }}</td>
+              <td>{{ $product->stock }}</td>
+              <td class="text-center">{{ $product->cost_price }}/{{ $product->sale_price }}</td>
+              <td>@if( $product->Condition == 0 ) <i class="fa fa-check"></i> @else <i class="fa fa-close"></i> @endif</td>
               <td>
-                dsfsd
-              </td>
-              <td class="text-center">sfd</td>
-              <td class="text-center">sdf</td>
-              <td class="text-center">sdf</td>
-              <td>
-                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
+                @if( checkrights('PUPE', auth()->user()->permissions) )
+                    <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
+                @endif
 
-                <form method="POST" action="{{ route('admin.products.destroy', $product) }}" style="display: inline">
-                    @csrf {{ method_field('DELETE') }}
-                    <button class="btn btn-xs btn-danger" onclick="return confirm('Estas seguro de eliminar este articulo.')">
-                    <i class="fa fa-trash"></i>
-                    </button>
-               </form>
+                @if( checkrights('PUPD', auth()->user()->permissions) )
+                    <form method="POST" action="{{ route('admin.products.destroy', $product) }}" style="display: inline">
+                        @csrf {{ method_field('DELETE') }}
+                        <button class="btn btn-xs btn-danger" onclick="return confirm('Estas seguro de eliminar este articulo.')">
+                        <i class="fa fa-trash"></i>
+                        </button>
+                   </form>
+                @endif
 {{--               <a href="{{ route('articulopdf', $product) }}" class="btn btn-success btn-xs" title="Exportar a PDF."><i class="fa fa-file-pdf-o"></i></a>--}}
               </td>
             </tr>
-{{--            @php --}}
-{{--                $costo_total = $costo_total+($articulo->costo*$articulo->stock);--}}
-{{--                $cantidad_alamcen = $cantidad_alamcen+$articulo->stock;--}}
-{{--            @endphp--}}
           @endforeach
         </tbody>
 {{--        <tfoot>--}}

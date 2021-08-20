@@ -16,11 +16,11 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        if ( !in_array('PUPV', explode(".", auth()->user()->permissions)) )
+        if (!in_array('PUPV', explode(".", auth()->user()->permissions)))
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
 
         $products = Product::all();
-    	return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function store(Request $request)
@@ -30,12 +30,13 @@ class ProductsController extends Controller
         $product = Product::create([
             'name' => '',
             'url' => Str::slug($request->get('sku')),
+            'categorie_id' => '',
+            'colore_id' => '',
             'cost_price' => '0',
             'sale_price_before' => '0',
             'sale_price' => '0',
             'shipping_price' => '0',
             'bulk_weight' => '0',
-            'color' => '',
             'stock' => '0',
             'description' => '',
             'brand' => '',
@@ -43,9 +44,37 @@ class ProductsController extends Controller
             'features' => '',
             'payment_cuba' => '',
             'sku' => $request->get('sku'),
+            'condition' => '0',
+            'products_id' => '',
         ]);
-
+        generaRecords('Product created', 'Product has been created successfully, for '. auth()->user()->name .'.');
         return redirect()->route('admin.products.edit', $product);
+    }
+
+    public function productcombo(Request $request)
+    {
+        $product = Product::find($request->input('product_id')) ;
+        if ( $request->input('products_id') != null )
+        {
+            $colore = '';
+            $cant = count($request->input('products_id'));
+            $cont = 1 ;
+            $pp = null;
+
+            foreach ($request->input('products_id') as $colores ){
+                if( $cant > $cont )
+                    $pp = $colores.'.'.$pp;
+                else
+                    $pp = $pp.$colores;
+                $cont++;
+            }
+            $product->products_id = $pp;
+
+        }else $product->products_id = '';
+
+        $product->save();
+        generaRecords('Produt add', 'Product successfully added to the combo, for '. auth()->user()->name .'.');
+        return redirect()->route('admin.products.edit', $product)->with('flash', 'Product successfully added to the combo.');
     }
 
 //    public function show(User $user)
@@ -66,12 +95,14 @@ class ProductsController extends Controller
         $colores = Colore::all();
         $brands = Brand::all();
         $models = Modelp::all();
-        return view('admin.products.edit', compact('product','categorys', 'colores', 'brands', 'models'));
+        $productsall = Product::where('id', '!=', $product->id)->where('condition', '=', '0')->get();
+       // return $products ;
+        return view('admin.products.edit', compact('product', 'productsall', 'categorys', 'colores', 'brands', 'models'));
     }
 
     public function update(Request $request, Product $product)
     {
-        //return $request ;
+       // return $request ;
         $this->validate($request, [
             'sku' => 'required',
             'name' => 'required',
@@ -123,15 +154,63 @@ class ProductsController extends Controller
             $product->update([
             'sku' => strtoupper(str_replace(" ", "-", $request->sku)),
             'name' => $request->input('name'),
+            'cost_price' => $request->input('cost_price'),
+            'sale_price_before' => $request->input('sale_price_before'),
+            'sale_price' => $request->input('sale_price'),
+            'shipping_price' => $request->input('shipping_price'),
+            'bulk_weight' => $request->input('bulk_weight'),
+            'description' => $request->input('description'),
+            'features' => $request->input('features'),
+            'payment_cuba' => $request->input('payment_cuba'),
+            'condition' => $request->input('condition'),
             ]);
         $product->save();
 
-        //$product->update($data) ;
-
-       // generaRecords('User updated', 'User ' .$user->name. ', updated successfully, for '. auth()->user()->name .'.');
-        //return back()->with('flash', 'User has been updated successfully.');
+        generaRecords('Produt update', 'Product updated successfully, for '. auth()->user()->name .'.');
         return redirect()->route('admin.products.edit', $product)->with('flash', 'Product has been updated successfully.');
     }
+
+//    public function updateProductCombo(Request $request, Product $product)
+//    {
+//        // return $request ;
+//        $this->validate($request, [
+//            'sku' => 'required',
+//            'name' => 'required',
+//            'categorie_id' => 'required',
+//            //'email' => ['required', Rule::unique('users')->ignore($user->id)],
+//        ]);
+//
+//        if ( $request->input('colore_id') != null )
+//        {
+//            $colore = '';
+//            $cant = count($request->input('colore_id'));
+//            $cont = 1 ;
+//            $pp = null;
+//            foreach ($request->input('colore_id') as $colores ){
+//                $colore = Colore::find($colores) ? $colores
+//                    : Colore::create(['name' => $colores])->id;
+//
+//                if( $cant > $cont )
+//                    $pp = $colore.'.'.$pp;
+//                else
+//                    $pp = $pp.$colore;
+//                $cont++;
+//            }
+//            $product->colore_id = $pp;
+//        }
+//
+//        $product->update([
+//            'sku' => strtoupper(str_replace(" ", "-", $request->sku)),
+//            'condition' => $request->input('condition'),
+//        ]);
+//        $product->save();
+//
+//        //$product->update($data) ;
+//
+//        // generaRecords('User updated', 'User ' .$user->name. ', updated successfully, for '. auth()->user()->name .'.');
+//        //return back()->with('flash', 'User has been updated successfully.');
+//        return redirect()->route('admin.products.edit', $product)->with('flash', 'Product has been updated successfully.');
+//    }
 //
 //    public function destroy(User $user)
 //    {

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
     //PRODUCTS
     Route::resource('products', 'ProductsController', ['as' => 'admin']);
+    Route::get('productsall', 'ProductsController@productcombo')->name('admin.productcombo');
 
     //movimientos
     Route::get('records-users', 'RecordController@index')->name('admin.records');

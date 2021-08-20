@@ -14,9 +14,9 @@ class Category extends Model
     	return 'url';
     }
 
-//    public function articulo()
+//    public function producto()
 //    {
-//    	return $this->hasMany(Product::class, 'product_id');
+//        return $this->hasMany(Product::class, 'categorie_id');
 //    }
 //
 //    public function submenu()

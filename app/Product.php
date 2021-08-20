@@ -23,6 +23,11 @@ class Product extends Model
         return 'url';
     }
 
+    public function categorie()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function photos()
     {
         return $this->hasMany(Photo::class);

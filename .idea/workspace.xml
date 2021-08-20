@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/PhotosController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Photo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_16_221238_create_photos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/products/addproductcombo.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/RolesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/RolesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2017_03_08_013823_create_modelos_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2017_03_08_013823_create_products_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/adminlte/css/AdminLTE.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/adminlte/css/AdminLTE.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/products/E2ows5oKprjFqzY4KNlrRbLJC1oAdvWW8Q5xA9Zk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/products/ldR6hciYOM7a0zByqyMO9c8tOw4hLjnkoUYvzufj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/products/createicc.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +199,7 @@
       <workItem from="1627100899777" duration="26680000" />
       <workItem from="1627694248850" duration="1748000" />
       <workItem from="1628297275763" duration="35359000" />
-      <workItem from="1628907127313" duration="15900000" />
+      <workItem from="1628907127313" duration="38634000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -254,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628485230050</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="plantilla frond end">
+      <created>1629005392851</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1629005392851</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +287,11 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/admin/RecordController.php</url>
           <line>4</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/migrations/2017_04_08_013823_create_modelps_table.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

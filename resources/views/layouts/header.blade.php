@@ -13,18 +13,18 @@
                             <i class="fa fa-user"></i> {{ Str::limit(Auth::user()->name, 10) }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin') }}">
-                                My orders
+                             <a class="dropdown-item" href="{{ route('admin') }}">
+                                 <i class="fa fa-cart-arrow-down"></i> {{ __('My orders') }}
                             </a>
                             @if ( auth()->user()->permissions != null )
                                 <a class="dropdown-item" href="{{ route('admin') }}">
-                                    Administration
+                                   <i class="fa fa-legal"></i> {{ __('Administration') }}
                                 </a>
                             @endif
                             <form method="POST" action="{{ route('logout') }}">
                                 {{ csrf_field() }}
                                 <button class="dropdown-item btn btn-default btn-flat btn-block">
-                                    {{ __('Logout') }}
+                                    <i class="fa fa-power-off"></i> {{ __('Logout') }}
                                 </button>
                             </form>
                         </div>

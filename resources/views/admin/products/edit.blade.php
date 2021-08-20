@@ -36,9 +36,8 @@
 		</div>
 		@endif
 
-
-		<div class="col-md-7">
-			<form method="POST" action="{{ route('admin.products.update', $product) }}">
+        <form method="POST" action="{{ route('admin.products.update', $product) }}">
+		<div class="col-md-6">
 			@csrf  {{ method_field('PUT') }}
 			<div class="box box-primary"><br>
 				<div class="box-body">
@@ -63,16 +62,16 @@
 						<div class="row">
 							<div class="col-xs-6 {{ $errors->has('categorie_id') ? 'has-error' : '' }}">
 								<label>Category Product</label>
-
 								<select name="categorie_id" class="form-control select2" onchange="actualizar(this)">
 									<option value="">Select category</option>
 									@foreach( $categorys as $category )
-										<option value="{{ $category->id }}" {{ old('categorie_id', $product->categorie_id) == $category->id ? 'selected' : ''}}>
-											{{ $category->name }}</option>
+										<option value="{{ $category->id }}"
+                                            {{ old('categorie_id', $product->categorie_id) == $category->id ? 'selected' : '' }}>
+											{{ $category->name }}
+                                        </option>
 									@endforeach
 								</select>
 								{!! $errors->first('categorie_id', '<span class="help-block">:message</span>') !!}
-
 							</div>
 							<div class="col-xs-6 {{ $errors->has('colore_id') ? 'has-error' : '' }}">
                                 <label>Color Product</label>
@@ -94,7 +93,6 @@
 				<div class="box-body">
 					<div class="form-group">
 						<div class="row">
-
 							<div class="col-xs-6 {{ $errors->has('brands') ? 'has-error' : '' }}">
 								<label>Brands Product</label>
 								<select name="brand" class="form-control select2">
@@ -125,25 +123,20 @@
 				<div class="box-body">
 					<div class="form-group">
 						<div class="row">
-							<div class="col-xs-3 {{ $errors->has('minimo') ? 'has-error' : '' }}">
-								<label>Minimo</label>
-								<input name='minimo' placeholder="Minimo" class="form-control" value="{{ old('minimo', $product->minimo) }}">
-								{!! $errors->first('minimo', '<span class="help-block">:message</span>') !!}
+							<div class="col-xs-4 {{ $errors->has('cost_price') ? 'has-error' : '' }}">
+								<label>Product Cost</label>
+								<input name='cost_price' placeholder="Product cost" class="form-control" value="{{ old('cost_price', $product->cost_price) }}">
+								{!! $errors->first('cost_price', '<span class="help-block">:message</span>') !!}
 							</div>
-							<div class="col-xs-3 {{ $errors->has('maximo') ? 'has-error' : '' }}">
-								<label>Maximo</label>
-								<input name='maximo' placeholder="Maximo" class="form-control" value="{{ old('maximo', $product->maximo) }}">
-								{!! $errors->first('maximo', '<span class="help-block">:message</span>') !!}
+							<div class="col-xs-4 {{ $errors->has('sale_price_before') ? 'has-error' : '' }}">
+								<label>Sale price before</label>
+								<input name='sale_price_before' placeholder="Sale price before" class="form-control" value="{{ old('sale_price_before', $product->sale_price_before) }}">
+								{!! $errors->first('sale_price_before', '<span class="help-block">:message</span>') !!}
 							</div>
-							<div class="col-xs-3 {{ $errors->has('costo') ? 'has-error' : '' }}">
-								<label>Costo</label>
-								<input name='costo' placeholder="Costo" class="form-control" value="{{ old('costo', $product->costo) }}">
-								{!! $errors->first('costo', '<span class="help-block">:message</span>') !!}
-								</div>
-								<div class="col-xs-3 {{ $errors->has('publico') ? 'has-error' : '' }}">
-								<label>Publico</label>
-								<input name='publico' placeholder="Publico" class="form-control" value="{{ old('publico', $product->publico) }}">
-								{!! $errors->first('publico', '<span class="help-block">:message</span>') !!}
+							<div class="col-xs-4 {{ $errors->has('sale_price') ? 'has-error' : '' }}">
+								<label>Sale price</label>
+								<input name='sale_price' placeholder="Sale price" class="form-control" value="{{ old('sale_price', $product->sale_price) }}">
+								{!! $errors->first('sale_price', '<span class="help-block">:message</span>') !!}
 							</div>
 						</div>
 					</div>
@@ -153,38 +146,53 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-xs-4 {{ $errors->has('stock') ? 'has-error' : '' }}">
-								<label>stock</label>
+								<label>Stock</label>
 								<input name='stock' placeholder="stock" class="form-control" value="{{ old('stock', $product->stock) }}">
 								{!! $errors->first('stock', '<span class="help-block">:message</span>') !!}
 							</div>
-							<div class="col-xs-4 {{ $errors->has('mayoreo_tres') ? 'has-error' : '' }}">
-								<label>Mayoreo 3%</label>
-								<input name='mayoreo_tres' placeholder="M mayoreo" class="form-control" value="{{ old('mayoreo_tres', $product->mayoreo_tres) }}">
-								{!! $errors->first('mayoreo_tres', '<span class="help-block">:message</span>') !!}
-							</div>
-							<div class="col-xs-4 {{ $errors->has('mayoreo') ? 'has-error' : '' }}">
-								<label>Mayoreo</label>
-								<input name='mayoreo' placeholder="Mayoreo" class="form-control" value="{{ old('mayoreo', $product->mayoreo) }}">
-								{!! $errors->first('mayoreo', '<span class="help-block">:message</span>') !!}
+                            <div class="col-xs-4 {{ $errors->has('shipping_price') ? 'has-error' : '' }}">
+                                <label>Shipping price</label>
+                                <input name='shipping_price' placeholder="Shipping price" class="form-control" value="{{ old('shipping_price', $product->shipping_price) }}">
+                                {!! $errors->first('shipping_price', '<span class="help-block">:message</span>') !!}
+                            </div>
+							<div class="col-xs-4 {{ $errors->has('bulk_weight') ? 'has-error' : '' }}">
+								<label>Bulk weight (Lb)</label>
+								<input name='bulk_weight' placeholder="Bulk weight" class="form-control" value="{{ old('bulk_weight', $product->bulk_weight) }}">
+								{!! $errors->first('bulk_weight', '<span class="help-block">:message</span>') !!}
 							</div>
 						</div>
 					</div>
 				</div>
 
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 {{ $errors->has('payment_cuba') ? 'has-error' : '' }}">
+                                <label>Payment Cuba</label>
+                                <input name='payment_cuba' placeholder="Payment Cuba" class="form-control" value="{{ old('payment_cuba', $product->payment_cuba) }}">
+                                {!! $errors->first('payment_cuba', '<span class="help-block">:message</span>') !!}
+                            </div>
+                            <div class="col-xs-6 {{ $errors->has('condition') ? 'has-error' : '' }}">
+                                <label>Estado Product</label>
+                                <select name="condition" class="form-control">
+                                    <option value="0" {{ old('condition', $product->condition) == 0 ? 'selected' : ''}}">Active</option>
+                                    <option value="1" {{ old('condition', $product->condition) == 1 ? 'selected' : ''}}>Disabled</option>
+                                </select>
+                                {!! $errors->first('condition', '<span class="help-block">:message</span>') !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 				<div class="box-body">
-	    			<div class="form-group {{ $errors->has('descripcion_producto') ? 'has-error' : '' }}">
-			    		<label>Descripcion producto</label>
-			    		<textarea name='descripcion_producto' id='editor' rows="5" class="form-control" placeholder="Descripcion producto">
-			    			{{ old('descripcion_producto', $product->descripcion_producto) }}
+	    			<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+			    		<label>Description product</label>
+			    		<textarea name='description' id='editor' rows="4" class="form-control" placeholder="Description product">
+			    			{{ old('description', $product->description) }}
 			    		</textarea>
-			    		{!! $errors->first('descripcion_producto', '<span class="help-block">:message</span>') !!}
+			    		{!! $errors->first('description', '<span class="help-block">:message</span>') !!}
 			   		</div>
 				</div>
-
-				<!--
-				<div class="box-body">
-					<div class="dropzone"></div>
-				</div>-->
 
 				<div class="box-body">
 					<div class="form-group">
@@ -193,97 +201,66 @@
 				</div>
 
 			</div>
-			</form>
    		</div>
 
 
-    	<div class="col-md-5">
+    	<div class="col-md-6">
     		<div class="box box-primary"><br>
 				<div class="col-md-12">
-					@if( session()->has('flashicc') )
-						<div class="alert alert-success">{{ session('flashicc') }}</div>
-					@endif
 					{!! $errors->first('icc_1', '<span class="help-block">:message</span>') !!}
 					{!! $errors->first('icc_2', '<span class="help-block">:message</span>') !!}
 					<div class="nav-tabs-custom">
 						<ul class="nav nav-tabs pull-right" >
-							<li><a href="#tab_2-2" data-toggle="tab">VENDIDOS<b>()</b></a></li>
+							<li><a href="#tab_2-2" data-toggle="tab">FEATURES</a></li>
 							<li class="active" >
-								<a href="#tab_1-1" data-toggle="tab" >
-									2121MKT<b>()</b>
-								</a>
+								<a href="#tab_1-1" data-toggle="tab" > PRODUCTS</a>
 							</li>
 							<li class="pull-left header"><i class="fa fa-th"></i>
-								<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalICC"> <i class="fa fa-plus"></i> IMEI</button>
+								<a class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalICC" data-backdrop="static" data-keyboard="false">
+                                    <i class="fa fa-plus"></i> ADD PRODUCT
+                                </a>
 							</li>
-
-							<li class="pull-left header">
-								<a href="" class="btn btn-success btn-lg" title="Exportar a PDF."
-								style="margin: -18px 0px 0px -24px;font-size: 33px;">
-									<i class="fa fa-file-pdf-o"></i>
-								</a>
-							</li>
-
-
 						</ul>
 
 						<div class="tab-content">
 							<div class="tab-pane active" id="tab_1-1">
-								<table id="post-table" class="table table-bordered table-hover">
-									<thead>
-									  <tr>
-										<th>Almacen</th>
-										<th>Costo/Publico</th>
-										<th>Proveedor</th>
-										<th>Accion</th>
-									  </tr>
-									</thead>
-									<tbody>
+                                @if ( $product->products_id != '' )
+                                    <table id="post-table" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Info</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach( explode('.', $product->products_id) as $prod )
+                                                @php $produ =  dameProducto($prod); @endphp
+                                                <tr>
+                                                    <td>
+                                                        <img src="/images/{{ $produ->photos->first()->url }}" class="profile-user-img img-responsive img-circle" style="margin: 0 0;width: 50px;border: 1px solid #d2d6de;">
+                                                    </td>
+                                                    <td>
+                                                        Name: {{ $produ->name }} <br>
+                                                        Category: {{ $produ->categorie->name }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    Has no associated products
+                                @endif
 
-											<tr>
-												<td>g</td>
-												<td>g</td>
-												<td>g</td>
-												<td>
-													p
-												</td>
-											</tr>
-									</tbody>
-								  </table>
-								  <table>
-									<tr>
-									  <th>Total Invertido: </th>
-									</tr>
-								</table>
 							</div>
 
 							<div class="tab-pane" id="tab_2-2">
-								<table id="post-table1" class="table table-bordered table-hover">
-									<thead>
-									  <tr>
-										<th>IMEI</th>
-										<th>Almacen</th>
-										<th>Vendido</th>
-										<th>Accion</th>
-									  </tr>
-									</thead>
-									<tbody>
+                                <div class="form-group {{ $errors->has('features') ? 'has-error' : '' }}">
+                                    <label>Product features</label>
+                                    <textarea name='features' id='editor1' rows="4" class="form-control" placeholder="Product features">
+                                        {{ old('features', $product->features) }}
+                                    </textarea>
+                                    {!! $errors->first('features', '<span class="help-block">:message</span>') !!}
+                                </div>
 
-											<tr>
-												<td>w</td>
-												<td>
-													w
-												</td>
-
-												<td>
-													w
-												</td>
-												<td>
-													3
-												</td>
-											</tr>
-									</tbody>
-								  </table>
 							</div>
 
 						</div>
@@ -294,15 +271,15 @@
     		<div class="box-body">
 				<div class="dropzone"></div>
 			</div>
-
     	</div>
+        </form>
 	</div>
 @stop
 
 
 
 @push('modal')
-{{--  @include('admin.articulos.createicc')--}}
+  @include('admin.products.addproductcombo')
 @endpush
 
 @push('styles')
@@ -333,18 +310,19 @@
 		$(".select2").select2({
 			tags: true
 		});
-
 		CKEDITOR.replace('editor');
+        CKEDITOR.replace('editor1');
+
 		var myDropzone1 = new Dropzone('.dropzone', {
 			url: '/admin/products/{{ $product->id }}/photos',
 			paramName: 'photo',
 			acceptedFiles: 'image/*',
 			maxFilesize: 2,
-			maxFiles: 3,
+			maxFiles: 5,
 			headers: {
 				'X-CSRF-TOKEN': '{{ csrf_token() }}'
 			},
-			dictDefaultMessage: 'Arrastra la foto aquí para subirlas'
+			dictDefaultMessage: 'Drag the photo here to upload them'
 		});
 
 		myDropzone1.on('error', function (file, res) {
@@ -359,27 +337,8 @@
 			radioClass: 'iradio_flat-green'
 		});
 
-
 		$(function () {
 			  $('#post-table').DataTable({
-				"paging": true,
-				"lengthChange": true,
-				"searching": true,
-				"ordering": true,
-				"info": true,
-				"autoWidth": false
-			  });
-
-			  $('#post-table1').DataTable({
-				"paging": true,
-				"lengthChange": true,
-				"searching": true,
-				"ordering": true,
-				"info": true,
-				"autoWidth": false
-			  });
-
-			  $('#post-table2').DataTable({
 				"paging": true,
 				"lengthChange": true,
 				"searching": true,

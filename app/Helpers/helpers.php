@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Record;
+use App\Product;
 
 // use SimpleSoftwareIO\QrCode\Facade as QrCode;
     // funcion para chequear si el un usuario tiene
@@ -13,14 +14,14 @@ use App\Record;
             return false;
         }
     }
-//me devuelve la cantidad de permisos que tiene el rol.
-function checkrightscant($allpermissions) {
-        $a = 0 ;
-    if ( $allpermissions != null)
-        foreach(explode('.', $allpermissions) as $info)
-            $a=$a+1;
-    return $a;
-}
+    //me devuelve la cantidad de permisos que tiene el rol.
+    function checkrightscant($allpermissions) {
+            $a = 0 ;
+        if ( $allpermissions != null)
+            foreach(explode('.', $allpermissions) as $info)
+                $a=$a+1;
+        return $a;
+    }
 
     // funcion para actualizar permisos para acceder a determinado lugar.
     function updaterights($allpermissions) {
@@ -47,6 +48,12 @@ function checkrightscant($allpermissions) {
             'descripcion' => $descripcion,
             'user_id' => auth()->user()->id,
         ]);
+    }
+
+    //me devuelve la cantidad de permisos que tiene el rol.
+    function dameProducto($id) {
+        $product = Product::find($id) ;
+        return $product;
     }
 
 
