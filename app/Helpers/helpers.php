@@ -50,10 +50,18 @@ use App\Product;
         ]);
     }
 
-    //me devuelve la cantidad de permisos que tiene el rol.
+    //me devuelve el producto pasado por parametro
     function dameProducto($id) {
         $product = Product::find($id) ;
         return $product;
+    }
+    //me devuelve la cantidad de producto que tiene el combo
+    function cantProductoCombo($productCombo) {
+        $a = 0 ;
+        if ( $productCombo != null)
+            foreach(explode('.', $productCombo) as $info)
+                $a=$a+1;
+        return $a;
     }
 
 

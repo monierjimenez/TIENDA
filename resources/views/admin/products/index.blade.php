@@ -64,17 +64,6 @@
             </tr>
           @endforeach
         </tbody>
-{{--        <tfoot>--}}
-{{--            <tr>--}}
-{{--                <th>Total:</th>--}}
-{{--                <th></th>--}}
-{{--                <th></th>--}}
-{{--                <th class="text-center">{{ $cantidad_alamcen }}</th>--}}
-{{--                <th></th>--}}
-{{--                <th class="text-center">{{ $costo_total }}</th>--}}
-{{--                <th></th>--}}
-{{--            </tr>--}}
-{{--          </tfoot>--}}
         </table>
       </table>
     </div>
@@ -117,14 +106,58 @@
         }
 
         $('#myModalProduct').on('hide.bs.modal', function(){
-        window.location.hash = '#';
-    });
+            window.location.hash = '#';
+        });
 
         $('#myModalProduct').on('shown.bs.modal', function(){
-        $('#codigo_producto').focus();
-        window.location.hash = '#create-product';
-    });
+            $('#codigo_producto').focus();
+            window.location.hash = '#create-product';
+        });
 
   </script>
 @endpush
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--public $ nombre;--}}
+{{--public $ email;--}}
+{{--cuerpo $ publico;--}}
+{{--función pública enviar ()--}}
+{{--{--}}
+{{--    $ validatedData = $ this-> validate ([--}}
+{{--        'nombre' => 'requerido | min: 6',--}}
+{{--        'email' => 'required | email',--}}
+{{--        'cuerpo' => 'requerido',--}}
+{{--    ]);--}}
+
+{{--    Contacto :: crear ($ validatedData);--}}
+{{--    return redirect () -> to ('/ form');--}}
+
+{{--    }--}}
+{{--    función pública render ()--}}
+{{--    {--}}
+{{--    vista de retorno ('livewire.contact-form');--}}
+{{--    }--}}
+{{--}--}}

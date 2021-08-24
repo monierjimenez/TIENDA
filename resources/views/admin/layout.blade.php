@@ -471,6 +471,7 @@ desired effect
 {{--            toastr.error("An error has occurred, check the delivered data");--}}
 {{--        </script>--}}
 {{--    @endif--}}
+
     @livewireScripts
 </body>
 

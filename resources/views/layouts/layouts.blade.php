@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="/css/style.css" type="text/css">
 
         @stack('styles')
-
         @livewireStyles
     </head>
 
@@ -61,7 +60,6 @@
         <script src="/js/main.js"></script>
 
         @stack('script')
-
         @livewireScripts
     </body>
 </html>

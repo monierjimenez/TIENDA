@@ -1,7 +1,5 @@
 @extends('admin.layout')
 
-{{--{{ dd($product) }}--}}
-
 @section('header')
 	<section class="content-header">
     <h1>PRODUCT <small>Create Product</small></h1>
@@ -36,12 +34,21 @@
 		</div>
 		@endif
 
-        <form method="POST" action="{{ route('admin.products.update', $product) }}">
-		<div class="col-md-6">
-			@csrf  {{ method_field('PUT') }}
-			<div class="box box-primary"><br>
+		<div class="col-md-7">
+            <div class="box box-primary">
 				<div class="box-body">
 					<div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                            <button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModalStock" data-backdrop="static" data-keyboard="false">
+                                ADD STOCK
+                            </button>
+                            </div>
+                        </div>
+
+
+        <form method="POST" action="{{ route('admin.products.update', $product) }}">
+            @csrf  {{ method_field('PUT') }}
 						<div class="row">
 							<div class="col-xs-6 {{ $errors->has('sku') ? 'has-error' : '' }}">
 								<label>SKU</label>
@@ -194,6 +201,16 @@
 			   		</div>
 				</div>
 
+                <div class="box-body">
+                    <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+                        <label>Product features</label>
+                        <textarea name='features' id='editor1' rows="4" class="form-control" placeholder="Product features">
+                            {{ old('features', $product->features) }}
+                        </textarea>
+                        {!! $errors->first('features', '<span class="help-block">:message</span>') !!}
+                    </div>
+                </div>
+
 				<div class="box-body">
 					<div class="form-group">
 						<button type="submit" class='btn btn-primary btn-block'>Guardar Articulo</button>
@@ -202,23 +219,22 @@
 
 			</div>
    		</div>
+        </form>
 
-
-    	<div class="col-md-6">
+    	<div class="col-md-5">
     		<div class="box box-primary"><br>
 				<div class="col-md-12">
-					{!! $errors->first('icc_1', '<span class="help-block">:message</span>') !!}
-					{!! $errors->first('icc_2', '<span class="help-block">:message</span>') !!}
 					<div class="nav-tabs-custom">
 						<ul class="nav nav-tabs pull-right" >
-							<li><a href="#tab_2-2" data-toggle="tab">FEATURES</a></li>
 							<li class="active" >
 								<a href="#tab_1-1" data-toggle="tab" > PRODUCTS</a>
 							</li>
 							<li class="pull-left header"><i class="fa fa-th"></i>
-								<a class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalICC" data-backdrop="static" data-keyboard="false">
-                                    <i class="fa fa-plus"></i> ADD PRODUCT
-                                </a>
+                                <li class="pull-left header" style="padding: 0px">
+                                    <button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModalICC" data-backdrop="static" data-keyboard="false">
+                                        ADD PRODUCT (@if ( $product->products_id != '' ) {{ count(explode('.', $product->products_id)) }} @else 0 @endif)
+                                    </button>
+                                </li>
 							</li>
 						</ul>
 
@@ -237,11 +253,14 @@
                                                 @php $produ =  dameProducto($prod); @endphp
                                                 <tr>
                                                     <td>
-                                                        <img src="/images/{{ $produ->photos->first()->url }}" class="profile-user-img img-responsive img-circle" style="margin: 0 0;width: 50px;border: 1px solid #d2d6de;">
+                                                        <img src="/images/{{ $produ->photos->first()->url }}" class="profile-user-img img-responsive img-circle" style="width: 60px;border: 1px solid #d2d6de;">
                                                     </td>
                                                     <td>
                                                         Name: {{ $produ->name }} <br>
-                                                        Category: {{ $produ->categorie->name }}</td>
+                                                        Category: {{ $produ->categorie->name }} <br>
+                                                        Cost price: {{ $produ->cost_price }} <br>
+                                                        Sale price: {{ $produ->sale_price }}
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -249,20 +268,7 @@
                                 @else
                                     Has no associated products
                                 @endif
-
 							</div>
-
-							<div class="tab-pane" id="tab_2-2">
-                                <div class="form-group {{ $errors->has('features') ? 'has-error' : '' }}">
-                                    <label>Product features</label>
-                                    <textarea name='features' id='editor1' rows="4" class="form-control" placeholder="Product features">
-                                        {{ old('features', $product->features) }}
-                                    </textarea>
-                                    {!! $errors->first('features', '<span class="help-block">:message</span>') !!}
-                                </div>
-
-							</div>
-
 						</div>
           			</div>
         		</div>
@@ -272,7 +278,6 @@
 				<div class="dropzone"></div>
 			</div>
     	</div>
-        </form>
 	</div>
 @stop
 
@@ -280,6 +285,7 @@
 
 @push('modal')
   @include('admin.products.addproductcombo')
+  @include('admin.products.addstockproduct')
 @endpush
 
 @push('styles')
@@ -347,6 +353,20 @@
 				"autoWidth": false
 			  });
 			});
+
+        if( window.location.hash === '#add-stock' )
+        {
+            $('#myModalStock').modal('show');
+        }
+
+        $('#myModalStock').on('hide.bs.modal', function(){
+            window.location.hash = '#';
+        });
+
+        $('#myModalStock').on('shown.bs.modal', function(){
+            $('#amount').focus();
+            window.location.hash = '#add-stock';
+        });
 
     </script>
 @endpush

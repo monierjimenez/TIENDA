@@ -7,6 +7,7 @@ use App\Modelp;
 use App\Product;
 use App\Category;
 use App\Colore;
+use App\Finance;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ use Illuminate\Support\Str;
 
 class ProductsController extends Controller
 {
-    public function index()
+   public function index()
     {
         if (!in_array('PUPV', explode(".", auth()->user()->permissions)))
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
@@ -49,32 +50,6 @@ class ProductsController extends Controller
         ]);
         generaRecords('Product created', 'Product has been created successfully, for '. auth()->user()->name .'.');
         return redirect()->route('admin.products.edit', $product);
-    }
-
-    public function productcombo(Request $request)
-    {
-        $product = Product::find($request->input('product_id')) ;
-        if ( $request->input('products_id') != null )
-        {
-            $colore = '';
-            $cant = count($request->input('products_id'));
-            $cont = 1 ;
-            $pp = null;
-
-            foreach ($request->input('products_id') as $colores ){
-                if( $cant > $cont )
-                    $pp = $colores.'.'.$pp;
-                else
-                    $pp = $pp.$colores;
-                $cont++;
-            }
-            $product->products_id = $pp;
-
-        }else $product->products_id = '';
-
-        $product->save();
-        generaRecords('Produt add', 'Product successfully added to the combo, for '. auth()->user()->name .'.');
-        return redirect()->route('admin.products.edit', $product)->with('flash', 'Product successfully added to the combo.');
     }
 
 //    public function show(User $user)
@@ -168,6 +143,76 @@ class ProductsController extends Controller
 
         generaRecords('Produt update', 'Product updated successfully, for '. auth()->user()->name .'.');
         return redirect()->route('admin.products.edit', $product)->with('flash', 'Product has been updated successfully.');
+    }
+
+    public function productcombo(Request $request)
+    {
+        $product = Product::find($request->input('product_id')) ;
+
+        if ( $request->input('products_id') != null )
+        {
+            $cantiad = cantProductoCombo($product->products_id) ;
+            $colore = '';
+            $cant = count($request->input('products_id'));
+            $cont = 1 ;
+            $pp = null;
+            foreach ($request->input('products_id') as $colores ){
+                if( $cant > $cont )
+                    $pp = $colores.'.'.$pp;
+                else
+                    $pp = $pp.$colores;
+                $cont++;
+            }
+            $product->products_id = $pp;
+            //return dd(cantProductoCombo($product->products_id) ) ;
+            if( $cantiad > $cant ) {
+                $flash = 'flasherror';
+                $mensage = 'Product delete to the combo.';
+            }else {
+                $flash = 'flash';
+                $mensage = 'Product successfully added to the combo.';
+            }
+        }else {
+            if ( $product->products_id != '' ){
+                $flash = 'flasherror';
+                $mensage = 'Products delete to the combo.';
+            }else{
+                $flash = 'flasherror';
+                $mensage = 'You have not added products to this combo.';
+            }
+            $product->products_id = '';
+        }
+        $product->save();
+        generaRecords('Produt add', 'Product successfully added to the combo, for '. auth()->user()->name .'.');
+        return redirect()->route('admin.products.edit', $product)->with($flash, $mensage);
+    }
+
+    public function productStock(Request $request)
+    {
+        $this->validate($request, [
+            'amount' => 'required|numeric',
+            'cost_price' => 'required',
+        ]);
+
+        $product = Product::find($request->input('product_id')) ;
+        $product->stock = $request->input('amount')+$product->stock;
+        $product->save();
+
+        $finance = Finance::find(1);
+        $finance->update([
+            'gastos' => $finance->gastos + ($request->input('cost_price')*$request->input('amount')),
+        ]);
+
+        generaRecords('Produt Stock', 'Product successfully increased by '.$request->input('amount').', at cost '.$request->input('cost_price').', for '. auth()->user()->name .'.');
+        return redirect()->route('admin.products.edit', $product)->with('flash', 'Product successfully increased');
+
+
+        // $product = Finance::find($request->input('product_id')) ;
+//        $equiposasociado = Finance::create([
+//            'gastos' => '0',
+//            'ventas' => '0',
+//            'ganancia' => '0',
+//        ]);
     }
 
 //    public function updateProductCombo(Request $request, Product $product)

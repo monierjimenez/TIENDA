@@ -34,7 +34,7 @@
   @endif
 
     @if( checkrights('PUPV', auth()->user()->permissions) )
-        <li class="treeview {{ request()->is('admin/products*') ? 'active' : '' }}">
+        <li class="treeview {{ request()->is('admin/products*') ? 'active' : '' }} {{ request()->is('admin/specs*') ? 'active' : '' }}">
             <a href="{{ route('admin.products.index') }}"><i class="fa fa-cubes"></i> <span>PRODUCTS</span>
                 <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -44,9 +44,11 @@
                 <li class="{{ request()->is('admin/products') ? 'active' : '' }}">
                     <a href="{{ route('admin.products.index') }}"><i class="fa fa-cube"></i>List Products</a>
                 </li>
-{{--                @if( checkrights('PRV', auth()->user()->permissions) )--}}
-{{--                    <li class="{{ request()->is('admin/roles') ? 'active' : '' }}"><a href="{{ route('admin.roles.index') }}">List Roles</a></li>--}}
-{{--                @endif--}}
+               @if( checkrights('PUSPV', auth()->user()->permissions) )
+                    <li class="{{ request()->is('admin/specs') ? 'active' : '' }}">
+                        <a href="{{ route('admin.specs.index') }}"><i class="fa fa-crosshairs"></i> List Specs</a>
+                    </li>
+               @endif
             {{--            <div class="container">--}}
             {{--                <!----> <button type="button" class="btn btn-default btn-sm">Cadastrar Monitorias</button>--}}
             {{--            </div>--}}

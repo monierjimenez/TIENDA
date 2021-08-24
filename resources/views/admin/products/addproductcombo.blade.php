@@ -25,7 +25,7 @@
                             </option>
                         @endforeach
                     </select>
-                  {!! $errors->first('venta_id', '<span class="help-block">:message</span>') !!}
+                  {!! $errors->first('products_id', '<span class="help-block">:message</span>') !!}
                 </div>
               </div>
             </div>
