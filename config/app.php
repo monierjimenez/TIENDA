@@ -177,6 +177,8 @@ return [
 
         Yajra\DataTables\DataTablesServiceProvider::class,
 
+        App\Providers\ComposerServiceProvider::class,
+
 
 
         //Intervention\Image\ImageServiceProvider::class,

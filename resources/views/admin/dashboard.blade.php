@@ -21,16 +21,16 @@
                     <span class="info-box-icon bg-yellow"><i class="fa fa-bar-chart"></i></span>
 
                     <div class="info-box-content">
-                    <span class="info-box-text"><b>Estadistica en la caja: ()</b></span>
-                    <span class="info-box-text" style="text-transform: none;">Queda inicio: <small ><b></b></small></span>
-                    <span class="info-box-text" style="text-transform: none;">Compras: <small ><b></b></small>, Ventas: <small ><b></b></small></span>
-                    <span class="info-box-text" style="text-transform: none;">Ganancias: <small ><b></b></small></span>
+                    <span class="info-box-text"><b>Estadistica en la caja:</b></span>
+                    <span class="info-box-text" style="text-transform: none;">Compras: <small ><b>{{ $caja->gastos }}</b></small></span>
+                    <span class="info-box-text" style="text-transform: none;">Ventas: <small ><b>{{ $caja->ventas }}</b></small></span>
+                    <span class="info-box-text" style="text-transform: none;">Ganancias: <small ><b>{{ $caja->ganancia }}</b></small></span>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-6 col-xs-12">
-                
+
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-cart-arrow-down"></i></span>
                     <div class="info-box-content">
@@ -48,7 +48,7 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                           <h3 class="box-title">Ultimas 5 compras</h3>
-            
+
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-        
+
         </div>
     </div>
 
@@ -72,7 +72,7 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Ultimos 7 productos vendidos</h3>
-    
+
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>

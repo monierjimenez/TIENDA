@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
     Route::resource('products', 'ProductsController', ['as' => 'admin']);
     Route::get('productsall', 'ProductsController@productcombo')->name('admin.productcombo');
     Route::get('productstock', 'ProductsController@productStock')->name('admin.productstock');
+    Route::get('productstockvariante', 'ProductsController@productStockVariante')->name('admin.productstockvariante');
 
     //SPECS
     Route::resource('specs', 'SpecsController', ['as' => 'admin']);
@@ -25,6 +26,10 @@ use Illuminate\Support\Facades\Route;
     //photo articulos
     Route::post('products/{product}/photos', 'PhotosController@store')->name('admin.products.photos.store');
     Route::delete('photos/{photo}', 'PhotosController@destroy')->name('admin.photos.destroy');
+
+    //Colores
+    Route::resource('colores', 'ColoresController', ['except' => ['show', 'create'], 'as' => 'admin']);
+    Route::resource('categorias', 'CategoriasController', ['except' => ['show', 'create'], 'as' => 'admin']);
 
 //Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth'],  function(){
 //});

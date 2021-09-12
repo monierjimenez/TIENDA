@@ -15,10 +15,17 @@ class CreateSpecsTable extends Migration
     {
         Schema::create('specs', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('product_id'),
             $table->string('reference');
             $table->string('name');
+            $table->double('cost_price');
+            $table->double('sale_price_before');
+            $table->double('sale_price');
+            $table->double('bulk_weight');
             $table->string('url');
             $table->bigInteger('condition');
+            $table->bigInteger('stock');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

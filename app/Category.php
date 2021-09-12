@@ -14,10 +14,10 @@ class Category extends Model
     	return 'url';
     }
 
-//    public function producto()
-//    {
-//        return $this->hasMany(Product::class, 'categorie_id');
-//    }
+    public function producto()
+    {
+        return $this->hasMany(Product::class, 'categorie_id');
+    }
 //
 //    public function submenu()
 //    {

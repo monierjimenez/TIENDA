@@ -32,7 +32,7 @@
         </div>
         <div class="modal-footer">
           <!--<button class="btn btn-default" data-dismiss="modal">Cerrar</button>-->
-          <input id="product_id" name="product_id" type="hidden" value="{{$product->id}}">
+          <input id="productstock_id" name="productstock_id" type="hidden" value="{{$product->id}}">
           <button class="btn btn-primary">Add Stock</button>
         </div>
       </div>

@@ -6,7 +6,7 @@
     <ol class="breadcrumb">
       <li><a href="{{ route('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="{{ route('admin.products.index') }}"><i class="fa fa-list"></i> Product</a></li>
-      <li class="active">To create</li>
+      <li class="active">{{ $product->name }}</li>
     </ol>
   </section>
 @stop
@@ -38,6 +38,7 @@
             <div class="box box-primary">
 				<div class="box-body">
 					<div class="form-group">
+{{--                        @if( $product->sp )--}}
                         <div class="row">
                             <div class="col-xs-12">
                             <button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#myModalStock" data-backdrop="static" data-keyboard="false">
@@ -190,7 +191,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="box-body">
+                    <div class="form-group {{ $errors->has('seotitle') ? 'has-error' : '' }}">
+                        <label>SEO Title</label>
+                        <input name='seotitle' placeholder="SEO Title" class="form-control" value="{{ old('seotitle', $product->seotitle) }}">
+                        {!! $errors->first('seotitle', '<span class="help-block">:message</span>') !!}
+                    </div>
 
+                    <div class="form-group {{ $errors->has('seodescription') ? 'has-error' : '' }}">
+                        <label>SEO Description</label>
+                        <input name='seodescription' placeholder="SEO Description" class="form-control" value="{{ old('seodescription', $product->seodescription) }}">
+                        {!! $errors->first('seodescription', '<span class="help-block">:message</span>') !!}
+                    </div>
+
+                    <div class="form-group {{ $errors->has('seokeywords') ? 'has-error' : '' }}">
+                        <label>SEO Keywords</label>
+                        <input name='seokeywords' placeholder="SEO Keywords Ej: envios, cuba" class="form-control" value="{{ old('seokeywords', $product->seokeywords) }}">
+                        {!! $errors->first('seokeywords', '<span class="help-block">:message</span>') !!}
+                    </div>
+                </div>
 				<div class="box-body">
 	    			<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
 			    		<label>Description product</label>
@@ -232,7 +251,7 @@
 							<li class="pull-left header"><i class="fa fa-th"></i>
                                 <li class="pull-left header" style="padding: 0px">
                                     <button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModalICC" data-backdrop="static" data-keyboard="false">
-                                        ADD PRODUCT (@if ( $product->products_id != '' ) {{ count(explode('.', $product->products_id)) }} @else 0 @endif)
+                                        ADD PRODUCT COMBO(@if ( $product->products_id != '' ) {{ count(explode('.', $product->products_id)) }} @else 0 @endif)
                                     </button>
                                 </li>
 							</li>
@@ -259,7 +278,8 @@
                                                         Name: {{ $produ->name }} <br>
                                                         Category: {{ $produ->categorie->name }} <br>
                                                         Cost price: {{ $produ->cost_price }} <br>
-                                                        Sale price: {{ $produ->sale_price }}
+                                                        Sale price: {{ $produ->sale_price }} <br>
+                                                        Stock: {{ $produ->stock }}
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -274,6 +294,65 @@
         		</div>
     		</div>
 
+            <!-- -->
+
+
+            <div class="box box-primary"><br>
+                <div class="col-md-12">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs pull-right" >
+                            <li class="active" >
+                                <a href="#tab_1-1" data-toggle="tab" > VARIANT</a>
+                            </li>
+                            <li class="pull-left header"><i class="fa fa-th"></i>
+                            <li class="pull-left header" style="padding: 0px">
+                                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalSpecs" data-backdrop="static" data-keyboard="false">
+                                    <i class="fa fa-plus"></i> Create Variant
+                                </button>
+{{--                                <button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModalICC" data-backdrop="static" data-keyboard="false">--}}
+{{--                                    ADD PRODUCT (@if ( $product->products_id != '' ) {{ count(explode('.', $product->products_id)) }} @else 0 @endif)--}}
+{{--                                </button>--}}
+                            </li>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1-1">
+{{--                                @if ( $product->products_id != '' )--}}
+                                    <table id="post-table" class="table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Info</th>
+                                            <th>Status</th>
+                                            <th>Option</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach( $product->spec as $spec )
+                                            <tr>
+                                                <td>
+                                                    {{ $spec->reference }} <br>
+                                                    Name: {{$spec->name}}<br>
+                                                    Status: @if ( $spec->condition == 0 ) <i class="fa fa-check"></i>
+                                                    @else <i class="fa fa-close"></i> @endif
+                                                </td>
+                                                <td>
+                                                    <img src="/images/{{ $spec->image }}" class="profile-user-img img-responsive img-circle" style="width: 60px;border: 1px solid #d2d6de;">
+                                                </td>
+                                                <td> <a href="{{ route('admin.specs.edit', $spec) }}"> Edit</a> </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+{{--                                @else--}}
+{{--                                    Has no associated products--}}
+{{--                                @endif--}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     		<div class="box-body">
 				<div class="dropzone"></div>
 			</div>
@@ -286,6 +365,7 @@
 @push('modal')
   @include('admin.products.addproductcombo')
   @include('admin.products.addstockproduct')
+  @include('admin.products.createSpecs')
 @endpush
 
 @push('styles')
@@ -366,6 +446,22 @@
         $('#myModalStock').on('shown.bs.modal', function(){
             $('#amount').focus();
             window.location.hash = '#add-stock';
+        });
+
+
+
+        if( window.location.hash === '#create-reference' )
+        {
+            $('#myModalSpecs').modal('show');
+        }
+
+        $('#myModalSpecs').on('hide.bs.modal', function(){
+            window.location.hash = '#';
+        });
+
+        $('#myModalSpecs').on('shown.bs.modal', function(){
+            $('#reference').focus();
+            window.location.hash = '#create-reference';
         });
 
     </script>

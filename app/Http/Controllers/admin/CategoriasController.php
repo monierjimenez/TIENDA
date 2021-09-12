@@ -23,7 +23,11 @@ class CategoriasController extends Controller
         $categoria = Category::create([
             'name' => $request->get('name'),
             'url' => Str::slug($request->get('name')),
-            ]);        
+            'seotitle' => '',
+            'seodescription' => '',
+            'seokeywords' => '',
+            'condition' => '1',
+            ]);
 		  return redirect()->route('admin.categorias.edit', $categoria);
     }
 
@@ -33,21 +37,50 @@ class CategoriasController extends Controller
     }
 
     public function update(Category $categoria, Request $request)
-    {	
+    {
 	  	$this->validate($request, [
             'name' => 'required|unique:categories,name,'.$categoria->id,
+            'seotitle' => 'required',
+            'seodescription' => 'required',
+            'seokeywords' => 'required',
         ]);
-		$categoria->url = Str::slug($request->get('name'));
-		
-        $categoria->update($request->all());
-        $categoria->save();
 
-      return redirect()->route('admin.categorias.edit', $categoria)->with('flash', 'La categoria ha sido guardado correctamente.');
+        if( $request->hasFile('image') )
+        {
+            if ( $categoria->image != '' ){
+                unlink(public_path().'/images/'.$categoria->image);
+            }
+            $file = $request->file('image');
+            $nombrearchivo  = time().'-'.$file->getClientOriginalName();
+            //dd($nombrearchivo);
+            $file->move(public_path().'/images/category', $nombrearchivo);
+            $categoria->image = 'category/'.$nombrearchivo;
+            $categoria->update([
+                'image' => 'category/'.$nombrearchivo
+            ]);
+            $categoria->save();
+        }
+
+		//$categoria->url = Str::slug($request->get('name'));
+        $categoria->update([
+            'name' => $request->input('name'),
+            'url' => Str::slug($request->get('name')),
+            'seotitle' => $request->input('seotitle'),
+            'seodescription' => $request->input('seodescription'),
+            'seokeywords' => $request->input('seokeywords'),
+            'condition' => $request->input('condition'),
+        ]);
+        $categoria->save();
+      return redirect()->route('admin.categorias.edit', $categoria)->with('flash', 'Category has been saved correctly.');
     }
 
     public function destroy(Category $categoria)
     {
-		$categoria->delete();
-		return redirect()->route('admin.categorias.index')->with('flash', 'La categoria ha sido eliminada.');
+		//$categoria->delete();
+        $categoria->update([
+            'condition' => '1',
+        ]);
+        $categoria->save();
+		return redirect()->route('admin.categorias.index')->with('flash', 'Category has been removed.');
 	}
 }

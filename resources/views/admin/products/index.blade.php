@@ -29,7 +29,7 @@
         <thead>
           <tr>
             <th>SKU</th>
-            <th>Name</th>
+            <th>Name (Variant)</th>
             <th>Category</th>
             <th>Stock</th>
             <th>Cost/Public</th>
@@ -41,7 +41,7 @@
           @foreach ($products as $product)
             <tr>
               <td>{{ $product->sku }}</td>
-              <td>{{ $product->name }}</td>
+              <td>{{ $product->name }} ({{ $product->spec->count()  }})</td>
               <td>{{ $product->categorie->name }}</td>
               <td>{{ $product->stock }}</td>
               <td class="text-center">{{ $product->cost_price }}/{{ $product->sale_price }}</td>

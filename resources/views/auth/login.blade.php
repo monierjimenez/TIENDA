@@ -2,20 +2,21 @@
 
 @section('content')
     <!-- Breadcrumb Section Begin -->
+    <hr>
     <div class="breacrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
                         <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home</a>
-                        <span>Login</span>
+                        <span>> Login</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Breadcrumb Form Section Begin -->
-
+<hr>
     <div class="register-login-section spad">
         <div class="container">
             <div class="row">
@@ -57,32 +58,35 @@
 
                                     <span class="pull-right">
                                         @if (Route::has('password.request'))
-                                            <a class="btn btn-link forget-pass" href="{{ route('password.request') }}">
+                                            <a class="" href="{{ route('password.request') }}">
                                                 {{ __('Forgot Your Password?') }}
                                             </a>
                                         @endif
-                                    </span>
+                                    </span><br><br>
                                 </div>
                             </div>
-                            <button type="submit" class="site-btn login-btn">{{ __('Login') }}</button>
+                            <button type="submit" class="btn login-btn btn-block">{{ __('Login') }}</button>
                         </form>
 
                         <div class="switch-login">
-                            <a href="./register.html" class="or-login">Or Create An Account</a>
+                            <a href="{{ route('register') }}" class="or-login">Or Create An Account</a>
                         </div>
                         <br>
                         <div class="social-auth-links text-center">
                             <p>- OR -</p>
-                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                                Facebook</a>
-                            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                                Google+</a>
+                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat" style="color: #fff">
+                                <i class="fa fa-facebook"></i> Sign in using Facebook
+                            </a>
+                            <a href="#" class="btn btn-block btn-social btn-google btn-flat" style="color: #fff">
+                                <i class="fa fa-google-plus"></i> Sign in using Google+
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <!-- Register Form Section End -->
 @stop
 

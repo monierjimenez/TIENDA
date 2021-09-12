@@ -8,6 +8,7 @@ use App\Product;
 use App\Category;
 use App\Colore;
 use App\Finance;
+use App\Spec;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -45,6 +46,9 @@ class ProductsController extends Controller
             'features' => '',
             'payment_cuba' => '',
             'sku' => $request->get('sku'),
+            'seotitle' => $request->get('seotitle'),
+            'seodescription' => $request->get('seodescription'),
+            'seokeywords' => $request->get('seokeywords'),
             'condition' => '0',
             'products_id' => '',
         ]);
@@ -82,6 +86,9 @@ class ProductsController extends Controller
             'sku' => 'required',
             'name' => 'required',
             'categorie_id' => 'required',
+            'seotitle' => 'required',
+            'seodescription' => 'required',
+            'seokeywords' => 'required',
             //'email' => ['required', Rule::unique('users')->ignore($user->id)],
         ]);
 
@@ -100,7 +107,6 @@ class ProductsController extends Controller
                 foreach ($request->input('colore_id') as $colores ){
                     $colore = Colore::find($colores) ? $colores
                         : Colore::create(['name' => $colores])->id;
-
                     if( $cant > $cont )
                         $pp = $colore.'.'.$pp;
                     else
@@ -127,7 +133,6 @@ class ProductsController extends Controller
             } else $product->model = '' ;
 
             $product->update([
-            'sku' => strtoupper(str_replace(" ", "-", $request->sku)),
             'name' => $request->input('name'),
             'cost_price' => $request->input('cost_price'),
             'sale_price_before' => $request->input('sale_price_before'),
@@ -138,6 +143,10 @@ class ProductsController extends Controller
             'features' => $request->input('features'),
             'payment_cuba' => $request->input('payment_cuba'),
             'condition' => $request->input('condition'),
+            'sku' => strtoupper(str_replace(" ", "-", $request->sku)),
+            'seotitle' => $request->input('seotitle'),
+            'seodescription' => $request->input('seodescription'),
+            'seokeywords' => $request->input('seokeywords'),
             ]);
         $product->save();
 
@@ -166,7 +175,7 @@ class ProductsController extends Controller
             $product->products_id = $pp;
             //return dd(cantProductoCombo($product->products_id) ) ;
             if( $cantiad > $cant ) {
-                $flash = 'flasherror';
+                $flash = 'flash';
                 $mensage = 'Product delete to the combo.';
             }else {
                 $flash = 'flash';
@@ -174,7 +183,7 @@ class ProductsController extends Controller
             }
         }else {
             if ( $product->products_id != '' ){
-                $flash = 'flasherror';
+                $flash = 'flash';
                 $mensage = 'Products delete to the combo.';
             }else{
                 $flash = 'flasherror';
@@ -194,7 +203,7 @@ class ProductsController extends Controller
             'cost_price' => 'required',
         ]);
 
-        $product = Product::find($request->input('product_id')) ;
+        $product = Product::find($request->input('productstock_id')) ;
         $product->stock = $request->input('amount')+$product->stock;
         $product->save();
 
@@ -213,6 +222,27 @@ class ProductsController extends Controller
 //            'ventas' => '0',
 //            'ganancia' => '0',
 //        ]);
+    }
+
+    public function productStockVariante(Request $request)
+    {
+       // return $request;
+        $this->validate($request, [
+            'amount' => 'required|numeric',
+            'cost_price' => 'required',
+        ]);
+
+        $spec = Spec::find($request->input('productvariantestock_id')) ;
+        $spec->stock = $request->input('amount')+$spec->stock;
+        $spec->save();
+
+        $finance = Finance::find(1);
+        $finance->update([
+            'gastos' => $finance->gastos + ($request->input('cost_price')*$request->input('amount')),
+        ]);
+
+        generaRecords('Spec Stock', 'Spec successfully increased by '.$request->input('amount').', at cost '.$request->input('cost_price').', for '. auth()->user()->name .'.');
+        return redirect()->route('admin.specs.edit', $spec)->with('flash', 'Spec successfully increased');
     }
 
 //    public function updateProductCombo(Request $request, Product $product)

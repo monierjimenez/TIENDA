@@ -64,6 +64,15 @@ use App\Product;
         return $a;
     }
 
+    //me devuelve la cantidad de producto que tiene el combo
+    function primeraPhotoProduct($product) {
+        foreach ( $product->photos as $photo){
+            return $photo->url ;
+            exit;
+        }
+        // Photo
+    }
+
 
 
 

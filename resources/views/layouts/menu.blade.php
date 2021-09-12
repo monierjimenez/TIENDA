@@ -1,46 +1,88 @@
-<div class="nav-item" style="line-height: 1.0;">
-    <div class="container">
-        <div class="nav-depart">
-            <div class="depart-btn">
-                <i class="fa fa-bars"></i>
-                <span>All departments</span>
-                <ul class="depart-hover">
-                    <li class="active"><a href="#">Women’s Clothing</a></li>
-                    <li><a href="#">Men’s Clothing</a></li>
-                    <li><a href="#">Underwear</a></li>
-                    <li><a href="#">Kid's Clothing</a></li>
-                    <li><a href="#">Brand Fashion</a></li>
-                    <li><a href="#">Accessories/Shoes</a></li>
-                    <li><a href="#">Luxury Brands</a></li>
-                    <li><a href="#">Brand Outdoor Apparel</a></li>
-                </ul>
+<section class="hero-slider">
+    <!-- Single Slider -->
+    <div class="single-slider">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-9 offset-lg-3 col-12">
+                    <div class="text-inner">
+                        <div class="row">
+                            <div class="col-lg-7 col-12">
+                                <div class="hero-text">
+                                    <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
+                                    <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
+                                    <div class="button">
+                                        <a href="#" class="btn">Shop Now!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <nav class="nav-menu mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop.html">Shop</a></li>
-                <li><a href="#">Collection</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Men's</a></li>
-                        <li><a href="#">Women's</a></li>
-                        <li><a href="#">Kid's</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="dropdown">
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                        <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                        <li><a href="./check-out.html">Checkout</a></li>
-                        <li><a href="./faq.html">Faq</a></li>
-                        <li><a href="./register.html">Register</a></li>
-                        <li><a href="./login.html">Login</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
     </div>
-</div>
+    <!--/ End Single Slider -->
+</section>
+
+<!-- Start Small Banner  -->
+<section class="small-banner section">
+    <div class="container-fluid">
+{{-- en el div de abajo lo flex--}}
+        <div class="collections">
+            <!-- Single Banner  -->
+            @foreach($categorys as $category)
+                <div class="collection-item" >
+                    <div class="single-banner" style="margin-bottom: -30px; padding: 0px 8px;">
+                        <a href="{{ route('collections', $category) }}">
+                        <img src="/images/{{ $category->image }}" alt="#">
+                            <span class="collections">{{ $category->name }}</span>
+                        <div class="content">
+{{--                            <p>Man's Collectons</p>--}}
+{{--                            <h3>Summer travel <br> collection</h3>
+                            <a href="#">{{ $category->name }}</a>--}}
+
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+{{--            --}}
+{{--            <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                <div class="single-banner">--}}
+{{--                    <img src="https://via.placeholder.com/600x370" alt="#">--}}
+{{--                    <div class="content">--}}
+{{--                        <p>Man's Collectons</p>--}}
+{{--                        <h3>Summer travel <br> collection</h3>--}}
+{{--                        <a href="#">Discover Now</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- /End Single Banner  -->--}}
+{{--            <!-- Single Banner  -->--}}
+{{--            <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                <div class="single-banner">--}}
+{{--                    <img src="https://via.placeholder.com/600x370" alt="#">--}}
+{{--                    <div class="content">--}}
+{{--                        <p>Bag Collectons</p>--}}
+{{--                        <h3>Awesome Bag <br> 2020</h3>--}}
+{{--                        <a href="#">Shop Now</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- /End Single Banner  -->--}}
+{{--            <!-- Single Banner  -->--}}
+{{--            <div class="col-lg-4 col-12">--}}
+{{--                <div class="single-banner tab-height">--}}
+{{--                    <img src="https://via.placeholder.com/600x370" alt="#">--}}
+{{--                    <div class="content">--}}
+{{--                        <p>Flash Sale</p>--}}
+{{--                        <h3>Mid Season <br> Up to <span>40%</span> Off</h3>--}}
+{{--                        <a href="#">Discover Now</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+            <!-- /End Single Banner  -->
+        </div>
+    </div>
+</section>
+<!-- End Small Banner -->
