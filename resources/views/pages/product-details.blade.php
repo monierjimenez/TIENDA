@@ -105,7 +105,8 @@
 {{--                                    @endif--}}
 {{--                                </h3>--}}
                                 <div class="quickview-peragraph">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
+                                    Descripcion <br>
+                                    {!! $product->description !!}
                                 </div>
                                 <div class="size">
                                     <div class="row">
@@ -118,15 +119,22 @@
                                                 <option>xl</option>
                                             </select>
                                         </div>
-                                        <div class="col-lg-6 col-12">
-                                            <h5 class="title">Color</h5>
-                                            <select>
-                                                <option selected="selected">orange</option>
-                                                <option>purple</option>
-                                                <option>black</option>
-                                                <option>pink</option>
-                                            </select>
-                                        </div>
+                                        @if($product->colore_id != null)
+                                            <div class="col-lg-6 col-12">
+                                                <h5 class="title">Color</h5>
+                                                <select>
+
+                                                    @foreach(explode('.', $product->colore_id) as $info )
+                                                        @php $colo = dameColor($info) ; @endphp
+                                                        <option value="{{ $colo->id }}">{{ $colo->name }}</option>
+                                                    @endforeach
+    {{--                                                <option selected="selected">orange</option>--}}
+    {{--                                                <option>purple</option>--}}
+    {{--                                                <option>black</option>--}}
+    {{--                                                <option>pink</option>--}}
+                                                </select>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="quantity">

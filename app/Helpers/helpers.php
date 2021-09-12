@@ -3,6 +3,7 @@
 use App\User;
 use App\Record;
 use App\Product;
+use App\Colore;
 
 // use SimpleSoftwareIO\QrCode\Facade as QrCode;
     // funcion para chequear si el un usuario tiene
@@ -71,6 +72,11 @@ use App\Product;
             exit;
         }
         // Photo
+    }
+
+    //me devuelve la cantidad de producto que tiene el combo
+    function dameColor($id) {
+        return Colore::find($id);
     }
 
 

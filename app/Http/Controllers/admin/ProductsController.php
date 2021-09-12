@@ -81,7 +81,7 @@ class ProductsController extends Controller
 
     public function update(Request $request, Product $product)
     {
-       // return $request ;
+        //return $request ;
         $this->validate($request, [
             'sku' => 'required',
             'name' => 'required',
@@ -114,7 +114,7 @@ class ProductsController extends Controller
                     $cont++;
                 }
                 $product->colore_id = $pp;
-            }
+            } else $product->colore_id = null;
 
             if ( $request->input('brand') != null )
             {

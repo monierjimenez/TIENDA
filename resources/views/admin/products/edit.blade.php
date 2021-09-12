@@ -83,7 +83,7 @@
 							</div>
 							<div class="col-xs-6 {{ $errors->has('colore_id') ? 'has-error' : '' }}">
                                 <label>Color Product</label>
-                                    <select name="colore_id[]" class="form-control select2" multiple="multiple" data-placeholder="Seleccione folios..." style="width: 100%;">
+                                    <select name="colore_id[]" class="form-control select2" multiple="multiple" data-placeholder="Color de producto..." style="width: 100%;">
                                         @foreach( $colores as $colore )
                                              <option value="{{ $colore->id }}"
                                                 {{ old('colore_id', in_array($colore->id, explode(".", $product->colore_id)) )  ? 'selected' : ''}}>

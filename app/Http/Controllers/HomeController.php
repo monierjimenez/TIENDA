@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\Colore;
 
 use Illuminate\Http\Request;
 
@@ -42,10 +43,8 @@ class HomeController extends Controller
     public function productdetails($categorie, Product $product)
     {
         $products = Product::where('id', '$=', $product->id)->inRandomOrder()->limit(1)->get();
+
+
         return view('pages.product-details', compact('product','products'));
     }
-    // public function admin()
-    // {
-    //     return view('admin.dashboard');
-    // }
 }
