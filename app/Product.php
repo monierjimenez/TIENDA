@@ -30,7 +30,17 @@ class Product extends Model
 
     public function spec()
     {
-        return $this->hasMany(Spec::class);
+        return $this->hasMany(Spec::class)->orderBy('sale_price', 'ASC');
+    }
+
+    public function brands()
+    {
+        return $this->hasMany(Brand::class, 'id', 'brand');
+    }
+
+    public function modelp()
+    {
+        return $this->hasMany(Modelp::class, 'id', 'model');
     }
 
     public function photos()

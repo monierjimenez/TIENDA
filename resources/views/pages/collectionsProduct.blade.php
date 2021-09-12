@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a>
                         <span>> {{ $category->name }}</span>
                     </div>
                 </div>
@@ -143,15 +143,15 @@
                                         </a>
                                         <div class="button-head">
                                             <div class="product-action">
-                                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#">
-                                                    <i class=" ti-eye" style="margin-right: 6px;"></i><span>Quick Shop</span>
-                                                </a>
+{{--                                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#">--}}
+{{--                                                    <i class=" ti-eye" style="margin-right: 6px;"></i><span>Quick Shop</span>--}}
+{{--                                                </a>--}}
     {{--                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>--}}
     {{--                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
                                             </div>
                                             <div class="product-action-2">
                                                 @if( $product->spec != '[]')
-                                                    <a title="Add to cart" href="#">Elegir Opcion</a>
+                                                    <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}" title="Add to cart" >Elegir Opcion</a>
                                                 @else
                                                     <a title="Add to cart" href="#">{{ __('Add to cart') }} </a>
                                                 @endif
@@ -159,7 +159,7 @@
                                         </div>
                                     </div>
                                     <div class="product-content">
-                                        <h3><a href="product-details.html">{{ $product->name }}</a></h3>
+                                        <h3><a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">{{ $product->name }}</a></h3>
                                         <div class="product-price">
                                             @if( $product->sale_price_before != '' )
                                                 <span>${{ $product->sale_price }}</span>

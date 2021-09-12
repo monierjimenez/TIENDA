@@ -319,7 +319,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab_1-1">
 {{--                                @if ( $product->products_id != '' )--}}
-                                    <table id="post-table" class="table table-bordered table-hover">
+                                    <table id="post-tablev" class="table table-bordered table-hover">
                                         <thead>
                                         <tr>
                                             <th>Info</th>
@@ -354,6 +354,7 @@
             </div>
 
     		<div class="box-body">
+                Imagen (550x750)
 				<div class="dropzone"></div>
 			</div>
     	</div>
@@ -432,6 +433,16 @@
 				"info": true,
 				"autoWidth": false
 			  });
+
+            $('#post-tablev').DataTable({
+                "order": [[ 2, "desc" ]],
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
 			});
 
         if( window.location.hash === '#add-stock' )

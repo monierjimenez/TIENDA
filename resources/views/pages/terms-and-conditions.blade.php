@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12" >
                     <div class="breadcrumb-text">
-                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a>
                         <span> > Terms and Conditions</span>
                     </div>
                 </div>

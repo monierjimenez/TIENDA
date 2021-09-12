@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12" >
                     <div class="breadcrumb-text">
-                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a>
                         > <a href="{{ route('collections', $product->categorie) }}">{{ $product->categorie->name }}</a> <span> > {{ $product->name }}</span>
                     </div>
                 </div>
@@ -67,25 +67,13 @@
                                         <span><i class="fa fa-check-circle-o"></i> in stock</span>
                                     </div>
                                 </div>
-                                <hr>
+                                <hr class="hr-personality">
 
-{{--                                <div class="container">--}}
-{{--                                    <div class="row details-product">--}}
-{{--                                        <div class="col-12">--}}
-{{--                                            <h3>Precio: ${{ $product->sale_price }}--}}
-{{--                                                @if( $product->sale_price_before != '' )--}}
-{{--                                                    <span class="old">${{ $product->sale_price_before }}</span>--}}
-{{--                                                @endif--}}
-{{--                                            </h3></div>--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-<br>
                                 <div class="quickview-peragraph">
                                     <p>
-                                        Precio: ${{ $product->sale_price }}
+                                        Precio:  <span class="style-price-product">${{ $product->sale_price }}</span>
                                         @if( $product->sale_price_before != '' )
-                                            <span style="text-decoration: line-through;">${{ $product->sale_price_before }}</span>
+                                            <span style="text-decoration: line-through;font-size: 13px;">${{ $product->sale_price_before }}</span>
                                         @endif
                                     </p>
                                 </div>
@@ -98,40 +86,24 @@
                                     <p>Peso: {{ $product->bulk_weight }} () </p>
                                 </div>
 
-
-{{--                                <h3> ${{ $product->sale_price }}--}}
-{{--                                    @if( $product->sale_price_before != '' )--}}
-{{--                                        <span class="old">${{ $product->sale_price_before }}</span>--}}
-{{--                                    @endif--}}
-{{--                                </h3>--}}
-                                <div class="quickview-peragraph">
-                                    Descripcion <br>
-                                    {!! $product->description !!}
-                                </div>
                                 <div class="size">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
-                                            <h5 class="title">Size</h5>
-                                            <select>
-                                                <option selected="selected">s</option>
-                                                <option>m</option>
-                                                <option>l</option>
-                                                <option>xl</option>
+                                            <h5 class="title">Modelo</h5>
+                                            <select name="model">
+                                                @foreach($product->spec as $key )
+                                                    <option value="{{ $key->id }}">{{ $key->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         @if($product->colore_id != null)
                                             <div class="col-lg-6 col-12">
                                                 <h5 class="title">Color</h5>
-                                                <select>
-
+                                                <select name="color">
                                                     @foreach(explode('.', $product->colore_id) as $info )
                                                         @php $colo = dameColor($info) ; @endphp
                                                         <option value="{{ $colo->id }}">{{ $colo->name }}</option>
                                                     @endforeach
-    {{--                                                <option selected="selected">orange</option>--}}
-    {{--                                                <option>purple</option>--}}
-    {{--                                                <option>black</option>--}}
-    {{--                                                <option>pink</option>--}}
                                                 </select>
                                             </div>
                                         @endif
@@ -160,7 +132,35 @@
 {{--                                    <a href="#" class="btn min"><i class="ti-heart"></i></a>--}}
 {{--                                    <a href="#" class="btn min"><i class="fa fa-compress"></i></a>--}}
                                 </div>
-{{--                                <div class="default-social">--}}
+                                <hr class="hr-personality">
+
+                                <div class="quickview-peragraph">
+                                    <p>
+                                    @if($product->brand != '')
+                                         Marca:  {{ $product->brands[0]['name'] }}
+                                    @endif
+                                    @if($product->model != '')
+                                        <br>Modelo:  {{ $product->modelp[0]['name'] }}
+                                    @endif
+                                    </p>
+                                </div>
+
+                                <div class="quickview-peragraph">
+                                    @if($product->description != '')
+                                        <span class="style-price-product">Descripcion</span> <br>
+                                        {!! $product->description !!}
+                                    @endif
+                                </div>
+
+                                <div class="quickview-peragraph">
+                                    @if($product->features != '')
+                                        <span class="style-price-product">Características</span>
+                                        {!! $product->features !!}
+                                    @endif
+
+                                </div>
+
+{{--                                                                <div class="default-social">--}}
 {{--                                    <h4 class="share-now">Share:</h4>--}}
 {{--                                    <ul>--}}
 {{--                                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>--}}
@@ -169,6 +169,7 @@
 {{--                                        <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>--}}
 {{--                                    </ul>--}}
 {{--                                </div>--}}
+{{--                                {{$products}}--}}
                             </div>
                         </div>
                     </div>
@@ -176,4 +177,66 @@
             </div>
         </div>
     </div>
+
+<hr class="hr-personality">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="quickview-content">
+                    <h2>También te puede interesar</h2><br></div>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="modal-body">
+                    <div class="row no-gutters">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="owl-carousel popular-slider collections" style="margin-top: -75px;margin-bottom: 15px;">
+                                <!-- Start Single Product -->
+                                @foreach( $products as $product )
+                                    <div class="single-product collection-item">
+                                        <div class="product-img">
+                                            <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">
+                                                <img class="default-img" src="/images/{{primeraPhotoProduct($product)}}" alt="#">
+                                                {{--<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">--}}
+                                                {{--                                        new, out-of-stock --}}
+                                                <span class="out-of-stock">Ahorras {{ $product->sale_price_before-$product->sale_price }}</span>
+                                            </a>
+                                            <div class="button-head">
+                                                <div class="product-action">
+{{--                                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#">--}}
+{{--                                                        <i class=" ti-eye" style="margin-right: 6px;"></i><span>Quick Shop</span>--}}
+{{--                                                    </a>--}}
+                                                    {{--                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>--}}
+                                                    {{--                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
+                                                </div>
+                                                <div class="product-action-2">
+                                                    <a title="Add to cart" href="#">{{ __('Add to cart') }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h3>
+                                                <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </h3>
+                                            <div class="product-price">
+                                                <span>${{ $product->sale_price }}</span>
+                                                <span class="old">${{ $product->sale_price_before }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @stop

@@ -71,7 +71,7 @@ class ProductsController extends Controller
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
 
         $categorys = Category::all();
-        $colores = Colore::all();
+        $colores = Colore::where('condition','=', '0')->get();
         $brands = Brand::all();
         $models = Modelp::all();
         $productsall = Product::where('id', '!=', $product->id)->where('condition', '=', '0')->get();
