@@ -1411,7 +1411,7 @@
                         @foreach( $products as $product )
                             <div class="single-product">
                                 <div class="product-img">
-                                    <a href="">
+                                    <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">
                                         <img class="default-img" src="/images/{{primeraPhotoProduct($product)}}" alt="#">
                                         {{--<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">--}}
 {{--                                        new, out-of-stock --}}

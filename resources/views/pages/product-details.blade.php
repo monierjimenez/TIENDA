@@ -88,6 +88,7 @@
 
                                 <div class="size">
                                     <div class="row">
+                                        @if($product->spec != '[]')
                                         <div class="col-lg-6 col-12">
                                             <h5 class="title">Modelo</h5>
                                             <select name="model">
@@ -96,6 +97,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        @endif
                                         @if($product->colore_id != null)
                                             <div class="col-lg-6 col-12">
                                                 <h5 class="title">Color</h5>
@@ -188,11 +190,11 @@
         </div>
     </div>
 
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
+        <div class="">
+            <div class="">
                 <div class="modal-body">
-                    <div class="row no-gutters">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="">
+                        <div >
                             <div class="owl-carousel popular-slider collections" style="margin-top: -75px;margin-bottom: 15px;">
                                 <!-- Start Single Product -->
                                 @foreach( $products as $product )
@@ -230,13 +232,12 @@
                                         </div>
                                     </div>
                                 @endforeach
-
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 @stop

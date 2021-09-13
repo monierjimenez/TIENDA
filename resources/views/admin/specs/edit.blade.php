@@ -49,7 +49,7 @@
 {{--		<div class="col-md-8">--}}
 
 {{--            <livewire:specs.features:spec="$spec->name" >--}}
-            @livewire('specs.features', ['spec' => $spec])
+             @livewire('specs.features', ['spec' => $spec])
 {{--    	</div>--}}
 	</div>
 @stop
@@ -60,19 +60,7 @@
 @endpush
 
 @push('script')
-	<!-- iCheck 1.0.1 -->
-	<script src="/adminlte/plugins/iCheck/icheck.min.js"></script>
-	<!-- CK Editor -->
-	<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
-
     <script>
-		CKEDITOR.replace('extracto');
-		//iCheck for checkbox and radio inputs
-		$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-			checkboxClass: 'icheckbox_minimal-blue',
-			radioClass: 'iradio_minimal-blue'
-		  });
-
         if( window.location.hash === '#add-stock' )
         {
             $('#myModalStock').modal('show');

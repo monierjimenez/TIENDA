@@ -46,9 +46,9 @@ class ProductsController extends Controller
             'features' => '',
             'payment_cuba' => '',
             'sku' => $request->get('sku'),
-            'seotitle' => $request->get('seotitle'),
-            'seodescription' => $request->get('seodescription'),
-            'seokeywords' => $request->get('seokeywords'),
+            'seotitle' => '',
+            'seodescription' => '',
+            'seokeywords' => '',
             'condition' => '0',
             'products_id' => '',
         ]);
