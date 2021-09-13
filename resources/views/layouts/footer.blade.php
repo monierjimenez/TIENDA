@@ -1,8 +1,9 @@
 <!-- Start Shop Services Area -->
 <section class="shop-services section home">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
+        <div class="collections">
+            <div class="collection-item">
+{{--                col-lg-4 col-md-6 col-12--}}
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-rocket"></i>
@@ -11,7 +12,7 @@
                 </div>
                 <!-- End Single Service -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="collection-item">
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-lock"></i>
@@ -20,7 +21,7 @@
                 </div>
                 <!-- End Single Service -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="collection-item">
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="ti-tag"></i>
