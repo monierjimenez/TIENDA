@@ -4,6 +4,7 @@ use App\User;
 use App\Record;
 use App\Product;
 use App\Colore;
+use App\Spec;
 
 // use SimpleSoftwareIO\QrCode\Facade as QrCode;
     // funcion para chequear si el un usuario tiene
@@ -78,6 +79,22 @@ use App\Colore;
     function dameColor($id) {
         return Colore::find($id);
     }
+
+    //me devuelve la cantidad de producto que tiene el combo
+//    function dameSpesc($id) {
+//       // collect($size)->min('sale_price');
+//       // $esp = Spec::where('product_id', '=', $id)->min('sale_price')->get();
+//       //$esp = Spec::where('product_id', '=', $id)->min('sale_price');
+//        $esp = Spec::where('product_id', '=', $id)->min('sale_price', 'id');
+//        $esp1 = Spec::where('sale_price', '=', $esp)->where('product_id', '=', $id)->get();
+//
+////        foreach ( $esp1 as $item) {
+////            return $item->id;
+////        }
+//
+//        return $esp1 ;
+//
+//    }
 
 
 

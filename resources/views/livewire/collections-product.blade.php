@@ -20,7 +20,6 @@
             </div>
 
 
-
 {{--            <div wire:loading.delay >--}}
 {{--                    Cargando--}}
 {{--            </div>--}}
