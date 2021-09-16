@@ -54,10 +54,21 @@
                             <div class="default-social">
                                 <h4 class="share-now">Share:</h4>
                                 <ul>
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                    <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}&title={{$product->seotitle}}"
+                                           class="facebook"
+                                           title="{{ __('Share on Facebook') }}"
+                                        >
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text={{$product->seotitle}}&via={user_id}&hashtags={{ config('app.name') }}"
+                                           class="twitter">                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+{{--                                    <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>--}}
+{{--                                    <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>--}}
                                 </ul>
                             </div>
                             <div class="quickview-stock">
@@ -70,21 +81,21 @@
                             <p>
                                 Precio:
                                 <span class="style-price-product">
-                                    @if($product->spec != '[]')
-                                        {{ $modeloactalizado->sale_price }}
-                                    </span>
-                                        @if( $modeloactalizado->sale_price_before != '' )
-                                            <span style="text-decoration: line-through;font-size: 13px;">
-                                                ${{ $modeloactalizado->sale_price_before }}
-                                            </span>
-                                        @endif
-                                    @else
-                                        ${{ $product->sale_price }}
+{{--                                    @if($product->spec != '[]')--}}
+{{--                                        {{ $modeloactalizado->sale_price }}--}}
+{{--                                    </span>--}}
+{{--                                        @if( $modeloactalizado->sale_price_before != '' )--}}
+{{--                                            <span style="text-decoration: line-through;font-size: 13px;">--}}
+{{--                                                ${{ $modeloactalizado->sale_price_before }}--}}
+{{--                                            </span>--}}
+{{--                                        @endif--}}
+{{--                                    @else--}}
+                                        ${{ $modeloactalizado->sale_price }}
                                         </span>
-                                        @if( $product->sale_price_before != '' )
-                                            <span style="text-decoration: line-through;font-size: 13px;">${{ $product->sale_price_before }}</span>
+                                        @if( $modeloactalizado->sale_price_before != '' )
+                                            <span style="text-decoration: line-through;font-size: 13px;">${{ $modeloactalizado->sale_price_before }}</span>
                                         @endif
-                                    @endif
+{{--                                    @endif--}}
                             </p>
                         </div>
 
@@ -93,7 +104,7 @@
                         </div>
 
                         <div class="quickview-peragraph">
-                            <p>Peso: {{ $modeloactalizado->bulk_weight }} Lb () </p>
+                            <p>Peso: {{ $modeloactalizado->bulk_weight }} Lb ( {{ $modeloactalizado->number_packages }} bulto )</p>
                         </div>
 
                         <div class="size">

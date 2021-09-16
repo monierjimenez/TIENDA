@@ -21,16 +21,24 @@ class DetailsProduct extends Component
 
     public function render()
     {
-        $this->modeloactalizado = Spec::find($this->modelo);
+       // dd($this->product);
+        if ( $this->modelo != false )
+            $this->modeloactalizado = Spec::find($this->modelo);
+        else
+            $this->modeloactalizado = $this->product;
         return view('livewire.details-product');
     }
 
     public function dameSpesc(){
-        $esp = Spec::where('product_id', '=', $this->id_product)->min('sale_price', 'id');
-        $esp1 = Spec::where('sale_price', '=', $esp)->where('product_id', '=', $this->id_product)->get();
-        foreach ( $esp1 as $item) {
-            return $item->id;
-        }
+        $esp = Spec::where('product_id', '=', $this->id_product)->where('condition', '=', '0')->min('sale_price', 'id');
+       // dd($esp);
+        if ( $esp != 'null' ) {
+            $esp1 = Spec::where('sale_price', '=', $esp)->where('product_id', '=', $this->id_product)->get();
+            foreach ( $esp1 as $item) {
+                return $item->id;
+            }
+        }else return false;
+
         //return $esp1 ;
     }
 

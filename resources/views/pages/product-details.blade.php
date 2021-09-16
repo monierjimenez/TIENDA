@@ -1,5 +1,9 @@
 @extends('layouts.layouts')
 
+@section('meta-title', $product->seotitle)
+@section('meta-description', $product->seodescription)
+@section('meta-keywords', $product->seokeywords)
+
 @section('content')
     <hr>
     <div class="breacrumb-section">
@@ -7,8 +11,10 @@
             <div class="row">
                 <div class="col-lg-12" >
                     <div class="breadcrumb-text">
-                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a>
-                        > <a href="{{ route('collections', $product->categorie) }}">{{ $product->categorie->name }}</a> <span> > {{ $product->name }}</span>
+                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a> >
+                        <a href="{{ route('collectionsall') }}"> {{ __('Collections') }}</a> >
+                        <a href="{{ route('collections', $product->categorie) }}">{{ $product->categorie->name }}</a> <span> >
+                            {{ $product->name }}</span>
                     </div>
                 </div>
             </div>
@@ -54,7 +60,13 @@
                                                     {{--                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
                                                 </div>
                                                 <div class="product-action-2">
-                                                    <a title="Add to cart" href="#">{{ __('Add to cart') }}</a>
+{{--                                                    <a title="Add to cart" href="#">{{ __('Add to cart') }}</a>--}}
+
+                                                    @if( $product->spec != '[]')
+                                                        <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}" title="Add to cart" >Elegir Opcion</a>
+                                                    @else
+                                                        <a title="Add to cart" href="#">{{ __('Add to cart') }} </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

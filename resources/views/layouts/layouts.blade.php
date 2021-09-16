@@ -73,15 +73,15 @@
 <head>
     <!-- Meta Tag -->
     <meta charset="utf-8">
-    <meta name="description" content="Fashi Template">
-    <meta name="keywords" content="Fashi, unica, creative, html">
+    <!-- Title Tag  -->
+    <title>@yield('meta-title', config('app.name') . " | Tienda")</title>
+    <meta name="description" content="@yield('meta-description', "A cualquier provincias y municipios de Cuba puede hacer su compra online desde cualquier lugar. Envio aereo 100% garantizado.")">
+    <meta name="keywords" content="@yield('meta-keywords', " Tienda")">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Title Tag  -->
-    <title>Eshop - eCommerce HTML5 Template.</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <!-- Web Font -->
@@ -167,7 +167,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="ti-close" aria-hidden="true"></span></button>
             </div>
             <div class="modal-body">
                 <div class="row no-gutters">

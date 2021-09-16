@@ -175,18 +175,24 @@
                 <div class="box-body">
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-xs-6 {{ $errors->has('payment_cuba') ? 'has-error' : '' }}">
+                            <div class="col-xs-4 {{ $errors->has('payment_cuba') ? 'has-error' : '' }}">
                                 <label>Payment Cuba</label>
                                 <input name='payment_cuba' placeholder="Payment Cuba" class="form-control" value="{{ old('payment_cuba', $product->payment_cuba) }}">
                                 {!! $errors->first('payment_cuba', '<span class="help-block">:message</span>') !!}
                             </div>
-                            <div class="col-xs-6 {{ $errors->has('condition') ? 'has-error' : '' }}">
+                            <div class="col-xs-4 {{ $errors->has('condition') ? 'has-error' : '' }}">
                                 <label>Estado Product</label>
                                 <select name="condition" class="form-control">
                                     <option value="0" {{ old('condition', $product->condition) == 0 ? 'selected' : ''}}">Active</option>
                                     <option value="1" {{ old('condition', $product->condition) == 1 ? 'selected' : ''}}>Disabled</option>
                                 </select>
                                 {!! $errors->first('condition', '<span class="help-block">:message</span>') !!}
+                            </div>
+
+                            <div class="col-xs-4 {{ $errors->has('number_packages') ? 'has-error' : '' }}">
+                                <label>Number of packages</label>
+                                <input name='number_packages' placeholder="Number of packages" class="form-control" value="{{ old('number_packages', $product->number_packages) }}">
+                                {!! $errors->first('number_packages', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                     </div>
@@ -354,7 +360,7 @@
             </div>
 
     		<div class="box-body">
-                Imagen (550x750)
+                Imagen (569x528)
 				<div class="dropzone"></div>
 			</div>
     	</div>

@@ -85,6 +85,12 @@
                             {!! $errors->first('bulk_weight', '<span class="help-block">:message</span>') !!}
                         </div>
 
+                        <div class="form-group {{ $errors->has('number_packages') ? 'has-error' : '' }}">
+                            <label>Number of packages</label>
+                            <input type="text" name='number_packages' wire:model="number_packages" class="form-control">
+                            {!! $errors->first('number_packages', '<span class="help-block">:message</span>') !!}
+                        </div>
+
                         <div class="form-group {{ $errors->has('photo') ? 'has-error' : '' }}">
                             @if ($photo)
                                 Photo Preview:
@@ -94,7 +100,7 @@
                             @if ( $spec->image != null && !$photo )
                                     <img src="/images/{{ $spec->image }}" class="profile-user-img img-responsive img-circle">
                             @endif
-                            <label>Photo</label>
+                            <label>Photo (569x528)</label>
                             <input type="file" wire:model="photo">
                             {!! $errors->first('photo', '<span class="help-block">:message</span>') !!}
                         </div>

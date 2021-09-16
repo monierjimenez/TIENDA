@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->double('sale_price');
             $table->double('shipping_price');
             $table->double('bulk_weight');
+            $table->bigInteger('number_packages');
           //  $table->string('color');
             $table->bigInteger('stock');
             $table->longText('description')->nullable();

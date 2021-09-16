@@ -45,4 +45,21 @@ class HomeController extends Controller
         $products = Product::where('id', '!=', $product->id)->inRandomOrder()->limit(10)->get();
         return view('pages.product-details', compact('product','products'));
     }
+
+    public function collectionsAll(Category $category)
+    {
+        $categorys = Category::where('condition', '=', '0')->get();
+        return view('pages.collectionsAll', compact('categorys'));
+    }
+
+    //Pages informativas
+    public function about(){
+        return view('pages.about');
+    }
+    public function termsandconditions(){
+        return view('pages.terms-and-conditions');
+    }
+    public function refunds(){
+        return view('pages.refunds');
+    }
 }

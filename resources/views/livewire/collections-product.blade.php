@@ -5,7 +5,7 @@
                 <div class="shop-sidebar visible-menu">
                     <!-- Single Widget -->
                     <div class="single-widget category" style="margin-bottom: 30px;">
-                        <h3 class="title">Categories</h3>
+                        <h3 class="title">{{ __('Collections') }}</h3>
                         <ul class="categor-list">
                             @foreach($categorys as $category)
                                 <li>
@@ -72,7 +72,8 @@
                     @else
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="single-product">
-                                No ahi Productos
+                                <br><br>
+                                <img src="/images/cart-empty.png" class="img-responsive">
                             </div>
                         </div>
                     @endif

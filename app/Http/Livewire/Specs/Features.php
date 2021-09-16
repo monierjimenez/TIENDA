@@ -20,6 +20,7 @@ class Features extends Component
     public $sale_price_before;
     public $sale_price;
     public $bulk_weight;
+    public $number_packages;
     public $condition;
     public $photo;
     public $stock;
@@ -33,6 +34,7 @@ class Features extends Component
         $this->sale_price_before = $spec->sale_price_before;
         $this->sale_price = $spec->sale_price;
         $this->bulk_weight = $spec->bulk_weight;
+        $this->number_packages = $spec->number_packages;
         $this->condition = $spec->condition;
         $this->image = $spec->image;
         $this->stock = $spec->stock;
@@ -57,6 +59,7 @@ class Features extends Component
                 'sale_price_before' => 'required|numeric',
                 'sale_price' => 'required|numeric',
                 'bulk_weight' => 'required',
+                'number_packages' => 'numeric',
                 //'photo' => 'image|max:1024',
             ]//$this->validate($request, ['codigo_producto' => 'required|unique:articulos,codigo_producto,'.$chip->id]);
         );
@@ -77,6 +80,7 @@ class Features extends Component
             'sale_price_before' => $this->sale_price_before,
             'sale_price' => $this->sale_price,
             'bulk_weight' => $this->bulk_weight,
+            'number_packages' => $this->number_packages,
             'condition' => $this->condition,
         ]);
         $spec->save();

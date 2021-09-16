@@ -32,6 +32,7 @@ class SpecsController extends Controller
             'sale_price_before' => '0',
             'sale_price' => '0',
             'bulk_weight' => '0',
+            'number_packages' => '0',
             'url' => Str::slug($request->get('reference')),
             'condition' => '1',
             'stock' => '0',
@@ -60,6 +61,7 @@ class SpecsController extends Controller
         $rules = [
             'reference' => 'required',
             'name' => 'required|unique:specs,name',
+            'number_packages' => 'numeric'
         ];
         $data = $request->validate($rules);
         $spec->update($data) ;

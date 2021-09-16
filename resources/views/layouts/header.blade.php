@@ -22,13 +22,15 @@
                             <li style="display: inline-block;border-right: 0px;border-bottom: 0px">
                                 <nav class="login-panel navbar navbar-expand-md navbar-light bg-white shadow-sm" >
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" style="padding: 0px 0px; color: #252525;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        @if( App::getLocale() == 'es' )  <img src="/images/flag-2.jpg"> @else <img src="/images/flag-1.jpg"> @endif
                                         {{ Config::get('languages')[App::getLocale()]['display'] }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="margin: 6px -68px;">
                                         @foreach (Config::get('languages') as $lang => $language)
                                             @if ($lang != App::getLocale())
                                                 <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
-                                                    {{ $language['display'] }}
+                                                    @if( App::getLocale() == 'es' )  <img src="/images/flag-1.jpg"> @else <img src="/images/flag-2.jpg"> @endif
+                                                     {{ $language['display'] }}
                                                 </a>
                                             @endif
                                         @endforeach

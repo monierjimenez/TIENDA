@@ -1424,8 +1424,14 @@
     {{--                                        <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
     {{--                                    </div>--}}
                                         <div class="product-action-2">
-                                            <a title="Add to cart" href="#">{{ __('Add to cart') }}</a>
+{{--                                            <a title="Add to cart" href="#">{{ __('Add to cart') }}</a>--}}
+                                            @if( $product->spec != '[]')
+                                                <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}" title="Add to cart" >Elegir Opcion</a>
+                                            @else
+                                                <a title="Add to cart" href="#">{{ __('Add to cart') }} </a>
+                                            @endif
                                         </div>
+
                                     </div>
                                 </div>
                                 <div class="product-content">
