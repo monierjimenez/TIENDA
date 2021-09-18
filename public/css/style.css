@@ -730,7 +730,8 @@ Version:1.0
 .header.shop .search-bar form {
 	display: inline-block;
 	float: left;
-	width: 260px;
+	/*width: 260px;*/
+    width: 561px;
 }
 .header.shop .search-bar input {
 	height: 48px;
@@ -740,9 +741,9 @@ Version:1.0
 	border: none;
 	font-size: 14px;
 	font-weight: 400;
-	padding: 0 25px 0 20px;
+	padding: 0 10px 0 10px;
 	/*width: 328px;*/
-    width: 410px;
+    width: 390px;
 }
 .header.shop .search-bar .btnn {
 	height: 50px;

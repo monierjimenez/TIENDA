@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a>
                         <span>> Login</span>
                     </div>
                 </div>
@@ -72,15 +72,15 @@
                             <a href="{{ route('register') }}" class="or-login">Or Create An Account</a>
                         </div>
                         <br>
-                        <div class="social-auth-links text-center">
-                            <p>- OR -</p>
-                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat" style="color: #fff">
-                                <i class="fa fa-facebook"></i> Sign in using Facebook
-                            </a>
-                            <a href="#" class="btn btn-block btn-social btn-google btn-flat" style="color: #fff">
-                                <i class="fa fa-google-plus"></i> Sign in using Google+
-                            </a>
-                        </div>
+{{--                        <div class="social-auth-links text-center">--}}
+{{--                            <p>- OR -</p>--}}
+{{--                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat" style="color: #fff">--}}
+{{--                                <i class="fa fa-facebook"></i> Sign in using Facebook--}}
+{{--                            </a>--}}
+{{--                            <a href="#" class="btn btn-block btn-social btn-google btn-flat" style="color: #fff">--}}
+{{--                                <i class="fa fa-google-plus"></i> Sign in using Google+--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

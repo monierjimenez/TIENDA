@@ -3,41 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/SpecsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/SpecsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/DetailsProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/DetailsProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Specs/Features.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Specs/Features.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/responsive.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/1OT0P9EVzfI2OMBtw7PwAGs4opmbie-metaQnJlbnR3b29kX0tvb2xfWm9uZV9GXzE2U01CXzNfU3BlZWRfMTZfMV8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/54lmyoiNoK7S5rKhFaHMhkgit87QcE-metaQnJlbnR3b29kX0tvb2xfWm9uZV9GXzE2U01CXzNfU3BlZWRfMTZfMV8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/G4uaSXPlLi4tif40ynIR1B0CTaSnKn-metaQnJlbnR3b29kX0tvb2xfWm9uZV9GXzE2U01CXzNfU3BlZWRfMTZfMV8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/HVqS4lLOLgBLih9zxRkAcoqGXd9dB7-metaQnJlbnR3b29kX0pCXzkyMEJfNC5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/MQJC4EJcPgZUipwQRu6egngAWxHRU0-metaQnJlbnR3b29kX0tvb2xfWm9uZV9GXzE2U01CXzNfU3BlZWRfMTZfMl8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/OpyBPIe5KWZdnrkJCtxrRRsrBxBd3c-metaSW11c2FfUmljZV9Db29rZXJfMDAxMV8wMDEyXzAwMTNfMS5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/WHIcHhSeB0mezuNW4OARZTzsn1TcQm-metaQnJlbnR3b29kX0pCXzkyMFdfMS5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/dEIls1DdeDhaM7K5iQWl1kQbGUNyrQ-metaQnJlbnR3b29kX0pCXzkyMFdfMS5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/hv0eOMNkjiXCmkW8WJXjyShNcfhZTB-metaQnJlbnR3b29kX0pCXzkyMFdfMS5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/koDhchNDzjrG7qu5NSHpriZ2uJn7ee-metaSW11c2FfUmljZV9Db29rZXJfMDAxMl8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/x38WrZ3xfhSlDGYxm6gDMe1ghyWDUP-metaQnJlbnR3b29kX0tvb2xfWm9uZV9GXzE2U01CXzNfU3BlZWRfMTZfMV8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/xDkycqMC3wejA2t5vDSE8mThL1ftuu-metaQnJlbnR3b29kX0pCXzkyMEJfNC5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/xYSD4snG5efHQV71YSdBTrH53vbMzP-metaQnJlbnR3b29kX0pCXzkyMEJfMy5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/yn8GYZ8SxAFSsJWx6yDBDStSufHVig-metaQnJlbnR3b29kX0tvb2xfWm9uZV9GXzE2U01CXzNfU3BlZWRfMTZfMV8xLmpwZw==-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/products/FuizCjeBy6s2xxLiRBFyKek3p3gsOnZayeCeLBVV.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/products/FuizCjeBy6s2xxLiRBFyKek3p3gsOnZayeCeLBVV.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/products/zv8HFXEDFqHCIeYukUnyrJNLxgFWqujg1M2Ru4fD.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/products/zv8HFXEDFqHCIeYukUnyrJNLxgFWqujg1M2Ru4fD.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/specs/features.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/specs/features.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/collections-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/collections-product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/details-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/details-product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/collectionsProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/collectionsProduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +195,7 @@
       <workItem from="1628907127313" duration="67337000" />
       <workItem from="1629670433319" duration="82872000" />
       <workItem from="1631413233942" duration="56966000" />
-      <workItem from="1631743091542" duration="11729000" />
+      <workItem from="1631743091542" duration="18382000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -338,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631530843811</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="plantilla frond end">
+      <created>1631763174224</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1631763174224</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

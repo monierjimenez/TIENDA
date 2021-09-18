@@ -5,8 +5,8 @@
                 <div class="col-lg-4 col-md-12 col-12">
                     <!-- Top Left -->
                     <div class="top-left">
-                        <ul class="list-main">
-                            <li style="font-size: 12px;width: 318px;">
+                        <ul class="list-main support-home">
+                            <li >
                                 <i class="ti-headphone-alt" style="color: #F7941D;"></i> +060 (800) 801-582 &nbsp;
                                 <i class="ti-email" style="color: #F7941D;"></i>support@shophub.com
                             </li>
@@ -106,7 +106,6 @@
                                                                                         <div class="top-search">
                                                                                             <a href="#0"><i class="ti-search"></i> </a>
                                                                                         </div>
-
                                                                                         <!-- Search Form -->
                                                                                         <div class="search-top">
                                                                                             <form class="search-form">
@@ -120,14 +119,14 @@
 
                                                                                 <div class="col-lg-8 col-md-7 col-12">
                                                                                     <div class="search-bar-top">
-                                                                                        <div class="search-bar">
-                                                                                            <select>
-                                                                                                <option selected="selected">{{ __('ALL CATEGORIES') }}</option>
-                                                                                                @foreach($categorysList as $categoryList)
-                                                                                                    <option value="{{ $categoryList->id }}">{{ $categoryList->name }} </option>
-                                                                                                @endforeach
-                                                                                            </select>
-                                                                                            <form>
+                                                                                        <div class="search-bar"><form>
+                                                                                                <select>
+                                                                                                    <option selected="selected">{{ __('ALL CATEGORIES') }}</option>
+                                                                                                    @foreach($categorysList as $categoryList)
+                                                                                                        <option value="{{ $categoryList->id }}">{{ $categoryList->name }} </option>
+                                                                                                    @endforeach
+                                                                                                </select>
+
                                                                                                 <input name="search" placeholder="Search Products Here op....." type="search" autocomplete="off">
                                                                                                 <button class="btnn"><i class="ti-search"></i></button>
                                                                                             </form>
