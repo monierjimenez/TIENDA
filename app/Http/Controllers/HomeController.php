@@ -62,4 +62,13 @@ class HomeController extends Controller
     public function refunds(){
         return view('pages.refunds');
     }
+
+    public function search(Request $request){
+      //  return $request ;
+        if ( $request->category == 0 )
+            $products = Product::where('name', 'LIKE', '%'.$request->search.'%')->limit(25)->get();
+        else
+            $products = Product::where('categorie_id', 'LIKE', '%'.$request->category.'%')->where('name', 'LIKE', '%'.$request->search.'%')->limit(25)->get();
+        return view('pages.productSearch', compact('products'));
+    }
 }

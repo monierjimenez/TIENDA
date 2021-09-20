@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
     Auth::routes();
 
     Route::get('/', 'HomeController@index')->name('welcome');
+    Route::get('search', 'HomeController@search')->name('search');
 
     Route::get('collectionsProduct/{category}', 'HomeController@collectionsProduct')->name('collections');
     Route::get('collections', 'HomeController@collectionsAll')->name('collectionsall');

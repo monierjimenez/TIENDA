@@ -23,7 +23,7 @@
 {{--            <div wire:loading.delay >--}}
 {{--                    Cargando--}}
 {{--            </div>--}}
-            <div class="col-lg-9 col-md-8 col-12" style="margin-top: -51px;"  >
+            <div class="col-lg-9 col-md-8 col-12" style="margin-top: -16px;"  >
                 <div class="collections" wire:loading.class="invisible" >
 {{--                    row--}}
                     @if($products != '[]')

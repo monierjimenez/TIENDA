@@ -25,7 +25,7 @@
 </section>
 
 <!-- Start Small Banner  -->
-<section class="small-banner section">
+<section class="small-banner-frond section">
     <div class="container-fluid">
 {{-- en el div de abajo lo flex--}}
         <div class="collections">

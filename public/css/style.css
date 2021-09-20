@@ -437,7 +437,7 @@ Version:1.0
 .header.shop .list-main li {
 	display: inline-block;
 	color: #333;
-	font-size: 13px;
+	/*font-size: 13px;*/
 	font-weight: 500;
 	border-right: 1px solid #f0f0f0;
 	padding: 0px 6px;
@@ -1060,13 +1060,39 @@ Version:1.0
 	background:#F7941D;
 }
 .header.shop .right-bar {
-	display: inline-block;
-    padding: 0 0px 0 85px;
-	margin: 0;
-    width: 182px;
-	top: 20px;
-	float: right;
-	position: relative;
+	/*display: inline-block;*/
+    /*padding: 0 0px 0 85px;*/
+	/*margin: 0;*/
+    /*width: 182px;*/
+	/*top: 20px;*/
+	/*float: right;*/
+	/*position: relative;*/
+
+
+    /*display: inline-block;*/
+    /*padding: 0 0px 0 0px;*/
+    /*margin-right: 71px;*/
+    /*margin-left: 18px;*/
+    /*!* margin: 0; *!*/
+    /*width: 191px;*/
+    /*top: 20px;*/
+    /*!* float: right; *!*/
+    /*position: relative;*/
+
+
+    display: inline-block;
+    padding: 0 0px 0 0px;
+    margin-right: 0px;
+    margin-left: 21px;
+    /* margin: 0; */
+    width: 161px;
+    top: 20px;
+    /* float: right; */
+    position: relative;
+}
+
+.search-top-mobile {
+    display: none;
 }
 .header.shop .right-bar .sinlge-bar.top-search a {
 	transform: translateY(3px);
@@ -1816,7 +1842,7 @@ Version:1.0
 }
 /* Sinlge Product */
 .single-product{
-	margin-top:50px;
+	margin-top:0px;
 }
 .single-product .product-img {
   position: relative;
