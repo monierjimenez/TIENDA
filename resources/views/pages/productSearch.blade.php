@@ -23,8 +23,10 @@
 
     <section class="product-area shop-sidebar shop section">
         <div class="container">
+             {{ count($products) }} {{ __('results') }}
             <div class="collections" wire:loading.class="invisible" >
                 {{--                    row--}}
+
                 @if($products != '[]')
                     @foreach( $products as $product )
                         <div class="collection-items" >
