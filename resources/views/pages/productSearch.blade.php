@@ -23,10 +23,10 @@
 
     <section class="product-area shop-sidebar shop section">
         <div class="container">
-             {{ count($products) }} {{ __('results') }}
+
+            @if($products == "[]") 0 @else {{ count($products) }} @endif  {{ __('results') }}
             <div class="collections" wire:loading.class="invisible" >
                 {{--                    row--}}
-
                 @if($products != '[]')
                     @foreach( $products as $product )
                         <div class="collection-items" >
@@ -48,11 +48,7 @@
                                             {{--                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
                                         </div>
                                         <div class="product-action-2">
-                                            @if( $product->spec != '[]')
-                                                <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}" title="Add to cart" >Elegir Opcion</a>
-                                            @else
-                                                <a title="Add to cart" href="#">{{ __('Add to cart') }} </a>
-                                            @endif
+                                            @include('layouts.menu_cart_or_option')
                                         </div>
                                     </div>
                                 </div>

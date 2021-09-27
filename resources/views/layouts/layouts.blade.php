@@ -135,6 +135,7 @@
     </header>
     <!--/ End Header -->
 
+
     @yield('content')
 
 <!-- Start Shop Newsletter  -->

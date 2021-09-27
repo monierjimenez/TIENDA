@@ -40,6 +40,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="quickview-content">
                         <h2>{{ $product->name }}</h2>
+
                         <div class="quickview-ratting-review">
                             {{--                                    <div class="quickview-ratting-wrap">--}}
                             {{--                                        <div class="quickview-ratting">--}}
@@ -52,7 +53,7 @@
                             {{--                                        <a href="#"> (1 customer review)</a>--}}
                             {{--                                    </div>--}}
                             <div class="default-social">
-                                <h4 class="share-now">Share:</h4>
+                                <h4 class="share-now">{{ __('Share') }}:</h4>
                                 <ul>
                                     <li>
                                         <a href="https://www.facebook.com/sharer/sharer.php?u={{Request::fullUrl()}}&title={{$product->seotitle}}"
@@ -72,14 +73,14 @@
                                 </ul>
                             </div>
                             <div class="quickview-stock">
-                                <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                <span><i class="fa fa-check-circle-o"></i> {{ __('in stock') }}</span>
                             </div>
                         </div>
                         <hr class="hr-personality">
 
                         <div class="quickview-peragraph">
                             <p>
-                                Precio:
+                                {{ __('Price') }}:
                                 <span class="style-price-product">
 {{--                                    @if($product->spec != '[]')--}}
 {{--                                        {{ $modeloactalizado->sale_price }}--}}
@@ -100,18 +101,21 @@
                         </div>
 
                         <div class="quickview-peragraph">
-                            <p>Envio: $0 </p>
+                            <p>{{ __('Shipping') }}: $0 </p>
                         </div>
 
                         <div class="quickview-peragraph">
-                            <p>Peso: {{ $modeloactalizado->bulk_weight }} Lb ( {{ $modeloactalizado->number_packages }} bulto )</p>
+                            <p>{{ __('Weight') }}: {{ $modeloactalizado->bulk_weight }} Lb ( {{ $modeloactalizado->number_packages }} {{ __('package') }} )</p>
                         </div>
-
+{{--                        <form method="POST" action="{{ route('shopping_cart_details.store') }}">--}}
+{{--                            @csrf--}}
+                        <form method="POST" action="{{ route('shopping_cart_details.store', $product) }}">
+                            @csrf
                         <div class="size">
                             <div class="row">
                                 @if($product->spec != '[]')
                                     <div class="col-lg-6 col-12" wire:ignore>
-                                        <h5 class="title">Modelo</h5>
+                                        <h5 class="title">{{ __('Model') }}</h5>
 
 {{--                                        <a href="#" wire:click="selecSpecs(1)">--}}
 {{--                                            <i class="fa  fa-angle-double-right"></i> eweewewew--}}
@@ -142,7 +146,7 @@
 
                                 @if($product->colore_id != null)
                                         <div class="col-lg-6 col-12" wire:ignore>
-                                            <h5 class="title">Color</h5>
+                                            <h5 class="title">{{ __('Colour')  }}</h5>
                                             <select name="color">
                                                 @foreach(explode('.', $product->colore_id) as $info )
                                                     @php $colo = dameColor($info) ; @endphp
@@ -172,8 +176,10 @@
                             <!--/ End Input Order -->
                         </div>
                         <div class="add-to-cart">
-                            <a href="#" class="btn btn-block">Add to cart</a>
-                            <a href="{{ route('collections', $product->categorie) }}" class="btn btn-block">Continuar Comprando</a>
+{{--                            <a href="#" class="btn btn-block">{{ __('Add to cart') }}</a>--}}
+                            <button type="submit" class='btn btn-block'>{{ __('Add to cart') }}</button>
+                        </from>
+                            <a href="{{ route('collections', $product->categorie) }}" class="btn btn-block">{{ __('Continue buying') }}</a>
                             {{--                                    <a href="#" class="btn min"><i class="ti-heart"></i></a>--}}
                             {{--                                   <a href="#" class="btn min"><i class="fa fa-compress"></i></a>--}}
                         </div>
@@ -182,24 +188,24 @@
                         <div class="quickview-peragraph">
                             <p>
                                 @if($product->brand != '')
-                                    Marca:  {{ $product->brands[0]['name'] }}
+                                    {{ __('Brand') }}:  {{ $product->brands[0]['name'] }}
                                 @endif
                                 @if($product->model != '')
-                                    <br>Modelo:  {{ $product->modelp[0]['name'] }}
+                                    <br>{{ __('Model') }}:  {{ $product->modelp[0]['name'] }}
                                 @endif
                             </p>
                         </div>
 
                         <div class="quickview-peragraph">
                             @if($product->description != '')
-                                <span class="style-price-product">Descripcion</span> <br>
+                                <span class="style-price-product">{{ __('Description') }}</span> <br>
                                 {!! $product->description !!}
                             @endif
                         </div>
 
                         <div class="quickview-peragraph">
                             @if($product->features != '')
-                                <span class="style-price-product">Características</span>
+                                <span class="style-price-product">{{ __('Features') }}</span>
                                 {!! $product->features !!}
                             @endif
 

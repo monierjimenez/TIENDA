@@ -3,9 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/ViewComposers/CategoryList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/ViewComposers/CategoryList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2017_03_08_013823_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2017_03_08_013823_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2017_03_08_013823_create_specs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2017_03_08_013823_create_specs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/collections-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/collections-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/details-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/details-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/product-details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/productSearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/productSearch.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +206,7 @@
       <workItem from="1628907127313" duration="67337000" />
       <workItem from="1629670433319" duration="82872000" />
       <workItem from="1631413233942" duration="56966000" />
-      <workItem from="1631743091542" duration="45945000" />
+      <workItem from="1631743091542" duration="95336000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -327,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632116664792</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="plantilla frond end">
+      <created>1632198369590</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1632198369591</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,6 +390,11 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/routes/web.php</url>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php</url>
+          <line>34</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

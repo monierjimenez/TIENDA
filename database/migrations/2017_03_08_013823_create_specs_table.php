@@ -15,7 +15,7 @@ class CreateSpecsTable extends Migration
     {
         Schema::create('specs', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('product_id'),
+            $table->bigInteger('product_id');
             $table->string('reference');
             $table->string('name');
             $table->double('cost_price');

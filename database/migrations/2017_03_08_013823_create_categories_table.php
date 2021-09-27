@@ -17,9 +17,9 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
-            $table->string('seotitle'),
-            $table->longText('seodescription'),
-            $table->string('seokeywords'),
+            $table->string('seotitle');
+            $table->longText('seodescription');
+            $table->string('seokeywords');
             $table->bigInteger('condition');
             $table->string('image')->nullable();
             $table->timestamps();

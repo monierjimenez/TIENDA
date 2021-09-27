@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="quickview-content">
-                    <h2>También te puede interesar</h2><br></div>
+                    <h2>{{ __('You may also like') }}</h2><br></div>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@
                                                 <img class="default-img" src="/images/{{primeraPhotoProduct($product)}}" alt="#">
                                                 {{--<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">--}}
                                                 {{--                                        new, out-of-stock --}}
-                                                <span class="out-of-stock">Ahorras {{ $product->sale_price_before-$product->sale_price }}</span>
+                                                <span class="out-of-stock">{{ __('You save') }} {{ $product->sale_price_before-$product->sale_price }}</span>
                                             </a>
                                             <div class="button-head">
                                                 <div class="product-action">
@@ -60,13 +60,7 @@
                                                     {{--                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
                                                 </div>
                                                 <div class="product-action-2">
-{{--                                                    <a title="Add to cart" href="#">{{ __('Add to cart') }}</a>--}}
-
-                                                    @if( $product->spec != '[]')
-                                                        <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}" title="Add to cart" >Elegir Opcion</a>
-                                                    @else
-                                                        <a title="Add to cart" href="#">{{ __('Add to cart') }} </a>
-                                                    @endif
+                                                    @include('layouts.menu_cart_or_option')
                                                 </div>
                                             </div>
                                         </div>
@@ -89,6 +83,4 @@
                 </div>
             </div>
         </div>
-
-
 @stop

@@ -158,7 +158,9 @@
                                                                                 <div class="col-lg-8 col-md-8 col-12" style="margin-right: 0px;">
                                                                                     <div class="search-bar-top">
                                                                                         <div class="search-bar">
+
                                                                                             <form method="GET" action="{{ route('search') }}" >
+
                                                                                                 <select name="category">
                                                                                                     <option value="0"  {{ isset($_GET['category']) ? 'selected' : '' }}>
                                                                                                         {{ __('ALL CATEGORIES') }}
@@ -190,11 +192,16 @@
 
                                                                                         <div class="sinlge-bar shopping">
                                                                                             <a href="#" class="single-icon">
-                                                                                                <i class="fa fa-opencart"></i> <span class="total-count">2</span>
+                                                                                                <i class="fa fa-opencart"></i>
+                                                                                                <span class="total-count">{{ $shopping_cart->quantity_of_products() }}</span>
                                                                                             </a>
 
                                                                                         </div>
-                                                                                        <div class="sinlge-bar">&nbsp;$150.00</div>
+                                                                                        <div class="sinlge-bar">&nbsp;
+                                                                                            @if( $shopping_cart->total_price_products() != 0 )
+                                                                                                ${{ $shopping_cart->total_price_products() }}
+                                                                                            @else $00.00 @endif
+                                                                                        </div>
                                                                                         {{--    <div class="sinlge-bar">--}}
 {{--                                                                                            <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>--}}
 {{--                                                                                            --}}
@@ -221,5 +228,8 @@
             </div>
         </div>
     </div>
+
+    {{$shopping_cart}}
+{{--    {{session('shopping_cart_id')}}--}}
 
 

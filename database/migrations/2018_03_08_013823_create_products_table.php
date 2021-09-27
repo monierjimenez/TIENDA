@@ -33,9 +33,9 @@ class CreateProductsTable extends Migration
             $table->longText('features');
             $table->string('payment_cuba');
             $table->string('sku');
-            $table->string('seotitle'),
-            $table->longText('seodescription'),
-            $table->string('seokeywords'),
+            $table->string('seotitle');
+            $table->longText('seodescription');
+            $table->string('seokeywords');
             $table->bigInteger('condition');
             $table->string('products_id');
             $table->timestamps();

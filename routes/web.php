@@ -21,4 +21,13 @@ use Illuminate\Support\Facades\Route;
     Route::get('terms-and-conditions', 'HomeController@termsandconditions')->name('pages.terms-and-conditions');
     Route::get('refunds', 'HomeController@refunds')->name('pages.refunds');
 
-// Route::get('/admin', 'HomeController@admin')->name('admin');
+    //Rutas del carrito de compras
+    Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')
+        ->only(['update', 'destroy'])->names('shopping_cart_details');
+
+    Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
+    Route::get('add_a_product_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product.store');
+
+
+    //Route::resource('products', 'ProductsController', ['as' => 'admin']);
+    // Route::get('/admin', 'HomeController@admin')->name('admin');
