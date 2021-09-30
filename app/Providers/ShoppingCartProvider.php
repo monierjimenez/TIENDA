@@ -27,7 +27,7 @@ class ShoppingCartProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['layouts.header'], 'App\Http\ViewComposers\CartShopping');
+        View::composer(['layouts.header', 'pages.shopping-cart'], 'App\Http\ViewComposers\CartShopping');
 
 //        view()->composer("*", function ($view){
 //            //dd($shopping_cart_id);

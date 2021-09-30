@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 //    });
 
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
-
     Auth::routes();
 
     Route::get('/', 'HomeController@index')->name('welcome');
@@ -24,6 +23,7 @@ use Illuminate\Support\Facades\Route;
     //Rutas del carrito de compras
     Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')
         ->only(['update', 'destroy'])->names('shopping_cart_details');
+    Route::get('cart', 'CartController@cart')->name('pages.cart');
 
     Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
     Route::get('add_a_product_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product.store');

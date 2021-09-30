@@ -191,7 +191,7 @@
 {{--                                                                                        </div>--}}
 
                                                                                         <div class="sinlge-bar shopping">
-                                                                                            <a href="#" class="single-icon">
+                                                                                            <a href="{{ route('pages.cart') }}" class="single-icon">
                                                                                                 <i class="fa fa-opencart"></i>
                                                                                                 <span class="total-count">{{ $shopping_cart->quantity_of_products() }}</span>
                                                                                             </a>
@@ -229,7 +229,7 @@
         </div>
     </div>
 
-    {{$shopping_cart}}
+{{--    {{$shopping_cart}}--}}
 {{--    {{session('shopping_cart_id')}}--}}
 
 

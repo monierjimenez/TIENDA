@@ -86,6 +86,9 @@ class ProductsController extends Controller
         $this->validate($request, [
             'sku' => 'required',
             'name' => 'required',
+            'cost_price' => 'required',
+            'sale_price_before' => 'required',
+            'sale_price' => 'required',
             'categorie_id' => 'required',
             'number_packages' => 'numeric',
             'seotitle' => 'required',

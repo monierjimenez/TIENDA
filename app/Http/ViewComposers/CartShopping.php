@@ -32,7 +32,9 @@
 
                     Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
                 }
-            } else { $shopping_cart = ShoppingCart::find(session('shopping_cart_id')); Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60)); }
+            } else {
+                $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
+                Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60)); }
 
             $view->with(['shopping_cart' => $shopping_cart]);
         }

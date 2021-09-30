@@ -1003,7 +1003,7 @@ Version:1.0
         margin-bottom: 30px;
     }
     .shopping-cart .total-amount {
-        margin-top: 30px;
+        margin-top: 20px;
     }
     .shopping-cart .total-amount .left .coupon form .btn {
         display: inline-block;
