@@ -45,9 +45,6 @@ class Features extends Component
         return view('livewire.admin.specs.features');
     }
 
-    //, [
-    //            'featurespecs' => Featurespec::where('id_specs', '=', $this->idspec)->get()
-    //        ]
     public function addFeatures()
     {
         $spec = Spec::find($this->idspec);

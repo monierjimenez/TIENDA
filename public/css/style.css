@@ -1109,17 +1109,28 @@ Version:1.0
 	color:#F7941D;
 }
 .header.shop .right-bar .sinlge-bar .single-icon .total-count {
-	position: absolute;
-	top: -7px;
-	right: -8px;
-	background: #f6931d;
-	width: 18px;
-	height: 18px;
-	line-height: 18px;
-	text-align: center;
-	color: #fff;
-	border-radius: 100%;
-	font-size: 11px;
+    position: absolute;
+    top: -12px;
+    right: -13px;
+    background: #f6931d;
+    width: 24px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    border-radius: 100%;
+    font-size: 11px;
+	/*position: absolute;*/
+	/*top: -7px;*/
+	/*right: -8px;*/
+	/*background: #f6931d;*/
+	/*width: 18px;*/
+	/*height: 18px;*/
+	/*line-height: 18px;*/
+	/*text-align: center;*/
+	/*color: #fff;*/
+	/*border-radius: 100%;*/
+	/*font-size: 11px;*/
 }
 .header.shop .right-bar .sinlge-bar{
 	display:inline-block;

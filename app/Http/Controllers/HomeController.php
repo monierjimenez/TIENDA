@@ -64,8 +64,6 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
-      //  if ( $request->search ) return 1 ; else return 2;
-      //  return $request ;
         if ( $request->category == 0 ) {
             if ( $request->search != null)
                 $products = Product::where('name', 'LIKE', '%' . $request->search . '%')->limit(25)->get();

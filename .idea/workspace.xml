@@ -3,17 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/ViewComposers/CartShopping.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/ViewComposers/CartShopping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ShoppingCartProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ShoppingCartProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Specs/Features.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Specs/Features.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ShoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ShoppingCartDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCartDetail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/responsive.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/shopping-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/shopping-cart.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +201,7 @@
       <workItem from="1628907127313" duration="67337000" />
       <workItem from="1629670433319" duration="82872000" />
       <workItem from="1631413233942" duration="56966000" />
-      <workItem from="1631743091542" duration="116674000" />
+      <workItem from="1631743091542" duration="143333000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -349,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632716399063</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="plantilla frond end">
+      <created>1632970240109</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1632970240111</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

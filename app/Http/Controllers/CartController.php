@@ -25,7 +25,7 @@ class CartController extends Controller
 //            ->get() ;
 
         $shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))
-            ->get() ;
+            ->orderBy('updated_at', 'desc')->get() ;
         $nam = '';
 //        foreach ( $products->product as $product )
 //        {

@@ -43,13 +43,13 @@ class ShoppingCart extends Model
         return $total;
     }
 
-    public function total_save_mony(){
-        $total = 0 ;
-        foreach ( $this->shopping_cart_details as $key => $shopping_cart_details ){
-                $total += $shopping_cart_details->save*$shopping_cart_details->quantity ;
-        }
-        return $total;
-    }
+//    public function total_save_mony(){
+//        $total = 0 ;
+//        foreach ( $this->shopping_cart_details as $key => $shopping_cart_details ){
+//                $total += $shopping_cart_details->save*$shopping_cart_details->quantity ;
+//        }
+//        return $total;
+//    }
 
     public static function get_the_session_shopping_cart(){
         return ShoppingCart::findOrCreateBySessionId(session('shopping_cart_id'));
