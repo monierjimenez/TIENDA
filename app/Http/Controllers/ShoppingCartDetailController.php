@@ -7,6 +7,7 @@ use App\Product;
 use App\ShoppingCart;
 use App\ShoppingCartDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Utils;
 
 class ShoppingCartDetailController extends Controller
@@ -46,6 +47,7 @@ class ShoppingCartDetailController extends Controller
                     'modelo' => $request->modelo,
                     'color' => $request->color,
                 ]);
+                //$this->statusCarts($shopping_cart);
             }else{
                 $product_shopping_cart = ShoppingCartDetail::find($product_shopping_cart[0]['id']);
                 $product_shopping_cart->update([
@@ -70,6 +72,7 @@ class ShoppingCartDetailController extends Controller
                     'modelo' => $request->modelo,
                     'color' => '0',
                 ]);
+                //$this->statusCarts($shopping_cart);
             }else{
                 $product_shopping_cart = ShoppingCartDetail::find($product_shopping_cart[0]['id']);
                 $product_shopping_cart->update([
@@ -94,6 +97,7 @@ class ShoppingCartDetailController extends Controller
                     'modelo' => '0',
                     'color' => $request->color,
                 ]);
+                //$this->statusCarts($shopping_cart);
             }else{
                 $product_shopping_cart = ShoppingCartDetail::find($product_shopping_cart[0]['id']);
                 $product_shopping_cart->update([
@@ -101,7 +105,6 @@ class ShoppingCartDetailController extends Controller
                 ]);
             }
         }else{
-
             //cuando es un producto normal in modelo y sin color
             $product_shopping_cart = ShoppingCartDetail::where( 'product_id', '=', $product->id)->where('shopping_cart_id', '=', $shopping_cart->id)->get();
             if ( $product_shopping_cart == '[]' )
@@ -114,6 +117,7 @@ class ShoppingCartDetailController extends Controller
                     'modelo' => '0',
                     'color' => '0',
                 ]);
+                //$this->statusCarts($shopping_cart);
             }else{
                 $product_shopping_cart = ShoppingCartDetail::find($product_shopping_cart[0]['id']);
                 $product_shopping_cart->update([
@@ -128,12 +132,12 @@ class ShoppingCartDetailController extends Controller
     public function store_a_product(Request $request, Product $product)
     {
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
+        //dd($shopping_cart);
         $save = '0';
         if( $product->sale_price_before != 0 )
             $save = $product->sale_price_before - $product->sale_price ;
 
         $product_shopping_cart = ShoppingCartDetail::where( 'product_id', '=', $product->id)->where('shopping_cart_id', '=', $shopping_cart->id)->get();
-
         if ( $product_shopping_cart == '[]' ) {
             $shopping_cart->shopping_cart_details()->create([
                 'product_id' => $product->id,
@@ -143,6 +147,7 @@ class ShoppingCartDetailController extends Controller
                 'modelo' => '0',
                 'color' => '0',
             ]);
+            //$this->statusCarts($shopping_cart);
         }else{
             $product_shopping_cart = ShoppingCartDetail::find($product_shopping_cart[0]['id']);
             $product_shopping_cart->update([
@@ -153,6 +158,28 @@ class ShoppingCartDetailController extends Controller
         }
         return back();
     }
+
+//    public function statusCarts($shopping_cart)
+//    {
+//        //if ( $shopping_cart->status )
+//        if ( Auth::guest() && $shopping_cart->status == 'ACTIVE' ){
+//            $shopping_cart->update([
+//                'status' => 'PENDING',
+//            ]);
+//        }
+//    }
+
+
+//    guest
+//        creo carrito
+//        creo variable session
+//        creo cookie
+//        status ACTIVADO
+//    user registrado
+//        pongo id user a carrito
+//        status PENDIENTE
+//
+//se fue el user y entro como guest se actualiza el carrito a
 
 //    public function show(ShoppingCartDetail $shoppingCartDetail)
 //    {

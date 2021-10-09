@@ -43,7 +43,6 @@ class CartsDetails extends Component
     }
 
     public function quantity_of_products(){
-        //dd($this->shoppingcartdetails->sum('quantity'));
         return $this->shoppingcartdetails->sum('quantity');
     }
 }

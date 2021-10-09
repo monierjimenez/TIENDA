@@ -16,6 +16,7 @@ use App\Spec;
             return false;
         }
     }
+
     //me devuelve la cantidad de permisos que tiene el rol.
     function checkrightscant($allpermissions) {
             $a = 0 ;

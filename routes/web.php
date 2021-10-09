@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Route;
         ->only(['update', 'destroy'])->names('shopping_cart_details');
     Route::get('cart', 'CartController@cart')->name('pages.cart');
 
+    //rotas checkout
+    Route::get('checkout', 'CheckoutController@index')->name('pages.checkout');
+
     Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
     Route::get('add_a_product_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product.store');
 

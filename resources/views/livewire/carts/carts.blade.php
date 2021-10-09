@@ -20,14 +20,15 @@
                     @if ( count($shoppingcartdetails) != 0 )
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-12">
+                                {{ session('shopping_cart_id') }}
                                 <!-- Shopping Summery -->
                                 <table class="table shopping-summery">
                                     <thead>
                                     <tr class="main-hading">
-                                        <th>{{ __('Product') }}</th>
+                                        <th>{{ __('PRODUCT') }}</th>
                                         <th></th>
                                         {{--                                        <th class="text-center">PRICE</th>--}}
-                                        <th class="text-center">QUANTITY</th>
+                                        <th class="text-center">{{ __('QUANTITY') }}</th>
                                         <th class="text-center">TOTAL</th>
                                         <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                                     </tr>
@@ -88,13 +89,13 @@
                                             <td class="qty" data-title="Qty"><!-- Input Order -->
                                                 <div class="input-group">
                                                     <div class="button minus">
-                                                        <button type="button" class="btn btn-primary btn-number" data-type="minus" data-field="quant[1]">
+                                                        <button type="button" name="quantminus{{$shoppingcartdetail->id}}" wire:click="productMinus({{$shoppingcartdetail->id}})" class="btn btn-primary btn-number" data-type="minus"">
                                                             <i class="ti-minus"></i>
                                                         </button>
                                                     </div>
-                                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="100" value="{{ $shoppingcartdetail->quantity }}">
+                                                    <input type="text" name="quant" class="input-number" disabled data-min="1" data-max="100" value="{{ $shoppingcartdetail->quantity }}">
                                                     <div class="button plus">
-                                                        <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                                        <button type="button" name="quantplus" wire:click="productPlus({{$shoppingcartdetail->id}})" class="btn btn-primary btn-number" data-type="plus">
                                                             <i class="ti-plus"></i>
                                                         </button>
                                                     </div>
@@ -129,11 +130,30 @@
                                             </li>
                                         </ul>
                                         <div class="button5">
-                                            <a href="#" class="btn">{{ __('PROCEED TO PAYMENT') }}</a>
+                                            <a href="{{ route('pages.checkout') }}" class="btn">{{ __('PROCEED TO PAYMENT') }}</a>
                                             <a href="{{ route('collectionsall') }}" class="btn">{{ __('Continue buying') }}</a>
                                         </div>
                                     </div>
+
+                                    <div class="left">
+                                        <hr style="margin-bottom: 1.0em;margin-top: 1.0em;">
+                                        <ul>
+                                            <li>
+                                                <i class="fa fa-angle-double-right"></i> Todas las transacciones son seguras y encriptadas
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-angle-double-right"></i> No almacenamos sus datos personales o información sobre sus métodos de pago
+                                            </li>
+                                        </ul>
+                                    </div>
+
                                 </div>
+                                <p style="font-size: 18px; text-align: center !important;color: #000000;margin-top: 10px;">
+                                    Aceptamos<br>
+                                    <img src="/images/pay-mastercard.png" style="width: 40px;">
+                                    <img src="/images/pay-american-ex.png" style="width: 40px;">
+                                    <img src="/images/pay-visa.png" style="width: 40px;">
+                                </p>
                             </div>
                         </div>
                     @else

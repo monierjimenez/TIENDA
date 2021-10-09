@@ -20,6 +20,7 @@ class Carts extends Component
         $this->shoppingcartdetails = $shoppingcartdetails;
         $this->total_price_products = 0;
         $this->total_save_mony = 0;
+        $this->shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->get();
     }
 
     public function render()
@@ -30,6 +31,38 @@ class Carts extends Component
         $this->total_save_mony = $this->total_save_mony();
         $this->total_price_products = $this->total_price_products();
         return view('livewire.carts.carts');
+    }
+
+    public function productMinus($id){
+        $details = ShoppingCartDetail::find($id);
+        $details->update([
+            'quantity' => $details->quantity-1,
+        ]);
+        $this->emit('CartsDetails');
+        if( $details->quantity == 0 )
+        {
+            $details->delete();
+            if(count($this->shoppingDetailsCount()) == 0 ){
+                $this->shopping_cart->update([
+                    'status' => 'ACTIVE',
+                ]);
+            }
+        }
+    }
+
+    public function productPlus($id){
+        $details = ShoppingCartDetail::find($id);
+        $details->update([
+            'quantity' => $details->quantity+1,
+        ]);
+        $this->emit('CartsDetails');
+    }
+
+    public function shoppingDetailsCount()
+    {
+        if ( session('shopping_cart_id') ) {
+            return ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->get();
+        }
     }
 
     public function total_save_mony()
@@ -53,12 +86,16 @@ class Carts extends Component
     {
         if (ShoppingCartDetail::find($id) != '') {
             ShoppingCartDetail::find($id)->delete();
+            if(count($this->shoppingDetailsCount()) == 0 ){
+                $this->shopping_cart->update([
+                    'status' => 'ACTIVE',
+                ]);
+            }
             session()->flash('flash', 'successfully removed');
         } else {
             session()->flash('flasherror', 'Could not delete, contact developers');
         }
         session()->flash('flash', 'successfully removed');
-
         $this->emit('CartsDetails');
     }
 }
