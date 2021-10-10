@@ -1,9 +1,9 @@
 
 @extends('layouts.layouts')
 
-@section('meta-title', 'Catgorias de productos')
+@section('meta-title', 'Categorias de productos')
 @section('meta-description', 'Todas las categorias de la tienda')
-@section('meta-keywords', 'Categorias, productos')
+@section('meta-keywords', 'Categorias, productos, envios, medicina, alimentos')
 
 @section('content')
     <hr>

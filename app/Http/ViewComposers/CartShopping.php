@@ -19,7 +19,6 @@
                 //dd($shopping_cart->shopping_cart_details);
             }else{
                 $shopping_cart = ShoppingCart::where('user_id', '=', auth()->user()->id)->get();
-
                 if ( $shopping_cart == '[]' ) {
                     $shopping_cart = ShoppingCart::find(Session::get('shopping_cart_id'));
                     $shopping_cart->update([
@@ -63,10 +62,3 @@
             $view->with(['shopping_cart' => $shopping_cart]);
         }
     }
-
-
-
-//dd(Cookie::get('shopping_cart_id'));
-//Cookie::queue('shopping_cart_id', '112', 60);
-// if( Cookie::get('shopping_cart_id') ) dd(1); else dd(2);
-//dd(Cookie::get('bakcURL'));

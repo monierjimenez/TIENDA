@@ -1,6 +1,10 @@
 
 @extends('layouts.layouts')
 
+@section('meta-title', 'Carrito de compras')
+@section('meta-description', 'Compra online a Cuba desde cualquier lugar. Envio aereo 100% garantizado. Entrega en su domicilio en todas las provincias y municipios.')
+@section('meta-keywords', 'Carrito, compras, cuba, envio, alimentos')
+
 @section('content')
     <hr>
     <div class="breacrumb-section">

@@ -3,25 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Carts/Carts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Carts/Carts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Carts/CartsDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Carts/CartsDetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/ViewComposers/CartShopping.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/ViewComposers/CartShopping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ComposerServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/ShoppingCartProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ShoppingCartProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/responsive.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/ui/auth-backend/AuthenticatesUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/ui/auth-backend/AuthenticatesUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/ui/auth-backend/RedirectsUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/ui/auth-backend/RedirectsUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/about.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/collectionsAll.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/collectionsAll.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/productSearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/productSearch.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/refunds.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/refunds.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/shopping-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/shopping-cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/terms-and-conditions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/terms-and-conditions.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +202,7 @@
       <workItem from="1628907127313" duration="67337000" />
       <workItem from="1629670433319" duration="82872000" />
       <workItem from="1631413233942" duration="56966000" />
-      <workItem from="1631743091542" duration="187658000" />
+      <workItem from="1631743091542" duration="197791000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -371,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633235559232</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="cambios en el carts 2">
+      <created>1633747882733</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1633747882733</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +382,8 @@
     <MESSAGE value="Primer comit" />
     <MESSAGE value="plantilla frond end" />
     <MESSAGE value="cambios en el carts" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios en el carts" />
+    <MESSAGE value="cambios en el carts 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios en el carts 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

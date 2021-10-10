@@ -40,8 +40,17 @@
             }
         } else {
             $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
-            if (!Cookie::get('shopping_cart_id'))
+            if( $shopping_cart->user_id != null ){
+                Session::forget('shopping_cart_id') ;
+                $session_name = 'shopping_cart_id';
+                $shopping_cart_id = Session::get($session_name);
+                $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
+                Session::put($session_name, $shopping_cart->id);
                 Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
+            }else{
+                if (!Cookie::get('shopping_cart_id'))
+                    Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
+            }
         }
         return $shopping_cart ;
     }

@@ -1197,12 +1197,12 @@ Version:1.0
 
   .total-count {
       position: absolute;
-      top: 0px;
-      right: 81px;
+      top: -2px;
+      right: 91px;
       background: #f6931d;
-      width: 14px;
-      height: 14px;
-      line-height: 14px;
+      width: 15px;
+      height: 15px;
+      line-height: 15px;
       text-align: center;
       color: #fff;
       border-radius: 100%;
@@ -1215,7 +1215,7 @@ Version:1.0
 
     .search-top-mobile {
         display: flex;
-        margin: 0px 0px 0px 86px;
+        margin: 0px 0px 0px 74px;
     }
 
     .site-header.sticky .header-bottom{
@@ -1879,12 +1879,12 @@ Version:1.0
 
     .total-count {
         position: absolute;
-        top: 0px;
-        right: 86px;
+        top: -2px;
+        right: 84px;
         background: #f6931d;
-        width: 14px;
-        height: 14px;
-        line-height: 14px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
         text-align: center;
         color: #fff;
         border-radius: 100%;
@@ -1908,12 +1908,12 @@ Version:1.0
 
     .total-count {
         position: absolute;
-        top: 0px;
-        right: 71px;
+        top: -2px;
+        right: 83px;
         background: #f6931d;
-        width: 14px;
-        height: 14px;
-        line-height: 13px;
+        width: 16px;
+        height: 15px;
+        line-height: 15px;
         text-align: center;
         color: #fff;
         border-radius: 100%;
@@ -1922,7 +1922,7 @@ Version:1.0
 
     .search-top-mobile {
         display: flex;
-        margin: 0px 0px 0px 77px;
+        margin: 0px 0px 0px 64px;
     }
 }
 
@@ -1933,12 +1933,12 @@ Version:1.0
 
     .total-count {
         position: absolute;
-        top: -5px;
-        right: 70px;
+        top: -1px;
+        right: 72px;
         background: #f6931d;
-        width: 21px;
-        height: 18px;
-        line-height: 17px;
+        width: 15px;
+        height: 15px;
+        line-height: 16px;
         text-align: center;
         color: #fff;
         border-radius: 100%;
@@ -1968,12 +1968,12 @@ Version:1.0
 
     .total-count {
         position: absolute;
-        top: 0px;
-        right: 71px;
+        top: -2px;
+        right: 70px;
         background: #f6931d;
-        width: 14px;
-        height: 14px;
-        line-height: 13px;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
         text-align: center;
         color: #fff;
         border-radius: 100%;

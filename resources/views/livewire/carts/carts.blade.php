@@ -16,11 +16,10 @@
         <div class="row">
             <div class="shopping-cart section" style="width: 100%;">
                 <div class="container">
-{{--                    {{$shoppingcartdetails}}--}}
+                    {{ session('shopping_cart_id') }}
                     @if ( count($shoppingcartdetails) != 0 )
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-12">
-                                {{ session('shopping_cart_id') }}
                                 <!-- Shopping Summery -->
                                 <table class="table shopping-summery">
                                     <thead>
