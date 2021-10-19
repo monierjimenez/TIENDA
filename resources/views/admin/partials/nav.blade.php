@@ -66,6 +66,25 @@
         </li>
     @endif
 
+    @if( checkrights('PUPV', auth()->user()->permissions) )
+        <li class="treeview {{ request()->is('admin/states*') ? 'active' : '' }} {{ request()->is('admin/municipios*') ? 'active' : '' }}">
+            <a href="{{ route('admin.states.index') }}"><i class="fa fa-automobile"></i> <span>DELIVERY</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{{ request()->is('admin/states') ? 'active' : '' }}">
+                    <a href="{{ route('admin.states.index') }}"><i class="fa fa-cube"></i>List states</a>
+                </li>
+
+                <li class="{{ request()->is('admin/municipios') ? 'active' : '' }}">
+                    <a href="{{ route('admin.municipios.index') }}"><i class="fa fa-paint-brush"></i>List municipalities</a>
+                </li>
+            </ul>
+        </li>
+    @endif
+
   @if( checkrights('PRRV', auth()->user()->permissions) )
       <li class="treeview {{ request()->is('admin/records*') ? 'active' : '' }}">
           <a href=""><i class="fa fa-book"></i> <span>RECORD AND REPORTS</span>

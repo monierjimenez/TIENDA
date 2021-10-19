@@ -100,7 +100,7 @@
                             @if ( $spec->image != null && !$photo )
                                     <img src="/images/{{ $spec->image }}" class="profile-user-img img-responsive img-circle">
                             @endif
-                            <label>Photo (569x528)</label>
+                            <label>Photo (550x750)</label>
                             <input type="file" wire:model="photo">
                             {!! $errors->first('photo', '<span class="help-block">:message</span>') !!}
                         </div>

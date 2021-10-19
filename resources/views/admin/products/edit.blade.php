@@ -360,7 +360,7 @@
             </div>
 
     		<div class="box-body">
-                Imagen (569x528)
+                Imagen (550x750)
 				<div class="dropzone"></div>
 			</div>
     	</div>

@@ -2,20 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Estados.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/EstadosController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/MunicipiosController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Checkout/SelectDynamic.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Municipios.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/EstadosFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/MunicipiosFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/OrderFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_13_125832_create_estados_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_10_13_130248_create_municipios_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/EstadosSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/MunicipiosSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/OrderSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/municipios/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/municipios/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/municipios/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/states/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/states/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/states/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/checkout/select-dynamic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/ViewComposers/CartShopping.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/ViewComposers/CartShopping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ShoppingCartProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ShoppingCartProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layouts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ShoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_24_184653_create_shopping_carts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2021_09_24_184653_create_shopping_carts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_09_24_185029_create_shopping_cart_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/2021_09_24_185029_create_shopping_cart_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/specs/1NikbJV9626jLk50js5IKd12yjsGBnYlSlrYQY5e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/specs/1NikbJV9626jLk50js5IKd12yjsGBnYlSlrYQY5e.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/specs/MHg1413wKxHkNPKTYXQEiYGrasSpxZR83yz1CjGT.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/specs/MHg1413wKxHkNPKTYXQEiYGrasSpxZR83yz1CjGT.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/specs/SEvmsvtMmLG6IkOvXL0AzE4dWNPCLl6wXzufP8wl.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/specs/SEvmsvtMmLG6IkOvXL0AzE4dWNPCLl6wXzufP8wl.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/specs/hp4oPGUt3QUhxjqjT7A6NFRNwBckd7y2GGmKI7Pw.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/specs/hp4oPGUt3QUhxjqjT7A6NFRNwBckd7y2GGmKI7Pw.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/specs/ji6jwhAMPiMCzgXuheWXLE7mvpR0tdyIxNPTpOZp.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/specs/ji6jwhAMPiMCzgXuheWXLE7mvpR0tdyIxNPTpOZp.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin/specs/features.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin/specs/features.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/collectionsAll.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/collectionsAll.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/productSearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/productSearch.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/refunds.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/refunds.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/shopping-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/shopping-cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/terms-and-conditions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/terms-and-conditions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +232,10 @@
       <workItem from="1628907127313" duration="67337000" />
       <workItem from="1629670433319" duration="82872000" />
       <workItem from="1631413233942" duration="56966000" />
-      <workItem from="1631743091542" duration="197791000" />
+      <workItem from="1631743091542" duration="203889000" />
+      <workItem from="1633907590089" duration="10460000" />
+      <workItem from="1634144476471" duration="44130000" />
+      <workItem from="1634440665060" duration="14329000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -372,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633747882733</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="cambios en el carts 2">
+      <created>1633833949590</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1633833949592</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,11 +456,6 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/routes/web.php</url>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/database/migrations/2018_03_08_013823_create_products_table.php</url>
-          <line>34</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/../base/app/Http/Controllers/admin/ArticulosController.php</url>

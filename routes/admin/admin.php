@@ -31,6 +31,10 @@ use Illuminate\Support\Facades\Route;
     Route::resource('colores', 'ColoresController', ['except' => ['show', 'create'], 'as' => 'admin']);
     Route::resource('categorias', 'CategoriasController', ['except' => ['show', 'create'], 'as' => 'admin']);
 
+    //delivery
+    Route::resource('states', 'EstadosController', ['except' => ['show', 'create'], 'as' => 'admin']);
+    Route::resource('municipios', 'MunicipiosController', ['except' => ['show', 'create'], 'as' => 'admin']);
+
 //Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth'],  function(){
 //});
 

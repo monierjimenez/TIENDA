@@ -43,6 +43,17 @@ Version:1.0
     /*font-size: 14px;*/
 }
 
+.has-error {
+    color: #dd4b39;
+}
+.form-group.has-error .form-control, .form-group.has-error .input-group-addon {
+    border-color: #dd4b39!important;
+    box-shadow: none;
+}
+.form-group.has-error label {
+    color: #dd4b39 !important;
+}
+
 .collection-item {
     display: inline-block;
     width: 20vw;
@@ -3323,7 +3334,7 @@ Version:1.0
 	border-radius: 3px;
 	border-radius: 0px;
 	color: #333 !important;
-	border: none;
+	/*border: none;*/
 	background: #F6F7FB;
 }
 .shop.checkout .form .form-group input:hover{
@@ -4833,6 +4844,12 @@ Version:1.0
 	box-shadow: 0px 0px 15px #0000001a;
 	padding: 50px;
 }
+
+.contact-us .form-main-checkout {
+    box-shadow: 0px 0px 15px #0000001a;
+    padding: 20px;
+}
+
 .contact-us .form .form-group input {
 	height: 48px;
 	line-height: 48px;

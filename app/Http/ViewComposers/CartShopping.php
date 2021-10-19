@@ -18,13 +18,19 @@
                 $shopping_cart = shoppingCartGuest();
                 //dd($shopping_cart->shopping_cart_details);
             }else{
-                $shopping_cart = ShoppingCart::where('user_id', '=', auth()->user()->id)->get();
+                $shopping_cart = ShoppingCart::where('user_id', '=', auth()->user()->id)->where('status', '=', 'PENDING')->get();
                 if ( $shopping_cart == '[]' ) {
                     $shopping_cart = ShoppingCart::find(Session::get('shopping_cart_id'));
-                    $shopping_cart->update([
-                        'status' => 'PENDING',
-                        'user_id' => auth()->user()->id,
-                    ]);
+                    if( $shopping_cart->shopping_cart_details == [] ){
+                        $shopping_cart->update([
+                            'user_id' => auth()->user()->id,
+                        ]);
+                    }else{
+                        $shopping_cart->update([
+                            'status' => 'PENDING',
+                            'user_id' => auth()->user()->id,
+                        ]);
+                    }
                 }else {
                     $shopping_cart = ShoppingCart::find($shopping_cart[0]['id']);
                    //dd($shopping_cart."-".session('shopping_cart_id'));
@@ -51,9 +57,7 @@
                         Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
 
                         $shopping_cart_no_user->delete();
-                        //$shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
                     }else{
-                        //$shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
                         if (!Cookie::get('shopping_cart_id'))
                             Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
                     }

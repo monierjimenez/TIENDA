@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
     //rotas checkout
     Route::get('checkout', 'CheckoutController@index')->name('pages.checkout');
+    Route::post('checkout/pago', 'CheckoutController@saveDirection')->name('pages.checkout.direction');
 
     Route::post('add_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store')->name('shopping_cart_details.store');
     Route::get('add_a_product_to_shopping_cart/{product}/store', 'ShoppingCartDetailController@store_a_product')->name('store_a_product.store');

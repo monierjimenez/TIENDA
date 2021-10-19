@@ -167,7 +167,7 @@
                                 <div class="col-3"></div>
                             </div>
                            <br>
-                            <div class="button5" style="text-align: center;">
+                            <div class="button5" style="text-align: center;color: #fff">
                                 <a href="{{ route('collectionsall') }}" class="btn">{{ __('Buy our products') }}</a>
                             </div>
                         </p>
