@@ -3463,7 +3463,7 @@ Version:1.0
 }
 .shop.checkout .single-widget .checkbox label::before {
 	position: absolute;
-	content: "";
+	/*content: "";*/
 	left: 0;
 	top: 7px;
 	width: 12px;

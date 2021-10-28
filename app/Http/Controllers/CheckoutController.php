@@ -9,12 +9,22 @@ use Cookie;
 use App\Order;
 use App\ShoppingCart;
 
+//use App\Services\PayPalService;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
+    public function paypalPayment($orderId)
+    {
+        $client = new Client([
+            'base_uri' => 'https://api-m.sandbox.paypal.com'
+        ]);
+        return 6;
+    }
+
     public function index()
     {
         if ( Auth::guest() ){
@@ -53,7 +63,9 @@ class CheckoutController extends Controller
 
     public function saveDirection(Request $request)
     {
-
+        if ( Auth::guest() ){
+            return redirect()->route('login');
+        }
         $this->validate($request, [
             'name' => 'required',
             'last_name' => 'required',
@@ -63,6 +75,7 @@ class CheckoutController extends Controller
             'numero' => 'required',
             'selectedEstado' => 'required|numeric',
             'selectedMunicipio' => 'required|numeric',
+            'payment' => 'required',
         ]);
 
         $order = Order::find($request->get('order_id'));
@@ -89,6 +102,7 @@ class CheckoutController extends Controller
 
             dd(4);
         }else {
+
             $addresses = Addresses::find($order->addresses_id);
             $addresses->update([
                 'user_id' => auth()->user()->id,
@@ -107,10 +121,25 @@ class CheckoutController extends Controller
                 'status' => 1,
             ]);
             $addresses->save();
-            dd(5);
+        }
+        $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
+        $payment = $request->payment ;
+        return view('pages.checkout-payment', compact('order','addresses', 'payment', 'shopping_cart'));
+
+        //return $request ;
+    }
+
+    public function resolveService()
+    {
+       // $name = strtolower($this->paymentPlatforms->firstWhere('id', $paymentPlatformId)->name);
+
+        $service = config("services.paypal.class");
+        //dd(resolve($service));
+        if ($service) {
+            return resolve($service);
         }
 
-        return $request ;
+        //throw new Exception('The selected payment platform is not in the configuration');
     }
 
 

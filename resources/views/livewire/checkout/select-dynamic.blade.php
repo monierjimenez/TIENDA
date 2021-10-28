@@ -191,12 +191,17 @@
                     <!--/ End Order Widget -->
                     <!-- Order Widget -->
                     <div class="single-widget">
-                        <h2>Payments</h2>
+                        <h2>{{ __('Payment type') }}</h2>
                         <div class="content">
-                            <div class="checkbox">
-                                <label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label>
-                                <label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Cash On Delivery</label>
-                                <label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox"> PayPal</label>
+                            <div class="checkbox {{ $errors->has('payment') ? 'has-error' : '' }}">
+                                <label style="padding-left: 0px;position: inherit;">
+                                    <input type="radio" name="payment" value="paypal" style="display: initial;"> {{ __('Payment by PayPal') }}
+                                </label>
+
+                                <label style="padding-left: 0px;position: inherit;">
+                                    <input type="radio" name="payment" value="cast" style="display: initial;"> {{ __('Credit or debit card') }}
+                                </label>
+                                {!! $errors->first('payment', '<span class="help-block">Debe de seleccionar un metodo de pago.</span>') !!}
                             </div>
                         </div>
                     </div>

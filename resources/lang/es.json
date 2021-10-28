@@ -87,6 +87,11 @@
     "Identity card": "Carnet de identidad",
     "Phone Number": "Número de teléfono",
     "CART DETAILS": "DETALLES DEL CARRITO",
+    "PURCHASE DETAILS": "DETALLES DE LA COMPRA",
     "Quantity of products": "Cantidad de productos",
-    "Continue with payment": "Continuar con el pago"
+    "Continue with payment": "Continuar con el pago",
+    "Payment type": "Tipo de pago",
+    "Payment by PayPal": "Pago mediante PayPal",
+    "Credit or debit card": "Tarjeta de Crédito o Débito",
+    "Send to": "Enviar a"
 }

@@ -1416,7 +1416,9 @@
                                         <img class="default-img" src="/images/{{primeraPhotoProduct($product)}}" alt="#">
                                         {{--<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">--}}
 {{--                                        new, out-of-stock --}}
-                                        <span class="out-of-stock">Ahorras {{ $product->sale_price_before-$product->sale_price }}</span>
+                                        @if($product->sale_price_before != 0 )
+                                            <span class="out-of-stock">Ahorras {{ $product->sale_price_before-$product->sale_price }}</span>
+                                        @endif
                                     </a>
                                     <div class="button-head">
     {{--                                    <div class="product-action">--}}
@@ -1434,7 +1436,9 @@
                                     <h3><a href="product-details.html">{{ $product->name }}</a></h3>
                                     <div class="product-price">
                                         <span>${{ $product->sale_price }}</span>
-                                        <span class="old">${{ $product->sale_price_before }}</span>
+                                        @if($product->sale_price_before != 0 )
+                                            <span class="old">${{ $product->sale_price_before }}</span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
