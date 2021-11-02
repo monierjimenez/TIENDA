@@ -9,7 +9,8 @@ class OrderController extends Controller
 {
     public function index()
     {
-        //
+        $orders = Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->get();
+        return view('pages.myorders', compact('orders'));
     }
 
     public function create()

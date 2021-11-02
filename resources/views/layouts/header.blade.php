@@ -49,7 +49,7 @@
                                             <i class="fa fa-user-circle-o" aria-hidden="true" style="color: #F7941D;"></i> {{ Str::limit(Auth::user()->name, 10) }}
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="margin: 6px -68px;font-size: 14px;">
-                                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                            <a class="dropdown-item" href="{{ route('pages.myorder') }}">
                                                 <i class="fa fa-cart-arrow-down" style="color: #F7941D;"></i> {{ __('My orders') }}
                                             </a>
                                             @if ( auth()->user()->permissions != null )

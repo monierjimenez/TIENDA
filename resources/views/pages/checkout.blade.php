@@ -23,8 +23,9 @@
     <hr>
 
     <!-- Start Checkout -->
+{{--    'addressesorder' => $addressesorder,--}}
     <section class="shop checkout section">
-        @livewire('checkout.select-dynamic', ['shopping_cart' => $shopping_cart, 'order' => $order, 'addressesorder' => $addressesorder, 'municipios' => $municipios])
+        @livewire('checkout.select-dynamic', ['shopping_cart' => $shopping_cart, 'order' => $order, 'municipios' => $municipios])
     </section>
     <!--/ End Checkout -->
 @stop

@@ -40,10 +40,10 @@
                             <div class="content">
                                 <ul style="margin-top: 6px;">
                                     <li style="margin-bottom: 4px;">
-                                        <b>{{ __('Send to') .': '. $addresses->name.' '. $addresses->second_name.' '. $addresses->last_name }}
+                                        <b>{{ __('Send to') .': '. $order->name.' '. $order->second_name.' '. $order->last_name }}
                                         </b><span>
-                                            {{ $addresses->address }}, #{{ $addresses->numero }} @if( $addresses->apto != null ) {{ $addresses->apto }}, @endif  @if( $addresses->entre_calle != null )  entre {{ $addresses->entre_calle }} @endif,
-                                            {{ $addresses->estado->name }}, {{ $addresses->municipio->name }}.
+                                            {{ $order->address }}, #{{ $order->numero }} @if( $order->apto != null ) {{ $order->apto }}, @endif  @if( $order->entre_calle != null )  entre {{ $order->entre_calle }} @endif,
+                                            {{ $order->estado->name }}, {{ $order->municipio->name }}.
                                         </span>
                                     </li>
                                     <li style="margin-bottom: 4px;"><b>{{ __('Quantity of products') }}</b><span>{{$shopping_cart->quantity_of_products()}}</span></li>
@@ -58,46 +58,6 @@
                     <div class="checkout-form">
                         -Order: {{$order->id}}-
                         <div id="paypal-button-container"></div>
-                        <form class="form" method="post" action="{{ route('pages.checkout.direction') }}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                                        <label>{{ __('First Name') }}<span>*</span></label>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <div class="form-group {{ $errors->has('second_name') ? 'has-error' : '' }}">
-                                        <label>{{ __('Second name') }}</label>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
-                                        <label>{{ __('Last names') }}<span>*</span></label>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="form-group {{ $errors->has('identity_card') ? 'has-error' : '' }}">
-                                        <label>{{ __('Identity card') }}<span>*</span></label>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label>{{ __('Phone Number') }}<span>*</span></label>
-                                        {{-- <input type="text" name="phone_number" placeholder="" required="required">  --}}
-                                        <div class="input-group {{ $errors->has('phone_number') ? 'has-error' : '' }}">
-                                            <div class="input-group-addon" style="border: 0;">+53</div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--/ End Form -->
                     </div>
                 </div>
             </div>
@@ -112,7 +72,6 @@
 
 @push('script')
     <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=USD&components=buttons,funding-eligibility"></script>
-
     <script>
         paypal.Buttons({
             fundingSource: paypal.FUNDING.CARD,
@@ -123,11 +82,12 @@
                         shipping_preference: "NO_SHIPPING"
                     },
                     payer: {
-                      email_address: '{{ auth()->user()->email }}',
-                       name: {
-                           given_name: '{{ auth()->user()->name }}',
-                           surname: '{{ auth()->user()->name }}',
-                       },
+                      email_address: 'sb-eetlb8293572@personal.example.com',
+{{--                        {{ auth()->user()->email }}{{ auth()->user()->name }}{{ auth()->user()->name }}--}}
+{{--                       name: {--}}
+{{--                           given_name: '{{ auth()->user()->name }}',--}}
+{{--                           --}}{{--surname: '{{ auth()->user()->name }}',--}}
+{{--                       },--}}
                     // address:{
                     //     address_line_1: '',
                     //     address_line_1: '',
@@ -147,10 +107,7 @@
             // Finalize the transaction after payer approval
             // Call your server to finalize the transaction
             onApprove: function(data, actions) {
-                return fetch('paypal/process/' + data.orderID,
-                //     {
-                //     method: 'post'
-                // })
+                return fetch('/paypal/process/' + data.orderID + '?orderID=' + {{ $order->id }})
                 .then(res => res.json())
                 .then(function(orderData) {
                     // Three cases to handle:
@@ -175,9 +132,10 @@
                     }
 
                     // Successful capture! For demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                    var transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                    //console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                   // var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction completed by ' + orderData.payer.name.given_name );
+                    //+ transaction.status + ': ' + transaction.id
 
                     // Replace the above to show a success message within this page, e.g.
                     // const element = document.getElementById('paypal-button-container');

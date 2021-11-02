@@ -12,81 +12,120 @@
                     <form class="form" method="post" action="{{ route('pages.checkout.direction') }}">
                         @csrf
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-12">
+                            <div class="col-lg-4 col-md-4 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                                     <label>{{ __('First Name') }}<span>*</span></label>
-{{--                                    @if($addressesorder != '[]') {{dd(1)}} @else {{dd(3)}} @endif--}}
 {{--                                    {{dd($addressesorder)}}--}}
-                                    <input type="text" name="name" placeholder="" value="{{ old('name',$addressesorder) != '' ? $addressesorder->name : '' }}" class="form-control">
+                                    @if($order->name != '')
+                                       3 <input type="text" name="name" placeholder="" value="{{ old('name',$order) != '' ? $order->name : '' }}" class="form-control">
+                                    @else
+                                       4 <input type="text" name="name" placeholder="" value="{{ old('name') }}" class="form-control">
+                                    @endif
                                     {!! $errors->first('name', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-12">
+                            <div class="col-lg-4 col-md-4 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('second_name') ? 'has-error' : '' }}">
                                     <label>{{ __('Second name') }}</label>
-                                    <input type="text" name="second_name" placeholder="" value="{{ old('second_name', $addressesorder) != '' ? $addressesorder->second_name : ''}}">
+                                    @if($order->second_name != '')
+                                        <input type="text" name="second_name" placeholder="" value="{{ old('second_name', $order) != '' ? $order->second_name : ''}}">
+                                    @else
+                                        <input type="text" name="second_name" placeholder="" value="{{ old('second_name') }}">
+                                    @endif
                                     {!! $errors->first('second_name', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-12">
+                            <div class="col-lg-4 col-md-4 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
                                     <label>{{ __('Last names') }}<span>*</span></label>
-                                    <input type="text" name="last_name" placeholder="" required="required" value="{{ old('last_name', $addressesorder) != '' ? $addressesorder->last_name : ''}}">
+                                    @if($order->last_name != '')
+                                        <input type="text" name="last_name" placeholder="" required="required" value="{{ old('last_name', $order) != '' ? $order->last_name : ''}}">
+                                    @else
+                                        <input type="text" name="last_name" placeholder="" required="required" value="{{ old('last_name') }}">
+                                    @endif
                                     {!! $errors->first('last_name', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
+                            <div class="col-lg-6 col-md-6 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('identity_card') ? 'has-error' : '' }}">
                                     <label>{{ __('Identity card') }}<span>*</span></label>
-                                    <input type="number" name="identity_card" placeholder="" required="required" value="{{ old('identity_card', $addressesorder) != '' ? $addressesorder->identity_card : ''}}">
+                                    @if($order->identity_card != '')
+                                        <input type="number" name="identity_card" placeholder="" required="required" value="{{ old('identity_card', $order) != '' ? $order->identity_card : ''}}">
+                                    @else
+                                        <input type="number" name="identity_card" placeholder="" required="required" value="{{ old('identity_card') }}">
+                                    @endif
                                     {!! $errors->first('identity_card', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
+                            <div class="col-lg-6 col-md-6 col-12" wire:ignore>
                                 <div class="form-group">
                                     <label>{{ __('Phone Number') }}<span>*</span></label>
                                     {{-- <input type="text" name="phone_number" placeholder="" required="required">  --}}
                                     <div class="input-group {{ $errors->has('phone_number') ? 'has-error' : '' }}">
                                         <div class="input-group-addon" style="border: 0;">+53</div>
-                                        <input type="number" name="phone_number" placeholder="" required="required" value="{{ old('phone_number', $addressesorder) != '' ? $addressesorder->phone_number : '' }}">
+                                        @if($order->phone_number != '')
+                                            <input type="number" name="phone_number" placeholder="" required="required" value="{{ old('phone_number', $order) != '' ? $order->phone_number : '' }}">
+                                        @else
+                                            <input type="number" name="phone_number" placeholder="" required="required" value="{{ old('phone_number') }}">
+                                        @endif
                                         {!! $errors->first('phone_number', '<span class="help-block">:message</span>') !!}
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-12">
+                            <div class="col-lg-6 col-md-6 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
                                     <label>Dirección<span>*</span></label>
-                                    <input type="text" name="address" placeholder="" required="required" value="{{ old('address', $addressesorder) != '' ? $addressesorder->address : '' }}">
+                                    @if($order->address != '')
+                                        <input type="text" name="address" placeholder="" required="required" value="{{ old('address', $order) != '' ? $order->address : '' }}">
+                                    @else
+                                        <input type="text" name="address" placeholder="" required="required" value="{{ old('address') }}">
+                                    @endif
                                     {!! $errors->first('address', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-6">
+                            <div class="col-lg-3 col-md-3 col-6" wire:ignore>
                                 <div class="form-group {{ $errors->has('numero') ? 'has-error' : '' }}">
                                     <label>No.<span>*</span></label>
-                                    <input type="text" name="numero" placeholder="" required="required" value="{{ old('numero', $addressesorder) != '' ? $addressesorder->numero : '' }}">
+                                    @if($order->numero != '')
+                                        <input type="text" name="numero" placeholder="" required="required" value="{{ old('numero', $order) != '' ? $order->numero : '' }}">
+                                    @else
+                                        <input type="text" name="numero" placeholder="" required="required" value="{{ old('numero') }}">
+                                    @endif
                                     {!! $errors->first('numero', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-6">
+                            <div class="col-lg-3 col-md-3 col-6" wire:ignore>
                                 <div class="form-group {{ $errors->has('apto') ? 'has-error' : '' }}">
                                     <label>Apto</label>
-                                    <input type="text" name="apto" placeholder="" value="{{ old('apto', $addressesorder) != '' ? $addressesorder->apto : '' }}">
+                                    @if($order->apto != '')
+                                        <input type="text" name="apto" placeholder="" value="{{ old('apto', $order) != '' ? $order->apto : '' }}">
+                                    @else
+                                        <input type="text" name="apto" placeholder="" value="{{ old('apto') }}">
+                                    @endif
                                     {!! $errors->first('apto', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-12">
+                            <div class="col-lg-6 col-md-6 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('entre_calle') ? 'has-error' : '' }}">
                                     <label>Entre calles</label>
-                                    <input type="text" name="entre_calle" placeholder="" value="{{ old('entre_calle', $addressesorder) != '' ? $addressesorder->entre_calle : '' }}">
+                                    @if($order->entre_calle != '')
+                                        <input type="text" name="entre_calle" placeholder="" value="{{ old('entre_calle', $order) != '' ? $order->entre_calle : '' }}">
+                                    @else
+                                        <input type="text" name="entre_calle" placeholder="" value="{{ old('entre_calle') }}">
+                                    @endif
                                     {!! $errors->first('entre_calle', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
+                            <div class="col-lg-6 col-md-6 col-12" wire:ignore>
                                 <div class="form-group {{ $errors->has('reparto') ? 'has-error' : '' }}">
                                     <label>Reparto</label>
-                                    <input type="text" name="reparto" placeholder="" value="{{ old('reparto', $addressesorder) != '' ? $addressesorder->reparto : '' }}">
+                                    @if($order->reparto != '')
+                                        <input type="text" name="reparto" placeholder="" value="{{ old('reparto', $order) != '' ? $order->reparto : '' }}">
+                                    @else
+                                        <input type="text" name="reparto" placeholder="" value="{{ old('reparto') }}">
+                                    @endif
                                     {!! $errors->first('reparto', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
@@ -104,17 +143,18 @@
                                             name="selectedEstado" class="selectedEstado form-control">
                                         <option value="">.: Selecciones Provincia :.</option>
                                         @foreach($estados as $estado)
-                                            @if( $addressesorder != '' )
-                                                <option value="{{ $estado->id }}" {{ old('selectedEstado', $estado->id) == $addressesorder->selectedEstado ? 'selected' : '' }}>
+                                            @if( $order->selectedEstado != '' )
+                                                <option value="{{ $estado->id }}" {{ old('selectedEstado', $estado->id) == $order->selectedEstado ? 'selected' : '' }}>
                                                     {{ $estado->name }}
                                                 </option>
                                             @else
-                                                <option value="{{ old('selectedEstado', $estado->id) }}">
-                                                    {{ $estado->name }}
+                                                <option value="{{ $estado->id }}" {{ old('selectedEstado') == $estado->id ? 'selected' : '' }}>
+                                                    {{ $estado->name }}--
                                                 </option>
                                             @endif
                                         @endforeach
                                     </select>
+{{--                                    {{ old('selectedEstado') }}--}}
                                 </div>
                                 {!! $errors->first('selectedEstado', '<span class="help-block">Debe de seleccionar una Provincia.</span>') !!}
                             </div>
@@ -140,8 +180,8 @@
                                                 border: none;" >
                                             <option value="">.: Selecciones Municipio :.</option>
                                             @foreach($municipios as $municipio)
-                                                @if( $addressesorder != '' )
-                                                    <option value="{{ $municipio->id }}" {{ old('selectedMunicipio', $municipio->id) == $addressesorder->selectedMunicipio ? 'selected' : '' }}
+                                                @if( $order != '' )
+                                                    <option value="{{ $municipio->id }}" {{ old('selectedMunicipio', $municipio->id) == $order->selectedMunicipio ? 'selected' : '' }}
                                                         {{ old('selectedMunicipio') }}>
                                                         {{ $municipio->name }}
                                                     </option>
@@ -153,7 +193,25 @@
                                             @endforeach
                                         </select>
                                     @else
-                                       <select wire:model="selectedMunicipio" name="selectedMunicipio" class="form-control"
+{{--                                        {{ old('selectedEstado') }}--}}
+                                       @if ( old('selectedEstado') != '')
+                                            <select wire:model="selectedMunicipio" name="selectedMunicipio" class="form-control"
+                                                    style="width: 100%;
+                                                height: 45px;
+                                                line-height: 50px;
+                                                margin-bottom: 25px;
+                                                background: #F6F7FB;
+                                                border-radius: 0px;
+                                                border: none;">
+                                                <option value="">.: Selecciones Municipio :.</option>
+                                                @foreach( municipiosAll(old('selectedEstado')) as $municipio )
+                                                        <option value="{{ $municipio->id }}" {{ old('selectedMunicipio') }}>
+                                                            {{ $municipio->name }}
+                                                        </option>
+                                                @endforeach
+                                            </select>
+                                       @else
+                                            <select wire:model="selectedMunicipio" name="selectedMunicipio" class="form-control"
                                                     style="width: 100%;
                                             height: 45px;
                                             line-height: 50px;
@@ -163,10 +221,12 @@
                                             border: none;" disabled>
                                                 <option value="">.: Selecciones Municipio :.</option>
                                             </select>
+                                        @endif
                                     @endif
                                 </div>
                                 <input type="hidden" name="order_id" value="{{ $order->id }}">
-                                {!! $errors->first('selectedMunicipio', '<span class="help-block">Debe de seleccionar una Provincia.</span>') !!}
+
+                                {!! $errors->first('selectedMunicipio', '<span class="help-block">Debe de seleccionar una Municipio.</span>') !!}
                             </div>
                         </div>
 
@@ -193,9 +253,11 @@
                     <div class="single-widget">
                         <h2>{{ __('Payment type') }}</h2>
                         <div class="content">
-                            <div class="checkbox {{ $errors->has('payment') ? 'has-error' : '' }}">
+                            <div class="checkbox {{ $errors->has('payment') ? 'has-error' : '' }}" wire:ignore>
                                 <label style="padding-left: 0px;position: inherit;">
-                                    <input type="radio" name="payment" value="paypal" style="display: initial;"> {{ __('Payment by PayPal') }}
+                                    <input type="radio" name="payment" value="paypal"
+                                           {{ old('payment', $order->payment_method) == 'paypal' ? 'checked' : '' }} style="display: initial;">
+                                    {{ __('Payment by PayPal') }}
                                 </label>
 
                                 <label style="padding-left: 0px;position: inherit;">

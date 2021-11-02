@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->enum('paymentstatus', ['PENDING', 'PAID'])->default('PENDING');
             $table->enum('orderstatus', ['CREATED', 'SHIPMENT'])->default('CREATED');
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('shopping_cart_id')->nullable();
             $table->unsignedBigInteger('addresses_id')->nullable();
             $table->timestamps();
         });

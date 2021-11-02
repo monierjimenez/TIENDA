@@ -33,7 +33,7 @@
                     }
                 }else {
                     $shopping_cart = ShoppingCart::find($shopping_cart[0]['id']);
-                   //dd($shopping_cart."-".session('shopping_cart_id'));
+                  // dd($shopping_cart."-".session('shopping_cart_id'));
                     if ( $shopping_cart->id != session('shopping_cart_id') ){
                         $shopping_cart_no_user = ShoppingCart::find(Session::get('shopping_cart_id'));
                         if( $shopping_cart_no_user->shopping_cart_details != [] ){
@@ -58,6 +58,7 @@
 
                         $shopping_cart_no_user->delete();
                     }else{
+                       // dd(Cookie::get('shopping_cart_id'));
                         if (!Cookie::get('shopping_cart_id'))
                             Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
                     }

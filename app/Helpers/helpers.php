@@ -4,8 +4,12 @@ use App\User;
 use App\Record;
 use App\Product;
 use App\Colore;
+use App\Municipios;
 use App\Spec;
 
+    function municipiosAll($id) {
+        return Municipios::where('estado_id', '=', $id)->get();
+    }
 // use SimpleSoftwareIO\QrCode\Facade as QrCode;
     // funcion para chequear si el un usuario tiene
     // permisos para acceder a determinado lugar.

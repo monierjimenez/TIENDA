@@ -12,16 +12,18 @@ class SelectDynamic extends Component
     public $shopping_cart;
     public $order;
     public $addressesorder ;
-    public $selectedEstado = null ;
+    public $selectedEstado  ;
     public $selectedMunicipio = null ;
     public $municipios = null;
 
     public function mount()
     {
-
-        if ( $this->addressesorder != ''){
-            $this->selectedEstado = $this->addressesorder->selectedEstado;
-            $this->selectedMunicipio = $this->addressesorder->selectedMunicipio;
+        if ( $this->order->selectedEstado != '' ){
+            $this->selectedEstado = $this->order->selectedEstado;
+            $this->selectedMunicipio = $this->order->selectedMunicipio;
+        }else{
+            $this->selectedEstado = $this->selectedEstado;
+            $this->selectedMunicipio = $this->selectedMunicipio;
         }
     }
 
@@ -34,6 +36,7 @@ class SelectDynamic extends Component
 
     public function updatedselectedEstado($estado_id)
     {
+        $this->selectedEstado = $estado_id;
         $this->municipios = Municipios::where('estado_id', '=', $estado_id)->get();
     }
 }
