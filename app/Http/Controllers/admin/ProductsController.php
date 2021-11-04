@@ -43,7 +43,7 @@ class ProductsController extends Controller
             'stock' => '0',
             'description' => '',
             'brand' => '',
-            'model' => '',
+            'model' => null,
             'features' => '',
             'payment_cuba' => '',
             'sku' => $request->get('sku'),
@@ -135,7 +135,7 @@ class ProductsController extends Controller
                         'name' => $cat,
                         'brand_id' => $product->brand
                     ])->id;
-            } else $product->model = '' ;
+            } else $product->model = null ;
 
             $product->update([
             'name' => $request->input('name'),

@@ -24,4 +24,9 @@ class Order extends Model
     {
         return $this->belongsTo(ShoppingCart::class, 'shopping_cart_id');
     }
+
+    public function getResultslLink()
+    {
+        return route('pages.myorder') ;
+    }
 }

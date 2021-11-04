@@ -94,7 +94,7 @@ class ShoppingCartDetailController extends Controller
                     'quantity' => $request->quant['1'],
                     'price' => $product->sale_price,
                     'save' => $save,
-                    'modelo' => '0',
+                    'modelo' => $product->model,
                     'color' => $request->color,
                 ]);
                 //$this->statusCarts($shopping_cart);
@@ -114,7 +114,7 @@ class ShoppingCartDetailController extends Controller
                     'quantity' => $request->quant['1'],
                     'price' => $product->sale_price,
                     'save' => $save,
-                    'modelo' => '0',
+                    'modelo' => $product->model,
                     'color' => '0',
                 ]);
                 //$this->statusCarts($shopping_cart);
@@ -144,7 +144,7 @@ class ShoppingCartDetailController extends Controller
                 'quantity' => '1',
                 'price' => $product->sale_price,
                 'save' => $save,
-                'modelo' => '0',
+                'modelo' => $product->model,
                 'color' => '0',
             ]);
             //$this->statusCarts($shopping_cart);

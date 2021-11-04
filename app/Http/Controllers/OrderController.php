@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->get();
-        return view('pages.myorders', compact('orders'));
+        if ( Auth::guest() ){
+            return redirect()->route('login');
+        }else {
+            $cant = count(Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->get());
+            $orders = Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->orderBy('order_date', 'desc')->paginate(3);
+            return view('pages.myorders', compact('orders', 'cant'));
+        }
     }
 
     public function create()

@@ -24,4 +24,9 @@ class ShoppingCartDetail extends Model
     {
         return $this->belongsTo(Colore::class, 'color');
     }
+
+    public function modelp()
+    {
+        return $this->belongsTo(Modelp::class, 'modelo');
+    }
 }

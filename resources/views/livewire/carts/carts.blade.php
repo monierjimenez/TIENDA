@@ -54,7 +54,7 @@
                                                     </a>
                                                 </p>
                                                 <p class="product-des">
-                                                    @if( $shoppingcartdetail->modelo != 0 )
+                                                    @if( $shoppingcartdetail->product->spec != '[]' )
                                                         <span>
 {{--                                                            {{ dd($shoppingcartdetail->product->shopping_cart_detail) }}--}}
                                                             ${{ $shoppingcartdetail->spec->sale_price }}
@@ -79,8 +79,10 @@
                                                     {{ __('Color') }}: {{ $shoppingcartdetail->colore->name }}
                                                 @endif
                                                 <p>
-                                                    @if( $shoppingcartdetail->modelo != 0 )
+                                                    @if( $shoppingcartdetail->product->spec != '[]' )
                                                         {{ __('Model') }}: {{ $shoppingcartdetail->spec->name }}
+                                                    @else
+                                                        {{ __('Model') }}: {{ $shoppingcartdetail->modelp->name }}
                                                     @endif
                                                 </p>
                                             </td>

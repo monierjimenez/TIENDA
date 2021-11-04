@@ -27,7 +27,7 @@
             <div class="row shopping-cart">
                 <div class="col-lg-12 col-12">
                     <div class="checkout-form">
-                        <h5> Mis Pedidos ({{ count($orders) }})</h5>
+                        <h5> Mis Pedidos ({{ $cant }})</h5>
                         <br>
                         <div class="box-body table-responsive no-padding">
                             <table class="table shopping-summery">
@@ -52,6 +52,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-end">
+                                {!! $orders->links() !!}
+                            </div>
+
                         </div>
                     </div>
             </div>

@@ -17,9 +17,9 @@
                                     <label>{{ __('First Name') }}<span>*</span></label>
 {{--                                    {{dd($addressesorder)}}--}}
                                     @if($order->name != '')
-                                       3 <input type="text" name="name" placeholder="" value="{{ old('name',$order) != '' ? $order->name : '' }}" class="form-control">
+                                       <input type="text" name="name" placeholder="" value="{{ old('name',$order) != '' ? $order->name : '' }}" class="form-control">
                                     @else
-                                       4 <input type="text" name="name" placeholder="" value="{{ old('name') }}" class="form-control">
+                                       <input type="text" name="name" placeholder="" value="{{ old('name') }}" class="form-control">
                                     @endif
                                     {!! $errors->first('name', '<span class="help-block">:message</span>') !!}
                                 </div>

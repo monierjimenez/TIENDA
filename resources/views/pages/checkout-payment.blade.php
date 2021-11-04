@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-lg-12 col-12">
                     <div class="checkout-form">
-                        -Order: {{$order->id}}-
+{{--                        -Order: {{$order->id}}---}}
                         <div id="paypal-button-container"></div>
                     </div>
                 </div>
@@ -75,6 +75,7 @@
     <script>
         paypal.Buttons({
             fundingSource: paypal.FUNDING.CARD,
+
             // Sets up the transaction when a payment button is clicked
             createOrder: function(data, actions) {
                 return actions.order.create({
@@ -109,46 +110,58 @@
             onApprove: function(data, actions) {
                 return fetch('/paypal/process/' + data.orderID + '?orderID=' + {{ $order->id }})
                 .then(res => res.json())
-                .then(function(orderData) {
-                    // Three cases to handle:
-                    //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
-                    //   (2) Other non-recoverable errors -> Show a failure message
-                    //   (3) Successful transaction -> Show confirmation or thank you
-
-                    // This example reads a v2/checkout/orders capture response, propagated from the server
-                    // You could use a different API or structure for your 'orderData'
-                    var errorDetail = Array.isArray(orderData.details) && orderData.details[0];
-
-                    if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
-                        return actions.restart(); // Recoverable state, per:
-                        // https://developer.paypal.com/docs/checkout/integration-features/funding-failure/
+                .then(function(response) {
+                    //Show a failure message
+                    if (!response.success) {
+                        const msg = 'Sorry, your transaction could not be processed.';
+                        return alert(msg);
                     }
 
-                    if (errorDetail) {
-                        var msg = 'Sorry, your transaction could not be processed.';
-                        if (errorDetail.description) msg += '\n\n' + errorDetail.description;
-                        if (orderData.debug_id) msg += ' (' + orderData.debug_id + ')';
-                        return alert(msg); // Show a failure message (try to avoid alerts in production environments)
-                    }
+                    location.href = response.url;
 
-                    // Successful capture! For demo purposes:
-                    //console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                   // var transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert('Transaction completed by ' + orderData.payer.name.given_name );
-                    //+ transaction.status + ': ' + transaction.id
 
-                    // Replace the above to show a success message within this page, e.g.
-                    // const element = document.getElementById('paypal-button-container');
-                    // element.innerHTML = '';
-                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                    // Or go to another URL:  actions.redirect('thank_you.html');
+                    // var errorDetail = Array.isArray(orderData.details) && orderData.details[0];
+                    //
+                    // if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
+                    //     return actions.restart(); // Recoverable state, per:
+                    //     // https://developer.paypal.com/docs/checkout/integration-features/funding-failure/
+                    // }
+                    // if (errorDetail) {
+                    //     var msg = 'Sorry, your transaction could not be processed.';
+                    //     if (errorDetail.description) msg += '\n\n' + errorDetail.description;
+                    //     if (orderData.debug_id) msg += ' (' + orderData.debug_id + ')';
+                    //     return alert(msg); // Show a failure message (try to avoid alerts in production environments)
+                    // }
+                    // alert('Transaction completed by ' + orderData.payer.name.given_name );
+
                 });
-            },
-            onError: function (err) {
-                    // For example, redirect to a specific error page
-                    //window.location.href = "/your-error-page-here";
-                    console.log(err);
             }
+            // onError: function (err) {
+            //         // For example, redirect to a specific error page
+            //         //window.location.href = "/your-error-page-here";
+            //         console.log(err);
+            // }
         }).render('#paypal-button-container');
     </script>
 @endpush
+
+
+{{--// Three cases to handle:--}}
+{{--//   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()--}}
+{{--//   (2) Other non-recoverable errors -> Show a failure message--}}
+{{--//   (3) Successful transaction -> Show confirmation or thank you--}}
+
+{{--// This example reads a v2/checkout/orders capture response, propagated from the server--}}
+{{--// You could use a different API or structure for your 'orderData'--}}
+
+{{--// Successful capture! For demo purposes:--}}
+{{--//console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));--}}
+{{--// var transaction = orderData.purchase_units[0].payments.captures[0];--}}
+
+{{--//+ transaction.status + ': ' + transaction.id--}}
+
+{{--// Replace the above to show a success message within this page, e.g.--}}
+{{--// const element = document.getElementById('paypal-button-container');--}}
+{{--// element.innerHTML = '';--}}
+{{--// element.innerHTML = '<h3>Thank you for your payment!</h3>';--}}
+{{--// Or go to another URL:  actions.redirect('thank_you.html');--}}

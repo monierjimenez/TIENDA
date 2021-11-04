@@ -1,14 +1,45 @@
 <?php
-    //use App\User;
-    //use App\Record;
-    //use App\Product;
-    //use App\Colore;
-    //use App\Spec;
-    //use Cookie;
-
+   // use App\Order;
+    //use App\Modelp;
     use App\ShoppingCart;
+    use App\OrderDetails;
+
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Session;
+
+    //function for save details product whats in on purchase
+    function shoppingCartDetails($shopping_cart, $idOrder){
+        //dd($shopping_cart->shopping_cart_details);
+        foreach ( $shopping_cart->shopping_cart_details as $shopping_cart_details ){
+            //dd($shopping_cart_details->product->spec);
+            if ( $shopping_cart_details->product->spec == '[]')
+                if ( $shopping_cart_details->modelo != null ) $modelo_product =  $shopping_cart_details->modelp->name ; else $modelo_product = 0 ;
+           else
+               $modelo_product = $shopping_cart_details->spec->name;
+
+           if ($shopping_cart_details->color != 0) $color = $shopping_cart_details->colore->name; else $color = 0;
+           if ($shopping_cart_details->product->sale_price_before != 0)
+               $save_price = $shopping_cart_details->product->sale_price_before - $shopping_cart_details->product->sale_price;
+           else
+               $save_price = 0;
+
+           $orderDetails = OrderDetails::create([
+               'order_id' => $idOrder,
+               'product_id' => $shopping_cart_details->product_id,
+               'name_product' => $shopping_cart_details->product->name,
+               'category_product' => $shopping_cart_details->product->categorie->name,
+               'cant_product' => $shopping_cart_details->quantity,
+               'price_product' => $shopping_cart_details->product->sale_price,
+               'sale_price_product' => $shopping_cart_details->product->sale_price_before,
+               'save_product' => $save_price,
+               'model_product' => $modelo_product,
+               'color_product' => $color,
+               'sku_product' => $shopping_cart_details->product->sku,
+               'brand_product' => $shopping_cart_details->product->brand != 0 ? $shopping_cart_details->product->brands[0]['name'] : 0,
+           ]);
+        }
+        //return true;
+    }
 
     function productCartIS($id, $idProduct){
         $idDetailsProduct = false ;
