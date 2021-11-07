@@ -31,7 +31,11 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
-        //
+        if ( Auth::guest() ){
+            return redirect()->route('login');
+        }else {
+            return view('pages.myordersdetails', compact('order'));
+        }
     }
 
     public function edit(Order $order)

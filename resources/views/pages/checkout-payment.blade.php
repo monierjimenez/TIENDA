@@ -116,7 +116,6 @@
                         const msg = 'Sorry, your transaction could not be processed.';
                         return alert(msg);
                     }
-
                     location.href = response.url;
 
 

@@ -9,19 +9,35 @@
 
     //function for save details product whats in on purchase
     function shoppingCartDetails($shopping_cart, $idOrder){
-        //dd($shopping_cart->shopping_cart_details);
+
         foreach ( $shopping_cart->shopping_cart_details as $shopping_cart_details ){
             //dd($shopping_cart_details->product->spec);
-            if ( $shopping_cart_details->product->spec == '[]')
-                if ( $shopping_cart_details->modelo != null ) $modelo_product =  $shopping_cart_details->modelp->name ; else $modelo_product = 0 ;
-           else
+            if ( $shopping_cart_details->product->spec == '[]'){
+                if ( $shopping_cart_details->modelo != null )
+                    $modelo_product =  $shopping_cart_details->modelp->name ;
+                else {
+                    $modelo_product = 0 ;
+                }
+
+                if ($shopping_cart_details->product->sale_price_before != 0)
+                    $save_price = ($shopping_cart_details->product->sale_price_before - $shopping_cart_details->product->sale_price)*$shopping_cart_details->quantity;
+                else
+                    $save_price = 0;
+            }
+           else{
                $modelo_product = $shopping_cart_details->spec->name;
 
-           if ($shopping_cart_details->color != 0) $color = $shopping_cart_details->colore->name; else $color = 0;
-           if ($shopping_cart_details->product->sale_price_before != 0)
-               $save_price = $shopping_cart_details->product->sale_price_before - $shopping_cart_details->product->sale_price;
+               if ($shopping_cart_details->spec->sale_price_before != 0)
+                   $save_price = ($shopping_cart_details->spec->sale_price_before - $shopping_cart_details->spec->sale_price)*$shopping_cart_details->quantity;
+               else
+                   $save_price = 0;
+           }
+           if ( $shopping_cart_details->save != 0 )
+               $sale_price_product = $shopping_cart_details->price+$shopping_cart_details->save ;
            else
-               $save_price = 0;
+               $sale_price_product = 0 ;
+
+           if ( $shopping_cart_details->color != 0 ) $color = $shopping_cart_details->colore->name; else $color = 0;
 
            $orderDetails = OrderDetails::create([
                'order_id' => $idOrder,
@@ -29,8 +45,8 @@
                'name_product' => $shopping_cart_details->product->name,
                'category_product' => $shopping_cart_details->product->categorie->name,
                'cant_product' => $shopping_cart_details->quantity,
-               'price_product' => $shopping_cart_details->product->sale_price,
-               'sale_price_product' => $shopping_cart_details->product->sale_price_before,
+               'price_product' => $shopping_cart_details->price,
+               'sale_price_product' => $sale_price_product,
                'save_product' => $save_price,
                'model_product' => $modelo_product,
                'color_product' => $color,

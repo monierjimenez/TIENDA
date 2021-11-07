@@ -19,8 +19,11 @@ use Illuminate\Support\Facades\Route;
     Route::get('about', 'HomeController@about')->name('pages.about');
     Route::get('terms-and-conditions', 'HomeController@termsandconditions')->name('pages.terms-and-conditions');
     Route::get('refunds', 'HomeController@refunds')->name('pages.refunds');
+
     //rutas ordenes
     Route::get('myorders', 'OrderController@index')->name('pages.myorder');
+    Route::get('myorders/{order}', 'OrderController@show')->name('pages.myorder.details');
+
     //Rutas del carrito de compras
     Route::resource('shopping_cart_detail', 'ShoppingCartDetailController')
         ->only(['update', 'destroy'])->names('shopping_cart_details');

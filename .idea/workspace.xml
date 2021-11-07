@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/livewire-tmp/pTLZL0fHXM3NMnJz3SAvFJXh419Ukj-metaRnVpekNqZUJ5NnMyeHhMaVJCRnlLZWszcDNnc09uWmF5ZUNlTEJWVi5qcGc=-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/specs/wprbImZGcy1BC6Q8zU8dErVPXHOASoGcfMPkdG7X.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/myordersdetails.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderDetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderDetailsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/OrderDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ShoppingCartDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCartDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_16_151106_create_order_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_16_151106_create_order_details_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/checkout/select-dynamic.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/checkout/select-dynamic.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/0UV3QOAqMJrfIzpQf9irjxzk6ABRMX-metaVktSMFJtdTNJWWhhM1Mzd3FVVG5hWTVUNkJtd0lKMmtCUkxoblgxdi5qcGc=-.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/idriYP4wCAUzpyBTgxnCi4Vc86wtFd-metaVktSMFJtdTNJWWhhM1Mzd3FVVG5hWTVUNkJtd0lKMmtCUkxoblgxdi5qcGc=-.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/lC8jkXCGfTqIyxbpORJYnrkNkK6bDq-metaVktSMFJtdTNJWWhhM1Mzd3FVVG5hWTVUNkJtd0lKMmtCUkxoblgxdi5qcGc=-.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/checkout-payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/checkout-payment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/myorders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/myorders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +207,7 @@
       <workItem from="1631743091542" duration="203889000" />
       <workItem from="1633907590089" duration="10460000" />
       <workItem from="1634144476471" duration="44130000" />
-      <workItem from="1634440665060" duration="107985000" />
+      <workItem from="1634440665060" duration="126878000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -405,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635826504545</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="cambios en el carts 2">
+      <created>1635998177009</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1635998177011</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

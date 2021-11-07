@@ -47,7 +47,11 @@
                                             <td class="text-center" data-title="Cantidad">{{ $order->shopping_cart->quantity_of_products() }}</td>
                                             <td class="text-center" data-title="Fecha">{{ $order->order_date->format('M d, Y, G:i:s') }}</td>
                                             <td class="text-center" data-title="Total">${{ $order->amount_total }}</td>
-                                            <td class="text-center" data-title="Option">Option</td>
+                                            <td class="text-center" data-title="Option">
+                                                <a href="{{ route('pages.myorder.details', $order) }}">
+                                                    <i class="fa fa-reorder"></i> DETALLES
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -55,7 +59,6 @@
                             <div class="d-flex justify-content-end">
                                 {!! $orders->links() !!}
                             </div>
-
                         </div>
                     </div>
             </div>

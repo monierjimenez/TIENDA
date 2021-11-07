@@ -118,11 +118,13 @@ class CheckoutController extends Controller
 
     public function index()
     {
+
       //  dd(Carbon::parse(date('m/d/Y G:i:s')) );
         if ( Auth::guest() ){
             return redirect()->route('login');
         }else{
-            $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
+            $shopping_cart = ShoppingCart::find(207);
+            //dd( shoppingCartDetails($shopping_cart, 13) );
             if( $shopping_cart->shopping_cart_details == '[]' ){
                 return redirect()->route('pages.cart');
             }else{
