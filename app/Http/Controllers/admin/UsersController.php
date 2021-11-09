@@ -107,6 +107,7 @@ class UsersController extends Controller
     {
         $rules = [
             'name' => 'required',
+            'last_name' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($user->id)],
             'phone' => 'required|numeric',
             'role' => 'required',

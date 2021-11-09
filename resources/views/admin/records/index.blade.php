@@ -31,7 +31,6 @@
 			</div>
 		</div>
 	</div>
-</div>
 @stop
 
 @push('styles')

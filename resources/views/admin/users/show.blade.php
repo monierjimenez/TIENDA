@@ -170,6 +170,90 @@
 									</div>
 								  </div>
 							</div>
+
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <div class="box box-solid">
+                                      <div class="box-header with-border">
+                                          List Orders
+                                      </div>
+                                      <!-- /.box-header -->
+                                      <div class="box-body">
+                                          <p>
+                                              {!! checkrights('PUORSV', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'
+                                               : '<i class="fa fa-times margin-r-5"></i>' !!}View Order<br>
+
+                                              {!! checkrights('PUORSE', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'
+                                               : '<i class="fa fa-times margin-r-5"></i>' !!}Edit Order<br>
+
+{{--                                              {!! checkrights('PUD', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'--}}
+{{--                                               : '<i class="fa fa-times margin-r-5">' !!}</i>Delete User<br>--}}
+                                          </p>
+
+                                          {{--  <input type="checkbox" name="encargado" class="minimal flat-red" disabled value="1" checked>
+                                          &nbsp;<i class="fa fa-street-view margin-r-5"></i>View User &nbsp;<br>  --}}
+
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <div class="box box-solid">
+                                      <div class="box-header with-border">
+                                          List Specs
+                                      </div>
+                                      <!-- /.box-header -->
+                                      <div class="box-body">
+                                          <p>
+                                              {!! checkrights('PUSPV', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'
+                                               : '<i class="fa fa-times margin-r-5"></i>' !!}View Specs<br>
+
+                                              {!! checkrights('PUSPE', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'
+                                               : '<i class="fa fa-times margin-r-5"></i>' !!}Edit Specs<br>
+
+                                              {!! checkrights('PUSPD', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'
+                                               : '<i class="fa fa-times margin-r-5">' !!}</i>Delete Specs<br>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <div class="box box-solid">
+                                      <div class="box-header with-border">
+                                          List ???
+                                      </div>
+                                      <!-- /.box-header -->
+                                      <div class="box-body">
+                                          <p>
+{{--                                              {!! checkrights('PRRV', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'--}}
+{{--                                               : '<i class="fa fa-times margin-r-5"></i>' !!}View Record<br>--}}
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <div class="box box-solid">
+                                      <div class="box-header with-border">
+                                          List ???
+                                      </div>
+                                      <!-- /.box-header -->
+                                      <div class="box-body">
+{{--                                          <p>--}}
+{{--                                              {!! checkrights('PUPV', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'--}}
+{{--                                               : '<i class="fa fa-times margin-r-5"></i>' !!}View Products<br>--}}
+
+{{--                                              {!! checkrights('PUPE', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'--}}
+{{--                                               : '<i class="fa fa-times margin-r-5"></i>' !!}Edit Products<br>--}}
+
+{{--                                              {!! checkrights('PUPD', $user->permissions) ? '<i class="fa fa-check margin-r-5"></i>'--}}
+{{--                                               : '<i class="fa fa-times margin-r-5">' !!}</i>Delete Products<br>--}}
+{{--                                          </p>--}}
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
 						</p>
 						 <!--<ul class="list-inline">
 						 <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>

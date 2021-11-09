@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $categorys = Category::where('condition', '=', '0')->get();
-        $products = Product::where('condition', '=', '0')->inRandomOrder()->limit(15)->get();
+        $products = Product::where('condition', '=', '0')->where('sale_price_before', '!=', 0)->inRandomOrder()->limit(15)->get();
         return view('welcome', compact('categorys', 'products'));
     }
 

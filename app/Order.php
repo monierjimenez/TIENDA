@@ -69,4 +69,19 @@ class Order extends Model
         }
         return $total;
     }
+
+    public function total_profit_order(){
+        $profit_sale = 0 ;
+
+        foreach ( $this->order_detail as $orderdetail ){
+
+            if ( $orderdetail->spec == null ){
+                $profit_sale += ($orderdetail->price_product-$orderdetail->product->cost_price)*$orderdetail->cant_product ;
+            }else{
+                //dd($orderdetail->spec->cost_price);
+                $profit_sale += ($orderdetail->price_product-$orderdetail->spec->cost_price)*$orderdetail->cant_product ;
+            }
+        }
+        return $profit_sale;
+    }
 }

@@ -169,6 +169,33 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-3">
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    Permissions Orders
+                                </div>
+
+                                <div class="box-body">
+                                    <p>
+                                        {!! checkrights('PUORSV', $role->permissions) ?
+                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSV" checked> '
+                                                :
+                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSV" > ' !!}View Orders<br>
+
+                                        {!! checkrights('PUORSE', $role->permissions) ?
+                                       '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSE" checked> '
+                                               :
+                                       '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSE" > ' !!}Edit Order<br>
+
+{{--                                        {!! checkrights('PUSPD', $role->permissions) ?--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPD" checked> '--}}
+{{--                                               :--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPD" > ' !!}Delete Specs<br>--}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </p>
                 </div>

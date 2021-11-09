@@ -2,22 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/livewire-tmp/pTLZL0fHXM3NMnJz3SAvFJXh419Ukj-metaRnVpekNqZUJ5NnMyeHhMaVJCRnlLZWszcDNnc09uWmF5ZUNlTEJWVi5qcGc=-.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/specs/wprbImZGcy1BC6Q8zU8dErVPXHOASoGcfMPkdG7X.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/myordersdetails.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/OrdersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/adminlte/css/responsiveAdmin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/avatar/1636339978-craftsman-dardos-con-base-lado-b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/datatablesajax/borrar/datatableschipsexistencia.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/datatablesajax/borrar/datatableschipsvendidos.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/datatablesajax/borrar/datatablesexistencia.blade - borrar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/datatablesajax/borrar/galery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/datatablesajax/datatablesorders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/orders/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/orders/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/orders/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/helpersCarts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/RecordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/RecordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/OrderDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/0UV3QOAqMJrfIzpQf9irjxzk6ABRMX-metaVktSMFJtdTNJWWhhM1Mzd3FVVG5hWTVUNkJtd0lKMmtCUkxoblgxdi5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/idriYP4wCAUzpyBTgxnCi4Vc86wtFd-metaVktSMFJtdTNJWWhhM1Mzd3FVVG5hWTVUNkJtd0lKMmtCUkxoblgxdi5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/livewire-tmp/lC8jkXCGfTqIyxbpORJYnrkNkK6bDq-metaVktSMFJtdTNJWWhhM1Mzd3FVVG5hWTVUNkJtd0lKMmtCUkxoblgxdi5qcGc=-.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/es.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/avatar/1621310199-CT-1226AL.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/records/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/records/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/roles/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/specs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/specs/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/checkout-payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/checkout-payment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/myorders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/myorders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/myordersdetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/myordersdetails.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +225,7 @@
       <workItem from="1631743091542" duration="203889000" />
       <workItem from="1633907590089" duration="10460000" />
       <workItem from="1634144476471" duration="44130000" />
-      <workItem from="1634440665060" duration="126878000" />
+      <workItem from="1634440665060" duration="164497000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -412,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635998177011</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="cambios order">
+      <created>1636245510672</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1636245510674</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,16 +448,12 @@
     <MESSAGE value="plantilla frond end" />
     <MESSAGE value="cambios en el carts" />
     <MESSAGE value="cambios en el carts 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios en el carts 2" />
+    <MESSAGE value="cambios order" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios order" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/admin/RecordController.php</url>
-          <line>4</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/database/migrations/2017_04_08_013823_create_modelps_table.php</url>
           <line>2</line>

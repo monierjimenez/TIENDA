@@ -446,6 +446,7 @@ desired effect
         }
     </script>
     @stack('script')
+{{--    @dd($errors)--}}
     <!-- AdminLTE App -->
     <script src="/adminlte/js/app.min.js"></script>
         @if( session()->has('flash') )

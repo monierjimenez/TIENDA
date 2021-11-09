@@ -13,7 +13,7 @@
       </a>
   </li>
 
-  @if( checkrights('PUV', auth()->user()->permissions) )
+  @if( checkrights('PUV', auth()->user()->permissions) || checkrights('PRV', auth()->user()->permissions) )
     <li class="treeview {{ request()->is('admin/users*') ? 'active' : '' }} {{ request()->is('admin/roles*') ? 'active' : '' }}">
         <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> <span>USERS</span>
             <span class="pull-right-container">
@@ -21,7 +21,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-            <li class="{{ request()->is('admin/users') ? 'active' : '' }}"> <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> List Users</a></li>
+            @if( checkrights('PUV', auth()->user()->permissions) )
+                <li class="{{ request()->is('admin/users') ? 'active' : '' }}"> <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> List Users</a></li>
+            @endif
             @if( checkrights('PRV', auth()->user()->permissions) )
                 <li class="{{ request()->is('admin/roles') ? 'active' : '' }}"><a href="{{ route('admin.roles.index') }}"><i class="fa fa-user-secret"></i> List Roles</a></li>
             @endif
@@ -66,6 +68,25 @@
         </li>
     @endif
 
+    @if( checkrights('PUORSV', auth()->user()->permissions) )
+        <li class="treeview {{ request()->is('admin/orders*') ? 'active' : '' }}">
+            <a href="{{ route('orders') }}"><i class="fa fa-tasks"></i> <span>ORDERS</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{{ request()->is('admin/orders') ? 'active' : '' }}">
+                    <a href="{{ route('orders') }}"><i class="fa fa-reorder"></i>Orders Paid</a>
+                </li>
+
+                <li class="{{ request()->is('admin/orders') ? 'active' : '' }}">
+                    <a href=""><i class="fa fa-paint-brush"></i>List municipalities</a>
+                </li>
+            </ul>
+        </li>
+    @endif
+
     @if( checkrights('PUPV', auth()->user()->permissions) )
         <li class="treeview {{ request()->is('admin/states*') ? 'active' : '' }} {{ request()->is('admin/municipios*') ? 'active' : '' }}">
             <a href="{{ route('admin.states.index') }}"><i class="fa fa-automobile"></i> <span>DELIVERY</span>
@@ -97,9 +118,9 @@
                   <a href="{{ route('admin.records') }}"><i class="fa fa-building-o"></i>Record users</a>
               </li>
 
-              <div class="container">
-                  <!-- <button type="button" class="btn btn-default btn-sm">Cadastrar Monitorias</button> -->
-              </div>
+{{--              <div class="container">--}}
+{{--                  <!-- <button type="button" class="btn btn-default btn-sm">Cadastrar Monitorias</button> -->--}}
+{{--              </div>--}}
               <!--Teste modal-->
 
               <!--Teste modal

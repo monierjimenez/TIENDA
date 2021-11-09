@@ -74,6 +74,11 @@ class CheckoutController extends Controller
             // actualizar orden del usuario
             $orderID = $request->input('orderID');
             $order = Order::findOrFail($orderID);
+            $shopping_cart = ShoppingCart::find($order->shopping_cart_id);
+            //guardar los detallles del carrito a la hora del pago
+            shoppingCartDetails($shopping_cart, $order->id) ;
+            //save shooping cart details
+
             $order->update([
                 'paymentstatus' => 'PAID',
                 'orderstatus' => 'SHIPMENT',
@@ -81,19 +86,15 @@ class CheckoutController extends Controller
                 'currency_code' => $currency_code,
                 'amount_total' => $amount,
                 'amount_fi' => $paypal_fee,
+                'profit_sale' => $order->total_profit_order(),
                 'order_date' => Carbon::parse(date('m/d/Y G:i:s')),
             ]);
             $order->save();
 
-            $shopping_cart = ShoppingCart::find($order->shopping_cart_id);
             $shopping_cart->update([
                 'status' => 'FINISHED',
             ]);
             $shopping_cart->save();
-
-            //guardar los detallles del carrito a la hora del pago
-            shoppingCartDetails($shopping_cart, $order->id) ;
-            //save shooping cart details
 
             //crear un carrito nuevo para este usuario, y actualizar la cookie y la session
             $shopping_cart = ShoppingCart::create([
@@ -104,7 +105,6 @@ class CheckoutController extends Controller
             $shopping_cart_id = Session::get('shopping_cart_id');
             Session::put('shopping_cart_id', $shopping_cart->id);
             Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
-
             return [
                 'success' => true,
                 'url' => $order->getResultslLink()
@@ -116,14 +116,37 @@ class CheckoutController extends Controller
         ];
     }
 
+//    public function total_profit_order($order){
+//        $profit_sale = 0 ;
+//        foreach ( $order->order_detail as $orderdetail ){
+//            if ( $orderdetail->spec == null ){
+//                $profit_sale = ($orderdetail->price_product-$orderdetail->product->cost_price)*$orderdetail->cant_product ;
+//            }else{
+//                $profit_sale = ($orderdetail->price_product-$orderdetail->spec->cost_price)*$orderdetail->cant_product ;
+//            }
+//        }
+//        return $profit_sale;
+//    }
+
+    public function total_profit_order($order){
+        $profit_sale = 0 ;
+        foreach ( $order->order_detail as $orderdetail ){
+            if ( $orderdetail->spec == null ){
+                $profit_sale = ($orderdetail->price_product-$orderdetail->product->cost_price)*$orderdetail->cant_product ;
+            }else{
+                $profit_sale = ($orderdetail->price_product-$orderdetail->spec->cost_price)*$orderdetail->cant_product ;
+            }
+        }
+        return $profit_sale;
+    }
+
     public function index()
     {
-
       //  dd(Carbon::parse(date('m/d/Y G:i:s')) );
         if ( Auth::guest() ){
             return redirect()->route('login');
         }else{
-            $shopping_cart = ShoppingCart::find(207);
+            $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
             //dd( shoppingCartDetails($shopping_cart, 13) );
             if( $shopping_cart->shopping_cart_details == '[]' ){
                 return redirect()->route('pages.cart');
@@ -141,6 +164,7 @@ class CheckoutController extends Controller
                         'currency_code' => null,
                         'amount_total' => 0,
                         'amount_fi' => 0,
+                        'profit_sale' => 0,
                     ]);
                     //$addressesorder = '';
                     $municipios = null;
@@ -168,7 +192,6 @@ class CheckoutController extends Controller
         if ( Auth::guest() ){
             return redirect()->route('login');
         }
-
         $this->validate($request, [
             'name' => 'required',
             'last_name' => 'required',
@@ -201,7 +224,9 @@ class CheckoutController extends Controller
 
         $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
         $payment = $request->payment ;
-        //dd( shoppingCartDetails($shopping_cart, $order->id) );
+        if( $shopping_cart->shopping_cart_details == '[]' )
+            return redirect()->route('pages.cart');
+
         if ( $request->get('payment') == 'paypal' )
             return view('pages.checkout-payment', compact('order', 'payment', 'shopping_cart'));
         else

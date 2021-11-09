@@ -14,7 +14,7 @@ class OrderController extends Controller
             return redirect()->route('login');
         }else {
             $cant = count(Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->get());
-            $orders = Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->orderBy('order_date', 'desc')->paginate(3);
+            $orders = Order::where('user_id', '=', auth()->user()->id)->where('paymentstatus', '=', 'PAID')->orderBy('order_date', 'desc')->paginate(10);
             return view('pages.myorders', compact('orders', 'cant'));
         }
     }

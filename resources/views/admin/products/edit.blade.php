@@ -302,7 +302,7 @@
 
             <!-- -->
 
-
+            @if ( checkrights('PUSPV', auth()->user()->permissions) )
             <div class="box box-primary"><br>
                 <div class="col-md-12">
                     <div class="nav-tabs-custom">
@@ -312,9 +312,11 @@
                             </li>
                             <li class="pull-left header"><i class="fa fa-th"></i>
                             <li class="pull-left header" style="padding: 0px">
-                                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalSpecs" data-backdrop="static" data-keyboard="false">
-                                    <i class="fa fa-plus"></i> Create Variant
-                                </button>
+                                @if ( checkrights('PUSPE', auth()->user()->permissions) )
+                                    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModalSpecs" data-backdrop="static" data-keyboard="false">
+                                        <i class="fa fa-plus"></i> Create Variant
+                                    </button>
+                                @endif
 {{--                                <button class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModalICC" data-backdrop="static" data-keyboard="false">--}}
 {{--                                    ADD PRODUCT (@if ( $product->products_id != '' ) {{ count(explode('.', $product->products_id)) }} @else 0 @endif)--}}
 {{--                                </button>--}}
@@ -345,7 +347,13 @@
                                                 <td>
                                                     <img src="/images/{{ $spec->image }}" class="profile-user-img img-responsive img-circle" style="width: 60px;border: 1px solid #d2d6de;">
                                                 </td>
-                                                <td> <a href="{{ route('admin.specs.edit', $spec) }}"> Edit</a> </td>
+                                                <td>
+                                                    @if ( checkrights('PUSPE', auth()->user()->permissions) )
+                                                        <a href="{{ route('admin.specs.edit', $spec) }}"> Edit</a>
+                                                    @else
+                                                        ----
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -358,7 +366,7 @@
                     </div>
                 </div>
             </div>
-
+            @endif
     		<div class="box-body">
                 Imagen (550x750)
 				<div class="dropzone"></div>

@@ -69,7 +69,7 @@
 @push('styles')
 
 @endpush
-
+{{--  {{ auth()->user()->email }}{{ auth()->user()->name }}{{ auth()->user()->name }}--}}
 @push('script')
     <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=USD&components=buttons,funding-eligibility"></script>
     <script>
@@ -83,21 +83,20 @@
                         shipping_preference: "NO_SHIPPING"
                     },
                     payer: {
-                      email_address: 'sb-eetlb8293572@personal.example.com',
-{{--                        {{ auth()->user()->email }}{{ auth()->user()->name }}{{ auth()->user()->name }}--}}
-{{--                       name: {--}}
-{{--                           given_name: '{{ auth()->user()->name }}',--}}
-{{--                           --}}{{--surname: '{{ auth()->user()->name }}',--}}
-{{--                       },--}}
-                    // address:{
-                    //     address_line_1: '',
-                    //     address_line_1: '',
-                    //     admin_area_1: '',
-                    //     admin_area_2: '',
-                    //     postal_code: '',
-                    //     country_code: ''
-                    //     }
-                    },
+                       email_address: '{{ auth()->user()->email }}',
+                       name: {
+                           given_name: '{{ auth()->user()->name }}',
+                           surname: '{{ auth()->user()->last_name }}',
+                       },
+                        // address:{
+                        //     address_line_1: '',
+                        //     address_line_1: '',
+                        //     admin_area_1: '',
+                        //     admin_area_2: '',
+                        //     postal_code: '',
+                        //     country_code: ''
+                        //     }
+                     },
                     purchase_units: [{
                         amount: {
                             value: '{{$shopping_cart->total_price_products()}}'
@@ -112,10 +111,11 @@
                 .then(res => res.json())
                 .then(function(response) {
                     //Show a failure message
-                    if (!response.success) {
+                    if ( !response.success ) {
                         const msg = 'Sorry, your transaction could not be processed.';
                         return alert(msg);
                     }
+
                     location.href = response.url;
 
 

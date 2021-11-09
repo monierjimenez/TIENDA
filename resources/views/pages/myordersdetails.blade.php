@@ -86,8 +86,8 @@
                                             </span>
                                         @endif
                                     </p>
-                                    @if( $orderdetails->color != 0 )
-                                        {{ __('Color') }}: {{ $orderdetails->colore->name }}
+                                    @if( $orderdetails->color_product != '0' )
+                                        {{ __('Color') }}: {{ $orderdetails->color_product }}
                                     @endif
                                     <p style="margin-bottom: 0px;margin-top: 0px;">
                                         @if( $orderdetails->product->spec != '[]' )

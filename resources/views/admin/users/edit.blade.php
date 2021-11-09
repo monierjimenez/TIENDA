@@ -31,6 +31,12 @@
 		    			{!! $errors->first('name', '<span class="help-block">:message</span>') !!}
 		    		</div>
 
+                    <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
+                        <label>Last name</label>
+                        <input name='last_name' placeholder="Last name" class="form-control" value="{{ old('last_name', $user->last_name) }}">
+                        {!! $errors->first('last_name', '<span class="help-block">:message</span>') !!}
+                    </div>
+
 		    		<div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
 		    			<label for="password">Password</label>
 						<input type='password' name='password' id="password" class="form-control">
@@ -227,21 +233,104 @@
                             <div class="col-md-4">
                                 <div class="box box-solid">
                                     <div class="box-header with-border">
-                                        List Recors
+                                        Permissions Orders
                                     </div>
 
                                     <div class="box-body">
                                         <p>
-                                            {!! checkrights('PRRV', $user->permissions) ?
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PRRV" checked> '
-                                                 :
-                                            '<input type="checkbox" name="" class="minimal flat-red" value="PRRV" > ' !!}View Record<br>
+                                            {!! checkrights('PUORSV', $user->permissions) ?
+                                            '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSV" checked> '
+                                                    :
+                                            '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSV" > ' !!}View Order<br>
 
+                                            {!! checkrights('PUORSE', $user->permissions) ?
+                                           '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSE" checked> '
+                                                   :
+                                           '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSE" > ' !!}Edit Order<br>
+
+                                            {{--                                        s{!! checkrights('PUPD', $user->permissions) ?--}}
+                                            {{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPD" checked> '--}}
+                                            {{--                                               :--}}
+                                            {{--                                        '<input type="checkbox" name="permisions[]" class="minimal flat-red" value="PUPD" > ' !!}Delete Products<br>--}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    Permissions ???
+                                </div>
+
+{{--                                <div class="box-body">--}}
+{{--                                    <p>--}}
+{{--                                        {!! checkrights('PUORSV', $user->permissions) ?--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSV" checked> '--}}
+{{--                                                :--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSV" > ' !!}View Order<br>--}}
+
+{{--                                        {!! checkrights('PUORSE', $user->permissions) ?--}}
+{{--                                       '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSE" checked> '--}}
+{{--                                               :--}}
+{{--                                       '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUORSE" > ' !!}Edit Order<br>--}}
+
+{{--                                        s{!! checkrights('PUPD', $user->permissions) ?--}}
+{{--                                        --}}{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUPD" checked> '--}}
+{{--                                        --}}{{--                                               :--}}
+{{--                                        --}}{{--                                        '<input type="checkbox" name="permisions[]" class="minimal flat-red" value="PUPD" > ' !!}Delete Products<br>--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    Permissions Specs
+                                </div>
+
+{{--                                <div class="box-body">--}}
+{{--                                    <p>--}}
+{{--                                        {!! checkrights('PUSPV', $user->permissions) ?--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPV" checked> '--}}
+{{--                                             :--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPV" > ' !!}View Specs<br>--}}
+
+{{--                                        {!! checkrights('PUSPE', $user->permissions) ?--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPE" checked> '--}}
+{{--                                             :--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPE" > ' !!}Edit Specs<br>--}}
+
+{{--                                        {!! checkrights('PUSPD', $user->permissions) ?--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPD" checked> '--}}
+{{--                                             :--}}
+{{--                                        '<input type="checkbox" name="permissions[]" class="minimal flat-red" value="PUSPD" > ' !!}Delete Specs--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    List Recors
+                                </div>
+
+{{--                                <div class="box-body">--}}
+{{--                                    <p>--}}
+{{--                                        {!! checkrights('PRRV', $user->permissions) ?--}}
+{{--                                        '<input type="checkbox" name="" class="minimal flat-red" value="PRRV" checked> '--}}
+{{--                                             :--}}
+{{--                                        '<input type="checkbox" name="" class="minimal flat-red" value="PRRV" > ' !!}View Record<br>--}}
+
+{{--                                    </p>--}}
+{{--                                </div>--}}
+                            </div>
+                        </div>
+                    </div>
                     </p>
 				    {{--  @if ( auth()->user()->role == 103 || auth()->user()->role == 102 )  --}}
 					<div class="box-body">

@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Route;
     //rutas datatables ajax
     Route::get('record/generales', 'RecordController@recordGeneral');
 
+    //Orders
+    Route::get('orders', 'OrdersController@index')->name('orders');
+    Route::get('order/generales', 'OrdersController@orderGeneral');
+
     //photo articulos
     Route::post('products/{product}/photos', 'PhotosController@store')->name('admin.products.photos.store');
     Route::delete('photos/{photo}', 'PhotosController@destroy')->name('admin.photos.destroy');

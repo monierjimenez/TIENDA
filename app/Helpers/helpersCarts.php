@@ -23,6 +23,8 @@
                     $save_price = ($shopping_cart_details->product->sale_price_before - $shopping_cart_details->product->sale_price)*$shopping_cart_details->quantity;
                 else
                     $save_price = 0;
+
+                $profit_sale = ($shopping_cart_details->product->sale_price-$shopping_cart_details->product->cost_price)*$shopping_cart_details->quantity ;
             }
            else{
                $modelo_product = $shopping_cart_details->spec->name;
@@ -31,7 +33,10 @@
                    $save_price = ($shopping_cart_details->spec->sale_price_before - $shopping_cart_details->spec->sale_price)*$shopping_cart_details->quantity;
                else
                    $save_price = 0;
+
+               $profit_sale = ($shopping_cart_details->spec->sale_price-$shopping_cart_details->spec->cost_price)*$shopping_cart_details->quantity ;
            }
+
            if ( $shopping_cart_details->save != 0 )
                $sale_price_product = $shopping_cart_details->price+$shopping_cart_details->save ;
            else
@@ -48,6 +53,7 @@
                'price_product' => $shopping_cart_details->price,
                'sale_price_product' => $sale_price_product,
                'save_product' => $save_price,
+               'profit_sale' => $profit_sale,
                'model_product' => $modelo_product,
                'color_product' => $color,
                'sku_product' => $shopping_cart_details->product->sku,
