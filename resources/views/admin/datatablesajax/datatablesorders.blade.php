@@ -1,5 +1,6 @@
     @if( checkrights('PUORSV', auth()->user()->permissions) )
-        <a href="#" class="btn btn-info btn-xs" title='See order'>
+
+        <a href="{{ route('admin.orders.show', $id ) }}" class="btn btn-info btn-xs" title='See order'>
             <i class="fa fa-eye"></i>
         </a>
 

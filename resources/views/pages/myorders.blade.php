@@ -41,19 +41,26 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($orders as $order)
+                                    @if ( count($orders) != 0 )
+                                        @foreach($orders as $order)
+                                            <tr>
+                                                <th data-title="{{ __('Número') }}">#{{ $order->id }}</th>
+                                                <td class="text-center" data-title="Cantidad">{{ $order->shopping_cart->quantity_of_products() }}</td>
+                                                <td class="text-center" data-title="Fecha">{{ $order->order_date->format('M d, Y, G:i') }}</td>
+                                                <td class="text-center" data-title="Total">${{ $order->amount_total }}</td>
+                                                <td class="text-center" data-title="Option">
+                                                    <a href="{{ route('pages.myorder.details', $order) }}">
+                                                        <i class="fa fa-reorder"></i> DETALLES
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
                                         <tr>
-                                            <th data-title="{{ __('Número') }}">#{{ $order->id }}</th>
-                                            <td class="text-center" data-title="Cantidad">{{ $order->shopping_cart->quantity_of_products() }}</td>
-                                            <td class="text-center" data-title="Fecha">{{ $order->order_date->format('M d, Y, G:i') }}</td>
-                                            <td class="text-center" data-title="Total">${{ $order->amount_total }}/{{  $order->profit_sale }}</td>
-                                            <td class="text-center" data-title="Option">
-                                                <a href="{{ route('pages.myorder.details', $order) }}">
-                                                    <i class="fa fa-reorder"></i> DETALLES
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                            <td colspan="4" class="text-center h5">
+                                            No tiene ordenes...
+                                            </td> </tr>
+                                    @endif
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-end">

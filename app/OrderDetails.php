@@ -8,9 +8,19 @@ class OrderDetails extends Model
 {
     protected $guarded = [];
 
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(Colore::class);
     }
 
     public function spec()

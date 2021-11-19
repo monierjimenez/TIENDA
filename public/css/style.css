@@ -507,7 +507,7 @@ Version:1.0
 /* Shopping Cart */
 .header .shopping {
 	display: inline-block;
-	z-index: 9999;
+	/*z-index: 9999;*/
 }
 .header .shopping .icon {
 	position: relative;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Addresses;
+use App\DetailsOrderClient;
 use App\Municipios;
 use App\User;
 use Cookie;
@@ -168,6 +169,12 @@ class CheckoutController extends Controller
                     ]);
                     //$addressesorder = '';
                     $municipios = null;
+
+                    DetailsOrderClient::create([
+                        'order_id' => $order->id,
+                        'accion' => 'Order created by '. auth()->user()->name,
+                        'cant' => '1',
+                    ]);
                 }else{
                     $order = Order::find($order[0]['id']);
                    // if( $order->addresses_id != null ){
@@ -179,9 +186,23 @@ class CheckoutController extends Controller
                         //$addressesorder = '';
                         $municipios = null;
                     }
+
+                    $detailsodercliente = DetailsOrderClient::where('order_id', '=', $order->id)->where('accion', '=', 'The order for possible purchase was seen, customer '. auth()->user()->name)->get();
+                    if ( $detailsodercliente == '[]' )
+                    {
+                        DetailsOrderClient::create([
+                            'order_id' => $order->id,
+                            'accion' => 'The order for possible purchase was seen, customer '. auth()->user()->name,
+                            'cant' => '1',
+                        ]);
+                    }else{
+                        $detailsodercliente = DetailsOrderClient::find($detailsodercliente[0]['id']);
+                        $detailsodercliente->update([
+                            'cant' => $detailsodercliente->cant+1,
+                        ]);
+                        $detailsodercliente->save();
+                    }
                 }
-               // $addressess = Addresses::where('user_id', '=', auth()->user()->id)->get(); , 'addressess'
-                //$addressesorder = '';
                 return view('pages.checkout', compact('shopping_cart', 'order', 'municipios'));
             }
         }
@@ -221,6 +242,23 @@ class CheckoutController extends Controller
                 'payment_method' => $request->get('payment'),
         ]);
         $order->save();
+
+        $detailsodercliente = DetailsOrderClient::where('order_id', '=', $order->id)->where('accion', '=', 'Last step to pay the order '. auth()->user()->name)->get();
+        if ( $detailsodercliente == '[]' )
+        {
+            DetailsOrderClient::create([
+                'order_id' => $order->id,
+                'accion' => 'Last step to pay the order '. auth()->user()->name,
+                'cant' => '1',
+            ]);
+        }else{
+            $detailsodercliente = DetailsOrderClient::find($detailsodercliente[0]['id']);
+            $detailsodercliente->update([
+                'cant' => $detailsodercliente->cant+1,
+            ]);
+            $detailsodercliente->save();
+        }
+
 
         $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
         $payment = $request->payment ;

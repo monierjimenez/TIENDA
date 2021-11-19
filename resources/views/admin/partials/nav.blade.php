@@ -27,10 +27,6 @@
             @if( checkrights('PRV', auth()->user()->permissions) )
                 <li class="{{ request()->is('admin/roles') ? 'active' : '' }}"><a href="{{ route('admin.roles.index') }}"><i class="fa fa-user-secret"></i> List Roles</a></li>
             @endif
-{{--            <div class="container">--}}
-{{--                <!----> <button type="button" class="btn btn-default btn-sm">Cadastrar Monitorias</button>--}}
-{{--            </div>--}}
-            <!--Teste modal-->
         </ul>
     </li>
   @endif
@@ -55,29 +51,20 @@
                 <li class="{{ request()->is('admin/categorias') ? 'active' : '' }}">
                     <a href="{{ route('admin.categorias.index') }}"><i class="fa fa-navicon"></i>List Category</a>
                 </li>
-{{--               @if( checkrights('PUSPV', auth()->user()->permissions) )--}}
-{{--                    <li class="{{ request()->is('admin/specs') ? 'active' : '' }}">--}}
-{{--                        <a href="{{ route('admin.specs.index') }}"><i class="fa fa-crosshairs"></i> List Variant</a>--}}
-{{--                    </li>--}}
-{{--               @endif--}}
-            {{--            <div class="container">--}}
-            {{--                <!----> <button type="button" class="btn btn-default btn-sm">Cadastrar Monitorias</button>--}}
-            {{--            </div>--}}
-            <!--Teste modal-->
             </ul>
         </li>
     @endif
 
     @if( checkrights('PUORSV', auth()->user()->permissions) )
         <li class="treeview {{ request()->is('admin/orders*') ? 'active' : '' }}">
-            <a href="{{ route('orders') }}"><i class="fa fa-tasks"></i> <span>ORDERS</span>
+            <a href="{{ route('admin.orders.index') }}"><i class="fa fa-tasks"></i> <span>ORDERS</span>
                 <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
           </span>
             </a>
             <ul class="treeview-menu">
                 <li class="{{ request()->is('admin/orders') ? 'active' : '' }}">
-                    <a href="{{ route('orders') }}"><i class="fa fa-reorder"></i>Orders Paid</a>
+                    <a href="{{ route('admin.orders.index') }}"><i class="fa fa-reorder"></i>Orders Paid</a>
                 </li>
 
                 <li class="{{ request()->is('admin/orders') ? 'active' : '' }}">
@@ -117,18 +104,7 @@
               <li class="{{ request()->is('admin/records-users') ? 'active' : '' }}">
                   <a href="{{ route('admin.records') }}"><i class="fa fa-building-o"></i>Record users</a>
               </li>
-
-{{--              <div class="container">--}}
-{{--                  <!-- <button type="button" class="btn btn-default btn-sm">Cadastrar Monitorias</button> -->--}}
-{{--              </div>--}}
-              <!--Teste modal-->
-
-              <!--Teste modal
-              <li><a href="#">Meus Ratings</a></li>-->
           </ul>
       </li>
   @endif
-  {{--  <li>
-      <a href="#"><i class="fa fa-close"></i> <span>SAIR</span></a>
-  </li>  --}}
 </ul>

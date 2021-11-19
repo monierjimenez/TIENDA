@@ -72,7 +72,9 @@
                                             </h3>
                                             <div class="product-price">
                                                 <span>${{ $product->sale_price }}</span>
-                                                <span class="old">${{ $product->sale_price_before }}</span>
+                                                @if( $product->sale_price_before != '0' )
+                                                    <span class="old">${{ $product->sale_price_before }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

@@ -24,42 +24,46 @@
     </div>
 
     <!-- /.box-header -->
-    <div class="box-body">
-      <table id="post-table" class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>SKU</th>
-            <th>Name (Variant)</th>
-            <th>Category</th>
-            <th>Stock</th>
-            <th>Cost/Public</th>
-            <th>Condition</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($products as $product)
-            <tr>
-              <td>{{ $product->sku }}</td>
-              <td>{{ $product->name }} ({{ $product->spec->count()  }})</td>
-              <td>{{ $product->categorie->name }}</td>
-              <td>{{ $product->stock }}</td>
-              <td class="text-center">{{ $product->cost_price }}/{{ $product->sale_price }}</td>
-              <td>@if( $product->Condition == 0 ) <i class="fa fa-check"></i> @else <i class="fa fa-close"></i> @endif</td>
-              <td>
-                @if( checkrights('PUPE', auth()->user()->permissions) )
-                    <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
-                @endif
+      <div class="row">
+          <div class="col-md-12">
+              <div class="box box-primary"><br>
+                  <div class="col-md-12">
+                      <div class="box-body table-responsive7 no-padding">
+                               <table id="post-table" class="table table-hover table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th>SKU</th>
+                                      <th>Name (Variant)</th>
+                                      <th>Category</th>
+                                      <th>Stock</th>
+                                      <th>Cost/Public</th>
+                                      <th>Condition</th>
+                                      <th>Acciones</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    @foreach ($products as $product)
+                                      <tr>
+                                        <td>{{ $product->sku }}</td>
+                                        <td>{{ $product->name }} ({{ $product->spec->count()  }})</td>
+                                        <td>{{ $product->categorie->name }}</td>
+                                        <td>{{ $product->stock }}</td>
+                                        <td class="text-center">{{ $product->cost_price }}/{{ $product->sale_price }}</td>
+                                        <td>@if( $product->Condition == 0 ) <i class="fa fa-check"></i> @else <i class="fa fa-close"></i> @endif</td>
+                                        <td>
+                                          @if( checkrights('PUPE', auth()->user()->permissions) )
+                                              <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
+                                          @endif
 
-                @if( checkrights('PUPD', auth()->user()->permissions) )
-                    <form method="POST" action="{{ route('admin.products.destroy', $product) }}" style="display: inline">
-                        @csrf {{ method_field('DELETE') }}
-                        <button class="btn btn-xs btn-danger" onclick="return confirm('Estas seguro de eliminar este articulo.')">
-                        <i class="fa fa-trash"></i>
-                        </button>
-                   </form>
-                @endif
-{{--               <a href="{{ route('articulopdf', $product) }}" class="btn btn-success btn-xs" title="Exportar a PDF."><i class="fa fa-file-pdf-o"></i></a>--}}
+                                          @if( checkrights('PUPD', auth()->user()->permissions) )
+                                              <form method="POST" action="{{ route('admin.products.destroy', $product) }}" style="display: inline">
+                                                  @csrf {{ method_field('DELETE') }}
+                                                  <button class="btn btn-xs btn-danger" onclick="return confirm('Estas seguro de eliminar este articulo.')">
+                                                  <i class="fa fa-trash"></i>
+                                                  </button>
+                                             </form>
+                                          @endif
+                          {{--               <a href="{{ route('articulopdf', $product) }}" class="btn btn-success btn-xs" title="Exportar a PDF."><i class="fa fa-file-pdf-o"></i></a>--}}
               </td>
             </tr>
           @endforeach
@@ -67,8 +71,59 @@
         </table>
       </table>
     </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     <!-- /.box-body -->
   </div>
+
+
+
+
+
+{{--  <div class="box-body table-responsive no-padding">--}}
+{{--      <table id="post-table" class="table table-hover table-bordered">--}}
+{{--          <thead>--}}
+{{--          <tr>--}}
+{{--              <th>SKU</th>--}}
+{{--              <th>Name (Variant)</th>--}}
+{{--              <th>Category</th>--}}
+{{--              <th>Stock</th>--}}
+{{--              <th>Cost/Public</th>--}}
+{{--              <th>Condition</th>--}}
+{{--              <th>Acciones</th>--}}
+{{--          </tr>--}}
+{{--          </thead>--}}
+{{--          <tbody>--}}
+{{--          @foreach ($products as $product)--}}
+{{--              <tr>--}}
+{{--                  <td>{{ $product->sku }}</td>--}}
+{{--                  <td>{{ $product->name }} ({{ $product->spec->count()  }})</td>--}}
+{{--                  <td>{{ $product->categorie->name }}</td>--}}
+{{--                  <td>{{ $product->stock }}</td>--}}
+{{--                  <td class="text-center">{{ $product->cost_price }}/{{ $product->sale_price }}</td>--}}
+{{--                  <td>@if( $product->Condition == 0 ) <i class="fa fa-check"></i> @else <i class="fa fa-close"></i> @endif</td>--}}
+{{--                  <td>--}}
+{{--                      @if( checkrights('PUPE', auth()->user()->permissions) )--}}
+{{--                          <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>--}}
+{{--                      @endif--}}
+
+{{--                      @if( checkrights('PUPD', auth()->user()->permissions) )--}}
+{{--                          <form method="POST" action="{{ route('admin.products.destroy', $product) }}" style="display: inline">--}}
+{{--                              @csrf {{ method_field('DELETE') }}--}}
+{{--                              <button class="btn btn-xs btn-danger" onclick="return confirm('Estas seguro de eliminar este articulo.')">--}}
+{{--                                  <i class="fa fa-trash"></i>--}}
+{{--                              </button>--}}
+{{--                          </form>--}}
+{{--                      @endif--}}
+{{--                      --}}{{--               <a href="{{ route('articulopdf', $product) }}" class="btn btn-success btn-xs" title="Exportar a PDF."><i class="fa fa-file-pdf-o"></i></a>--}}
+{{--                  </td>--}}
+{{--              </tr>--}}
+{{--          @endforeach--}}
+{{--          </tbody>--}}
+{{--      </table>--}}
+{{--  </div>--}}
 @stop
 
 @push('modal')
@@ -78,6 +133,7 @@
 
 @push('styles')
     <link rel="stylesheet" href="/adminlte/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/adminlte/css/responsiveAdmin.css">
 @endpush
 
 @push('script')

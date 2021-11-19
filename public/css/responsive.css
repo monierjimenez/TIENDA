@@ -380,6 +380,10 @@ Version:1.0
 
 /* Mobile Screen */
 @media only screen and (max-width: 767px) {
+
+    .table-responsive {
+        overflow-x:hidden !important;
+    }
     .breadcrumbs {
         padding: 90px 0 90px;
     }

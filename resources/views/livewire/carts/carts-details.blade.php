@@ -51,10 +51,10 @@
                                     <option value="{{ $categoryList->id }}" {{ $_GET['category'] == $categoryList->id ? 'selected' : '' }}>
                                 @else
                                     <option value="{{ $categoryList->id }}" >
-                                        @endif
+                                @endif
                                         {{ $categoryList->name }}
                                     </option>
-                                    @endforeach
+                            @endforeach
                         </select>
 
                         <input name="search" placeholder="{{ __('Search Products Here') }}..." type="search"

@@ -16,7 +16,7 @@
             <div class="box box-primary"><br>
                 <div class="col-md-12">
                     <div class="box-body table-responsive7 no-padding">
-                        <table id="post-table85" class="table table-bordered table-hover">
+                        <table id="post-table85" class="table table-bordered table-hover dataTable no-footer">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -34,9 +34,6 @@
             </div>
         </div>
     </div>
-
-
-
 @stop
 
 @push('script')
@@ -69,7 +66,7 @@
               "ajax": "{{ url('admin/order/generales') }}",
               "columns":[
                   {data: 'id', name: 'id'},
-                  {data: 'name', name: 'name'},
+                  {data: 'user.name', name: 'user.name'},
                   {data: 'estado.name', name: 'estado.name'},
                   {data: 'municipio.name', name: 'municipio.name'},
                 //  {data: 'amount_total', name: 'amount_total'},

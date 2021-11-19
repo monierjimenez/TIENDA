@@ -22,7 +22,7 @@ class OrdersController extends Controller
 
     public function orderGeneral()
     {
-        return Datatables()->of(Order::with("estado", "municipio")
+        return Datatables()->of(Order::with("estado", "municipio", "user")
             ->where('paymentstatus', '=', 'PAID'))
             ->editColumn('order_date', function ($record) {
                 return [
@@ -33,6 +33,14 @@ class OrdersController extends Controller
             ->addColumn('btnv', 'admin.datatablesajax.datatablesorders')
             ->rawColumns(['btnv'])
             ->toJson();
+    }
+
+    public function show(Order $order)
+    {
+        if ( !checkrights('PUORSV', auth()->user()->permissions) )
+            return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
+        $user = auth()->user();
+        return view('admin.orders.show', compact('order', 'user'));
     }
 
     public function store(Request $request)

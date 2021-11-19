@@ -24,7 +24,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('record/generales', 'RecordController@recordGeneral');
 
     //Orders
-    Route::get('orders', 'OrdersController@index')->name('orders');
+    //Route::get('orders', 'OrdersController@index')->name('orders');
+    Route::resource('orders', 'OrdersController', ['except' => ['create'], 'as' => 'admin']);
     Route::get('order/generales', 'OrdersController@orderGeneral');
 
     //photo articulos

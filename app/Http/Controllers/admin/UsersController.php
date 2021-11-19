@@ -124,9 +124,15 @@ class UsersController extends Controller
         //Artisan::call('cache:clear');
         if( $request->filled('password'))
         {
-            $rules['password'] = ['confirmed', 'min:5'];
+            $rules['password'] = ['confirmed', 'min:8'];
         }
-        //return $request;
+
+        if ( strlen($request->password) >= 8 )
+        {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
+
         if( $request->hasFile('avatar') )
 		 {
 			if ( $user->avatar != '' && $user->avatar != 'unnamed.jpg'){
@@ -140,9 +146,15 @@ class UsersController extends Controller
             $user->save();
 		 }
         $data = $request->validate($rules);
-
-        $user->update($data) ;
-        $user->password = bcrypt($request->password);
+        //$user->update($data) ;
+        $user->update([
+            'name' => $request->name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'role' => $request->role,
+            'permissions' => updaterights($request->permissions),
+        ]) ;
 
         generaRecords('User updated', 'User ' .$user->name. ', updated successfully, for '. auth()->user()->name .'.');
         return back()->with('flash', 'User has been updated successfully.');
