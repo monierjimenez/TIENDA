@@ -21,6 +21,6 @@ class CollectionsProduct extends Component
 
     public function collectionsCategory($idP)
     {
-        $this->products = Product::where('categorie_id', '=', $idP)->get();
+        $this->products = Product::where('condition', '=', '0')->where('categorie_id', '=', $idP)->get();
     }
 }

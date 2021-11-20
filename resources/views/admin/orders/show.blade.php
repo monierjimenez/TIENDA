@@ -59,6 +59,10 @@
                         <li class="list-group-item">
                             <b>Status</b> <a class="pull-right"><span class="label label-success">{{ $order->paymentstatus }}</span></a>
                         </li>
+
+                        <li class="list-group-item">
+                            <b>Payment method</b> <a class="pull-right"><span class="label label-success">{{ $order->payment_method }}</span></a>
+                        </li>
 					</ul>
 				</div>
           	</div>
@@ -119,6 +123,7 @@
                                           </p>
                                       </div>
                                   </div>
+                                  <h4>Transaction ID: {{ $order->transaction_id }}</h4>
                               </div>
                           </div>
 						</p>

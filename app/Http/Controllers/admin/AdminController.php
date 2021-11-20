@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Finance;
 
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +20,7 @@ class AdminController extends Controller
             // $ultimosequipoasociados = Equiposasociado::where("vendido","=",1)->orderBy('updated_at', 'desc')->limit(7)->get();
             // $ultimascompras = Articulo::orderBy('updated_at', 'desc')->limit(5)->get();
              $caja = Finance::find(1);
-            // $ultimosequipoasociadosalls = Equiposasociado::all();
+             $productstoc = Product::where();
             return view('admin.dashboard', compact('caja'));
         }
         else{

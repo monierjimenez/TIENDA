@@ -339,8 +339,9 @@
                                         @foreach( $product->spec as $spec )
                                             <tr>
                                                 <td>
-                                                    {{ $spec->reference }} <br>
+                                                    {{ $spec->reference }}<br>
                                                     Name: {{$spec->name}}<br>
+                                                    Stock: {{$spec->stock}}<br>
                                                     Status: @if ( $spec->condition == 0 ) <i class="fa fa-check"></i>
                                                     @else <i class="fa fa-close"></i> @endif
                                                 </td>

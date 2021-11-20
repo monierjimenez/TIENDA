@@ -127,10 +127,12 @@
 {{--                                                @if( dameSpesc($product->id)[0]['id'] == $key->id )--}}
 {{--                                                    <option value="{{ $key->id }}" selected>--}}
 {{--                                                @else--}}
+                                                @if( $key->condition == 0 )
                                                 <option value="{{ $key->id }}">
 {{--                                                @endif--}}
                                                     {{ $key->name }}
                                                 </option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -208,7 +210,6 @@
                                 <span class="style-price-product">{{ __('Features') }}</span>
                                 {!! $product->features !!}
                             @endif
-
                         </div>
 
                         {{--                                                                <div class="default-social">--}}

@@ -30,7 +30,7 @@ class Product extends Model
 
     public function spec()
     {
-        return $this->hasMany(Spec::class)->where('condition','=', '0')->orderBy('sale_price', 'ASC');
+        return $this->hasMany(Spec::class)->orderBy('sale_price', 'ASC');
     }
 
     public function brands()

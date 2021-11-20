@@ -34,7 +34,7 @@ class HomeController extends Controller
 
     public function collectionsProduct(Category $category)
     {
-        $products = Product::where('categorie_id', '=', $category->id)->get();
+        $products = Product::where('condition', '=', '0')->where('categorie_id', '=', $category->id)->get();
         $categorys = Category::where('condition', '=', '0')->get();
         //return redirect()->route('collections', $product);
         return view('pages.collectionsProduct', compact('categorys','products', 'category'));
@@ -42,7 +42,9 @@ class HomeController extends Controller
 
     public function productdetails($categorie, Product $product)
     {
-        $products = Product::where('id', '!=', $product->id)->inRandomOrder()->limit(10)->get();
+        if ( $product->condition != 0 )
+            return redirect()->route('welcome');
+        $products = Product::where('condition', '=', '0')->where('id', '!=', $product->id)->inRandomOrder()->limit(10)->get();
         return view('pages.product-details', compact('product','products'));
     }
 

@@ -49,7 +49,7 @@
                                         <td>{{ $product->categorie->name }}</td>
                                         <td>{{ $product->stock }}</td>
                                         <td class="text-center">{{ $product->cost_price }}/{{ $product->sale_price }}</td>
-                                        <td>@if( $product->Condition == 0 ) <i class="fa fa-check"></i> @else <i class="fa fa-close"></i> @endif</td>
+                                        <td>@if( $product->condition == 0 ) <i class="fa fa-check"></i> @else <i class="fa fa-close"></i> @endif</td>
                                         <td>
                                           @if( checkrights('PUPE', auth()->user()->permissions) )
                                               <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
