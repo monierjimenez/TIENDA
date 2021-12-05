@@ -7,6 +7,8 @@ use App\Colore;
 use App\Municipios;
 use App\Spec;
 
+
+
     function municipiosAll($id) {
         return Municipios::where('estado_id', '=', $id)->get();
     }
@@ -84,45 +86,3 @@ use App\Spec;
     function dameColor($id) {
         return Colore::find($id);
     }
-
-    //me devuelve la cantidad de producto que tiene el combo
-//    function dameSpesc($id) {
-//       // collect($size)->min('sale_price');
-//       // $esp = Spec::where('product_id', '=', $id)->min('sale_price')->get();
-//       //$esp = Spec::where('product_id', '=', $id)->min('sale_price');
-//        $esp = Spec::where('product_id', '=', $id)->min('sale_price', 'id');
-//        $esp1 = Spec::where('sale_price', '=', $esp)->where('product_id', '=', $id)->get();
-//
-////        foreach ( $esp1 as $item) {
-////            return $item->id;
-////        }
-//
-//        return $esp1 ;
-//
-//    }
-
-
-
-
-
-
-
-
-
-    // function qr_generacion()
-    // {
-    //     return QrCode::generate('hola mundo');
-    // }
-    /*
-    1 venta de chip
-    */
-    // function generarReporteChips($accion, $descripcion, $pago)
-    // {
-    //     $reporte = Reporteschips::create([
-    //         'accion' => $accion,
-    //         'descripcion' => $descripcion,
-    //         'user_id' => auth()->user()->id,
-    //         'pago' => $pago,
-    //     ]);
-    // }
-

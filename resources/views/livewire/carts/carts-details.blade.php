@@ -24,15 +24,15 @@
                             @else $00.00 @endif
                         </div>
 
-                        <div class="top-search">
-                            <a href="#0"><i class="ti-search"></i> </a>
-                        </div>
-                        <div class="search-top">
-                            <form method="GET" action="{{ route('search') }}" class="search-form">
-                                <input type="text" placeholder="{{ __('Search here') }}..." name="search" autocomplete="off">
-                                <button value="search" type="submit"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
+{{--                        <div class="top-search">--}}
+{{--                            <a href="#0"><i class="ti-search"></i> </a>--}}
+{{--                        </div>--}}
+{{--                        <div class="search-top">--}}
+{{--                            <form method="GET" action="{{ route('search') }}" class="search-form">--}}
+{{--                                <input type="text" placeholder="{{ __('Search here') }}..." name="search" autocomplete="off">--}}
+{{--                                <button value="search" type="submit"><i class="ti-search"></i></button>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

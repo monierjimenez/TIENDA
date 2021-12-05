@@ -16,7 +16,7 @@ class Spec extends Model
 
 //    public function producto()
 //    {
-//        return $this->hasMany(Product::class, 'categorie_id');
+//        return $this->hasMany(Product::class, 'product_id');
 //    }
 //
 //    public function submenu()

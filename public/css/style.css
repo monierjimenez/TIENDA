@@ -5094,3 +5094,8 @@ Version:1.0
 /*=============================
 	End Footer CSS
 ===============================*/
+
+.or-login{
+    color: #fff !important;
+    text-align: center;
+}

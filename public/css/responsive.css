@@ -31,7 +31,7 @@ Version:1.0
     }
 
     .small-banner-frond {
-        padding: 120px 0 10px 0;
+        padding: 0px 0 10px 0;
     }
 
     .search-top-mobile {
@@ -164,7 +164,8 @@ Version:1.0
 	display:block;
 }
 .hero-slider {
-	height: 416px;
+	/*height: 416px;*/
+    height: 335px;
 }
 .hero-slider .hero-text {
 	margin-top: 80px;
@@ -585,7 +586,7 @@ Version:1.0
         display:block;
         position: absolute;
         /*right: -376px;*/
-        right: -211px;
+        right: 0px;
         top: 6px;
     }
 
@@ -593,7 +594,7 @@ Version:1.0
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
-        margin: -22px -419px;
+        margin: -22px -90px;
     }
 
     .header.shop .logo {
@@ -604,7 +605,7 @@ Version:1.0
     }
 
     .small-banner-frond {
-        padding: 174px 0 10px 0;
+        padding: 0px 0 10px 0;
     }
     .section-title {
         margin-bottom: 30px;
@@ -642,7 +643,8 @@ Version:1.0
         /*display:none */
     }
     .hero-slider {
-        height: 350px;
+        /*height: 350px;*/
+        height: 280px;
     }
     .hero-slider .hero-text {
         margin-top: 60px;
@@ -1180,14 +1182,14 @@ Version:1.0
         display: block;
         position: absolute;
         /*right: -303px;*/
-        right: -160px;
+        right: 0px;
         top: 6px;
     }
     .header .search-top.active .search-form {
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
-        margin: -22px -356px;
+        margin: -22px -90px;
     }
 }
 
@@ -1256,7 +1258,7 @@ Version:1.0
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
-        margin: -22px -195px;
+        margin: -22px -90px;
     }
     .site-header .header-bottom {
         width: 100%;
@@ -1366,14 +1368,15 @@ Version:1.0
     .header.shop .search-top {
         display:block;
         position: absolute;
-        right: -52px;
+        right: 0px;
         top: 6px;
     }
     .header .search-top.active .search-form {
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
-        margin: -22px -176px;
+        margin: -22px -90px;
+        /*margin: -22px -90px;*/
     }
     .header.shop .logo {
         margin: 0;
@@ -1411,7 +1414,7 @@ Version:1.0
         padding: 0;
         display: block;
         padding: 5px 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 0px solid #eee;
         text-align: left;
         color: #333;
     }
@@ -1454,7 +1457,8 @@ Version:1.0
         display:none !important;
     }
     .hero-slider {
-        height: 350px;
+        /*height: 350px;*/
+        height: 150px;
     }
     .hero-slider .hero-text {
         margin-top: 60px;
@@ -1494,7 +1498,7 @@ Version:1.0
     }
 
     .small-banner-frond {
-        padding: 180px 0 10px 0;
+        /*padding: 180px 0 10px 0;*/
     }
     .small-banner .single-banner{
         margin-bottom: 18px;
@@ -1822,7 +1826,7 @@ Version:1.0
         top: 12px;
     }
     .quickview-content {
-        padding: 30px;
+        padding: 10px;
     }
     .quickview-content h2 {
         font-size: 22px;
@@ -2007,7 +2011,6 @@ Version:1.0
         opacity: 1;
         visibility: visible;
         transform: scaleY(1);
-        margin: -22px -128px;
+        margin: -22px -90px;
     }
-
 }

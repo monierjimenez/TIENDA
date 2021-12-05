@@ -27,11 +27,8 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       // dd(request()->path());
-        if( request()->path() != 'login' )
-            Cookie::queue('bakcURL', request()->path(), time() + (10 * 365 * 24 * 60 * 60));
-
-        //dd(request()->path());
+        //if( request()->path() != 'login' )
+       //     Cookie::queue('bakcURL', request()->path(), time() + (10 * 365 * 24 * 60 * 60));
         View::composer(['layouts.header'], 'App\Http\ViewComposers\CategoryList');
     }
 }

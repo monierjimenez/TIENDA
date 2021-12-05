@@ -71,7 +71,7 @@
         <div class="info-box">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Ultimos 7 productos vendidos</h3>
+                  <h3 class="box-title">Stock productos al acabar</h3>
 
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -81,7 +81,39 @@
                 </div>
 
                 <div class="box-body">
-                      sds
+                    <div class="box-body no-padding">
+                        @if( count($productstocks) != 0 )
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Product</th>
+                                    <th style="width: 40px">Stock</th>
+                                </tr>
+
+                                @foreach( $productstocks as $productstock)
+                                    @if( $productstock->spec == '[]' )
+                                        <tr>
+                                            <td><a href="{{ route('admin.products.edit', $productstock) }}"> {{ $productstock->name }}</a></td>
+                                            <td><span class="badge bg-red">{{ $productstock->stock }}</span></td>
+                                        </tr>
+                                    @else
+                                        @foreach( $productstock->spec as $spec)
+                                            <tr>
+                                                <td>
+                                                    <a href="{{ route('admin.specs.edit', $spec) }}">
+                                                        {{ $spec->name }},
+                                                        {{ Str::limit($productstock->name, 20) }}
+                                                    </a>
+                                                </td>
+                                                <td><span class="badge bg-red">{{ $spec->stock }}</span></td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            </table>
+                        @else
+                            Stock product good
+                        @endif
+                    </div>
                 </div>
               </div>
         </div>

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Route;
     //ROLE
     Route::resource('roles', 'RolesController', ['as' => 'admin']);
 
+    //SLIDERS
+    Route::resource('sliders', 'SlidersController', ['except' => ['show', 'create'], 'as' => 'admin']);
+    Route::post('sliders/{slider}/photos', 'PhotosController@storeslider')->name('admin.sliders.photos.store');
+
     //PRODUCTS
     Route::resource('products', 'ProductsController', ['as' => 'admin']);
     Route::get('productsall', 'ProductsController@productcombo')->name('admin.productcombo');

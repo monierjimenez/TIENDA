@@ -9,7 +9,7 @@
 	@endif
 
 	<section class="content-header">
-    <h1>ORDER: #{{ $order->id }}</h1>
+    <h1>ORDER: #{{ $order->id }} (Total paid: ${{ $order->total_price_products() }} / ${{ $order->profit_sale }})</h1>
     <ol class="breadcrumb">
       <li><a href="{{ route('admin') }}"><i class="fa fa-home"></i> Home</a></li>
 	  <li><a href="{{ route('admin.orders.index') }}"><i class="fa fa-reorder"></i>List Orders</a></li>
@@ -75,7 +75,6 @@
 					  <!-- Post -->
 					  <div class="post">
 						<div class="user-block">
-
 							@if ( $user->avatar != null )
 								<img src="/images/favicon.png" class="img-circle img-bordered-sm"  alt="{{ $order->user->name }}">
 							@else
@@ -83,7 +82,7 @@
 							@endif
 
 							<span class="username">
-								<a >Order Details</a> (Total paid: {{$order->total_price_products()}})
+								<a >Order Details</a>, Transaction ID: {{ $order->transaction_id }}
 							</span>
 
 							<span class="description">
@@ -100,7 +99,7 @@
 									</div>
 									<div class="box-body">
 										<p>
-                                            <b>A: {{ $order->name.' '. $order->second_name.' '. $order->last_name }}</b><br>
+                                            <b>De: {{ $order->user->name.' '. $order->user->second_name.' '. $order->user->last_name }}</b><br>
                                             {{ $order->address }}, #{{ $order->numero }} @if( $order->apto != null ) {{ $order->apto }}, @endif  @if( $order->entre_calle != null )  entre {{ $order->entre_calle }} @endif,
                                             {{ $order->estado->name }}, {{ $order->municipio->name }}.
 										</p>
@@ -123,7 +122,6 @@
                                           </p>
                                       </div>
                                   </div>
-                                  <h4>Transaction ID: {{ $order->transaction_id }}</h4>
                               </div>
                           </div>
 						</p>
@@ -135,100 +133,98 @@
 	</div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <h3 class="profile-username text-center">Order details</h3>
+                    {{--					<p class="text-muted text-center">{{ $user->cargo }}sadsd</p>--}}
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Proceed to payment</b> <a class="pull-right">0</a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <b>last step to pay</b> <a class="pull-right">0</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
             <div class="box box-primary">
                 <div class="box-body">
                     <div class="active tab-pane" id="activity">
-                            <p>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="box box-solid">
-                                        <div class="box-header with-border">
-                                            <h4>Order products</h4>
-                                        </div>
-                                        <div class="box-body">
-                                            <p>
-                                            <br>
-                                            <div class="box-body table-responsive no-padding">
-                                                <table class="table table-hover">
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Product</th>
-                                                        <th>Amount</th>
-                                                        <th>Price/Profit</th>
-                                                        <th>Details</th>
-                                                    </tr>
-                                                    @foreach( $order->order_detail as $orderdtail )
-                                                        <tr>
-                                                            <td>{{ $orderdtail->order_id }}</td>
-                                                            <td>{{ $orderdtail->name_product }} ({{$orderdtail->model_product}})</td>
-                                                            <td>{{ $orderdtail->cant_product }}</td>
-                                                            <td>
-                                                                ${{ $orderdtail->price_product }}/${{ $orderdtail->profit_sale }}
-                                                            </td>
-                                                            <td>
-                                                                <a class="label label-success" data-toggle="collapse" href="#collapseExample{{ $orderdtail->id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                                    Details
-                                                                </a>
-                                                            </td>
-                                                        </tr>
 
-                                                        <tr>
-                                                            <td colspan="8" style="color: blue;">
-                                                                <div class="collapse" id="collapseExample{{ $orderdtail->id }}">
-
-                                                                    <table class="table table-hover">
-                                                                        <tr>
-                                                                            <th>Model</th>
-                                                                            <th>Color</th>
-                                                                            <th>SKU</th>
-                                                                            <th>Category</th>
-                                                                            <th>Brands</th>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>{{ $orderdtail->model_product }}</td>
-                                                                            <td>
-                                                                                @if( $orderdtail->color_product == "0" ) ----- @else {{ $orderdtail->color_product }} @endif
-                                                                            </td>
-                                                                            <td>{{ $orderdtail->sku_product }}</td>
-                                                                            <td>{{ $orderdtail->category_product }}</td>
-                                                                            <td>{{ $orderdtail->brand_product }}</td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </table>
-                                            </div>
-                                            </p>
-                                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box box-solid">
+                                    <div class="box-header with-border">
+                                        <h4>Order products</h4>
                                     </div>
+
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Product</th>
+                                                    <th>Amount</th>
+                                                    <th>Price/Profit</th>
+                                                    <th>Details</th>
+                                                </tr>
+                                                @foreach( $order->order_detail as $orderdtail )
+                                                    <tr>
+                                                        <td>{{ $orderdtail->order_id }}</td>
+                                                        <td>{{ $orderdtail->name_product }} ({{$orderdtail->model_product}})</td>
+                                                        <td>{{ $orderdtail->cant_product }}</td>
+                                                        <td>
+                                                            ${{ $orderdtail->price_product }}/${{ $orderdtail->profit_sale }}
+                                                        </td>
+                                                        <td>
+                                                            <a class="label label-success" data-toggle="collapse" href="#collapseExample{{ $orderdtail->id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                                Details
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="8" style="color: blue;">
+                                                            <div class="collapse" id="collapseExample{{ $orderdtail->id }}">
+
+                                                                <table class="table table-hover">
+                                                                    <tr>
+                                                                        <th>Model</th>
+                                                                        <th>Color</th>
+                                                                        <th>SKU</th>
+                                                                        <th>Category</th>
+                                                                        <th>Brands</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>{{ $orderdtail->model_product }}</td>
+                                                                        <td>
+                                                                            @if( $orderdtail->color_product == "0" ) ----- @else {{ $orderdtail->color_product }} @endif
+                                                                        </td>
+                                                                        <td>{{ $orderdtail->sku_product }}</td>
+                                                                        <td>{{ $orderdtail->category_product }}</td>
+                                                                        <td>{{ $orderdtail->brand_product }}</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </table>
+                                        </div>
+
                                 </div>
                             </div>
-                            </p>
-
-{{--                        <p>--}}
-{{--                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">--}}
-{{--                                Link with href--}}
-{{--                            </a>--}}
-{{--                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">--}}
-{{--                                Button with data-target--}}
-{{--                            </button>--}}
-{{--                        </p>--}}
-{{--                        <div class="collapse" id="collapseExample">--}}
-{{--                            <div class="card card-body">--}}
-{{--                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
+        </div>
 @stop
 
 @push('styles')

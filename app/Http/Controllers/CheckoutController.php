@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Addresses;
+use App\Finance;
 use App\DetailsOrderClient;
 use App\Municipios;
 use App\User;
@@ -91,6 +91,8 @@ class CheckoutController extends Controller
                 'order_date' => Carbon::parse(date('m/d/Y G:i:s')),
             ]);
             $order->save();
+
+            $
 
             $shopping_cart->update([
                 'status' => 'FINISHED',

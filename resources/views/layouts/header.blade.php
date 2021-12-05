@@ -65,16 +65,43 @@
                                             </form>
                                         </div>
                                     @endguest
+
+                                        <div class="search-top-mobile" style="margin: 0px 0px 0px 0px !important;">
+{{--                                            <ul class="list-main pull-right">--}}
+{{--                                                <li style="display: inline-block;border-right: 0px;border-bottom: 0px">--}}
+                                                    <div class="top-search" style="margin-left: 15px;">
+                                                        <a href="#0"><i class="ti-search"></i> </a>
+                                                    </div>
+
+                                                    <div class="search-top">
+                                                        <form method="GET" action="{{ route('search') }}" class="search-form">
+                                                            <input type="text" placeholder="{{ __('Search here') }}..." value="{{ isset($_GET['search']) ? $_GET['search'] : '' }}" name="search" autocomplete="off">
+                                                            <button value="search" type="submit"><i class="ti-search"></i></button>
+                                                        </form>
+                                                    </div>
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+                    </div>
                                 </nav>
                             </li>
-                        </ul>
-                    </div>
-                    <!-- End Top Right -->
+
+
+                    </div>                                                        <!-- End Top Right -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Topbar -->
+                                        <!-- End Topbar -->
+
+                                    {{--    <div class="top-search">--}}
+{{--        <a href="#0"><i class="ti-search"></i> </a>--}}
+{{--    </div>--}}
+{{--    <div class="search-top">--}}
+{{--        <form method="GET" action="{{ route('search') }}" class="search-form">--}}
+{{--            <input type="text" placeholder="{{ __('Search here') }}..." name="search" autocomplete="off">--}}
+{{--            <button value="search" type="submit"><i class="ti-search"></i></button>--}}
+{{--        </form>--}}
+{{--    </div>--}}
 
     <!-- Header Inner -->
     <div class="header-inner">
@@ -116,7 +143,6 @@
             </div>
         </div>
     </div>
-
 {{--    {{$shopping_cart}}--}}
 {{--    {{session('shopping_cart_id')}}--}}
 

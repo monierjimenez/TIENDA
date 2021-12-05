@@ -89,4 +89,7 @@ class Order extends Model
         }
         return $profit_sale;
     }
+    public static function quantity_of_orders(){
+        return $this->sum('amount_total');
+    }
 }

@@ -162,7 +162,7 @@
                             </h2>
                             <br>
                             <div style="padding: 0px 30px;padding-bottom: 0px;color: #333333;font-size: 16px;">
-                                {{ $order->name }}, {{ $order->identity_card }}
+                                {{ $order->user->name }} {{ $order->user->last_name }}, Telf: {{ $order->user->phone }}
                                 <br><br>
                                 {{ $order->address }}  {{ $order->numero }} @if ( $order->apto != null ) , {{ $order->apto }} @endif
                                 <br>
@@ -183,7 +183,7 @@
                             </h2>
                             <br>
                             <div style="padding: 0px 30px;padding-bottom: 0px;color: #333333;font-size: 16px;">
-                                {{ $order->name }}, {{ $order->identity_card }}
+                                {{ $order->name }} {{ $order->last_name }}, Telf: {{ $order->phone_number }}
                                 <br><br>
                                 {{ $order->address }}  {{ $order->numero }} @if ( $order->apto != null ) , {{ $order->apto }} @endif
                                 <br>

@@ -7,7 +7,6 @@
                     <!-- Product Slider -->
                     <div class="product-gallery" wire:ignore>
                         <div class="quickview-slider-active">
-
                             @foreach($product->photos as $photos)
                                 <div class="single-slider">
                                     <img src="/images/{{ $photos->url }}" alt="#">
@@ -39,8 +38,8 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <div class="quickview-content">
-                        <h2>{{ $product->name }}</h2>
-
+{{--                        {{ request()->path() }}--}}
+                        <h2 style="margin: 0 0 0px !important;">{{ $product->name }}</h2>
                         <div class="quickview-ratting-review">
                             {{--                                    <div class="quickview-ratting-wrap">--}}
                             {{--                                        <div class="quickview-ratting">--}}
@@ -64,7 +63,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text={{$product->seotitle}}&via={user_id}&hashtags={{ config('app.name') }}"
+                                        <a href="https://twitter.com/intent/tweet?url={{Request::fullUrl()}}&text={{$product->seotitle}}&hashtags={{ config('app.name') }}"
                                            class="twitter">                                            <i class="fa fa-twitter"></i>
                                         </a>
                                     </li>

@@ -25,6 +25,9 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="login-form">
+{{--                        -{{ session('bakcURL')  }}---}}
+{{--                        {{ session('shopping_cart_id') }}--}}
+{{--                        {{ request()->path() }}--}}
                         <h2>{{ __('Login') }}</h2>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -70,9 +73,9 @@
                             </div>
                             <button type="submit" class="btn login-btn btn-block">{{ __('Login') }}</button>
                         </form>
-
+                       <h6 class="text-center mt-2 mb-2"> {{ __('Or') }} </h6>
                         <div class="switch-login">
-                            <a href="{{ route('register') }}" class="or-login">Or Create An Account</a>
+                            <a href="{{ route('register') }}" class="or-login btn login-btn btn-block" >{{ __('Create An Account') }}</a>
                         </div>
                         <br>
 {{--                        <div class="social-auth-links text-center">--}}

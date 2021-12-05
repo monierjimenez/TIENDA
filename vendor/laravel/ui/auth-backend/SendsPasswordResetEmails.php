@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
+//use Illuminate\Support\Facades\Auth;
+
 trait SendsPasswordResetEmails
 {
     /**
@@ -16,6 +18,9 @@ trait SendsPasswordResetEmails
      */
     public function showLinkRequestForm()
     {
+//        if ( !Auth::guest() )
+//            return redirect()->route('welcome') ;
+
         return view('auth.passwords.email');
     }
 

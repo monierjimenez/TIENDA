@@ -75,7 +75,6 @@
     <script>
         paypal.Buttons({
             fundingSource: paypal.FUNDING.CARD,
-
             // Sets up the transaction when a payment button is clicked
             createOrder: function(data, actions) {
                 return actions.order.create({
@@ -86,7 +85,7 @@
                        email_address: '{{ auth()->user()->email }}',
                        name: {
                            given_name: '{{ auth()->user()->name }}',
-                           surname: '{{ auth()->user()->last_name }}',
+                           surname: '{{ auth()->user()->last_name }}'
                        },
                         // address:{
                         //     address_line_1: '',
@@ -94,7 +93,7 @@
                         //     admin_area_1: '',
                         //     admin_area_2: '',
                         //     postal_code: '',
-                        //     country_code: ''
+                        //     country_code: 'USD'
                         //     }
                      },
                     purchase_units: [{
