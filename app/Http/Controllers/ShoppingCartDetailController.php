@@ -24,6 +24,7 @@ class ShoppingCartDetailController extends Controller
 
     public function store(Request $request, Product $product)
     {
+
         $save = '0';
         if( $product->sale_price_before != 0 )
             $save = $product->sale_price_before - $product->sale_price ;
@@ -31,6 +32,7 @@ class ShoppingCartDetailController extends Controller
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
         //cuando tiene color y modelos
         if( $product->spec != '[]' && $product->colore_id != null ){
+            //dd(444);
             $spec = Spec::find($request->modelo);
             $product_shopping_cart = ShoppingCartDetail::where( 'product_id', '=', $product->id)->where('shopping_cart_id', '=', $shopping_cart->id)
                 ->where('modelo', '=', $request->modelo)->where('color', '=', $request->color)->get();
@@ -55,7 +57,7 @@ class ShoppingCartDetailController extends Controller
                 ]);
             }
         }elseif( $product->spec != '[]' && $product->colore_id == null ){
-            //cuando tiene modelo y no colo
+            //cuando tiene modelo y no color
             $spec = Spec::find($request->modelo);
             $product_shopping_cart = ShoppingCartDetail::where( 'product_id', '=', $product->id)->where('shopping_cart_id', '=', $shopping_cart->id)
                 ->where('modelo', '=', $request->modelo)->where('color', '=', '0')->get();
@@ -80,11 +82,9 @@ class ShoppingCartDetailController extends Controller
                 ]);
             }
         }elseif( $product->spec == '[]' && $product->colore_id != null ){
-            //cuando tiene color y no modelos
-            $spec = Spec::find($request->modelo);
+            //cuando tiene color y no model
             $product_shopping_cart = ShoppingCartDetail::where( 'product_id', '=', $product->id)->where('shopping_cart_id', '=', $shopping_cart->id)
-                ->where('modelo', '=', '0')->where('color', '=', $request->color)->get();
-
+               ->where('color', '=', $request->color)->get();
             if( $product->sale_price_before != 0 )
                 $save = $product->sale_price_before - $product->sale_price ;
 
@@ -105,7 +105,7 @@ class ShoppingCartDetailController extends Controller
                 ]);
             }
         }else{
-            //cuando es un producto normal in modelo y sin color
+            //cuando es un producto normal sin modelo y sin color
             $product_shopping_cart = ShoppingCartDetail::where( 'product_id', '=', $product->id)->where('shopping_cart_id', '=', $shopping_cart->id)->get();
             if ( $product_shopping_cart == '[]' )
             {
@@ -131,6 +131,7 @@ class ShoppingCartDetailController extends Controller
 
     public function store_a_product(Request $request, Product $product)
     {
+        //dd($product);
         $shopping_cart = ShoppingCart::get_the_session_shopping_cart();
         //dd($shopping_cart);
         $save = '0';

@@ -45,7 +45,9 @@ class HomeController extends Controller
         if ( $product->condition != 0 )
             return redirect()->route('welcome');
         $products = Product::where('condition', '=', '0')->where('id', '!=', $product->id)->inRandomOrder()->limit(10)->get();
-        return view('pages.product-details', compact('product','products'));
+        $productsinter = Product::where('condition', '=', '0')->where('id', '!=', $product->id)->inRandomOrder()->limit(10)->get();
+
+        return view('pages.product-details', compact('product','products', 'productsinter'));
     }
 
     public function collectionsAll(Category $category)

@@ -21,7 +21,7 @@ class ProductsController extends Controller
         if (!in_array('PUPV', explode(".", auth()->user()->permissions)))
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
 
-        $products = Product::all();
+        $products = Product::orderBy('id', 'desc')->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -33,7 +33,7 @@ class ProductsController extends Controller
             'name' => '',
             'url' => Str::slug($request->get('sku')),
             'categorie_id' => '',
-            'colore_id' => '',
+            'colore_id' => null,
             'cost_price' => '0',
             'sale_price_before' => '0',
             'sale_price' => '0',
@@ -42,8 +42,8 @@ class ProductsController extends Controller
             'number_packages' => '0',
             'stock' => '0',
             'description' => '',
-            'brand' => '',
-            'model' => null,
+            'brand' => '0',
+            'model' => '0', //null
             'features' => '',
             'payment_cuba' => '',
             'sku' => $request->get('sku'),
@@ -126,7 +126,7 @@ class ProductsController extends Controller
                 $product->brand = Brand::find($cat = $request->input('brand'))
                     ? $cat
                     : Brand::create(['name' => $cat])->id;
-            } else $product->brand = '' ;
+            } else $product->brand = '0' ;
 
             if ( $request->input('model') != null )
             {
@@ -135,7 +135,7 @@ class ProductsController extends Controller
                         'name' => $cat,
                         'brand_id' => $product->brand
                     ])->id;
-            } else $product->model = null ;
+            } else $product->model = 0 ; //null
 
             $product->update([
             'name' => $request->input('name'),

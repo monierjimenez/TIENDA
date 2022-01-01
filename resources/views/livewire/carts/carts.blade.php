@@ -16,6 +16,13 @@
         <div class="row">
             <div class="shopping-cart section" style="width: 100%;">
                 <div class="container">
+
+                    {{ totalPrice(101.99, 4.9) }}
+<br><br>
+{{--                    {{ round(3.4) }}--}}
+{{--                    {{ round(3.5) }}--}}
+{{--                    {{ round(3.6) }}--}}
+
                     {{ session('shopping_cart_id') }}
                     @if ( count($shoppingcartdetails) != 0 )
                         <div class="row">
@@ -33,7 +40,6 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-
                                     @foreach( $shoppingcartdetails as $shoppingcartdetail )
                                         <tr>
                                             <td class="image" data-title="{{ __('Product') }}">
@@ -79,10 +85,18 @@
                                                     {{ __('Color') }}: {{ $shoppingcartdetail->colore->name }}
                                                 @endif
                                                 <p>
+                                                    @if( $shoppingcartdetail->product->brand != '0' )
+                                                        {{ __('Brand') }}: {{ $shoppingcartdetail->product->brands[0]['name'] }}
+                                                    @endif
+                                                </p>
+
+                                                <p>
                                                     @if( $shoppingcartdetail->product->spec != '[]' )
                                                         {{ __('Model') }}: {{ $shoppingcartdetail->spec->name }}
-                                                    @else
+                                                    @elseif( $shoppingcartdetail->modelo != 0 )
                                                         {{ __('Model') }}: {{ $shoppingcartdetail->modelp->name }}
+{{--                                                    @else--}}
+{{--                                                        {{ __('Model') }}: ------}}
                                                     @endif
                                                 </p>
                                             </td>
@@ -117,6 +131,7 @@
                             </div>
 
                             <div class="col-lg-4 col-md-12 col-12">
+{{--                                1{{ env('PAYPAL_CLIENT_ID') }}1--}}
                                 <div class="total-amount">
                                     <div class="right">
                                         <ul>

@@ -76,50 +76,56 @@
     }
 
     function shoppingCartGuest(){
-
+        //dd(session('shopping_cart_id'));
         if (!session()->has('shopping_cart_id')) {
            // dd(Cookie::get('shopping_cart_id'));
             if (Cookie::get('shopping_cart_id'))
             {
                 $shopping_cart = ShoppingCart::find(Cookie::get('shopping_cart_id'));
-                if ($shopping_cart != null)
-                {
-                    // deleted session existence
-                    Session::forget('shopping_cart_id') ;
+                if ( $shopping_cart != null && $shopping_cart->user_id != null )
+                { //dd(5);
+                    //the name for de new session
+                    $session_name = 'shopping_cart_id';
+                    //create the new session
+                    $shopping_cart_id = Session::get($session_name);
+                    $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
+                    //i assign the id from session created
+                    Session::put($session_name, $shopping_cart->id);
+                    Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
+                }elseif ( $shopping_cart != null && $shopping_cart->user_id == null )
+                { //dd(4);
                     //the name for de new session
                     $session_name = 'shopping_cart_id';
                     //create the new session
                     $shopping_cart_id = Session::get($session_name);
                     //i assign the id from session created
                     Session::put($session_name, $shopping_cart->id);
+                    Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
+                }elseif ( $shopping_cart == null )
+                {
+                    //the name for de new session
+                    $session_name = 'shopping_cart_id';
+                    //create the new session
+                    $shopping_cart_id = Session::get($session_name);
+                    $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
+                    //i assign the id from session created
+                    Session::put($session_name, $shopping_cart->id);
+                    Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
                 }
-            }
-
-            if (Cookie::get('shopping_cart_id')) {
-
-                $session_name = 'shopping_cart_id';
-                $shopping_cart_id = Session::get($session_name);
-                //dd(Cookie::get('shopping_cart_id'));
-                $shopping_cart = ShoppingCart::findOrCreateBySessionId(Cookie::get('shopping_cart_id'));
-                //dd($shopping_cart);
-               //dd(Cookie::get('shopping_cart_id'));
-              // dd(session('shopping_cart_id') );
-                Session::put($session_name, $shopping_cart->id);
-                // $view->with('shopping_cart', $shopping_cart);
-            } else {
+            }else{
                 $session_name = 'shopping_cart_id';
                 $shopping_cart_id = Session::get($session_name);
                 $shopping_cart = ShoppingCart::findOrCreateBySessionId($shopping_cart_id);
                 Session::put($session_name, $shopping_cart->id);
-                // $view->with('shopping_cart', $shopping_cart);
+               // $view->with('shopping_cart', $shopping_cart);
                 Cookie::queue('shopping_cart_id', $shopping_cart->id, time() + (10 * 365 * 24 * 60 * 60));
             }
         } else {
+           // dd(session('shopping_cart_id'));
             //dd(session('shopping_cart_id'));
             $shopping_cart = ShoppingCart::find(session('shopping_cart_id'));
             if ($shopping_cart != null)
             {
-                //dd(6);
                 //if( $shopping_cart->user_id != null ){
                    // Session::forget('shopping_cart_id') ;
                     //$session_name = 'shopping_cart_id';

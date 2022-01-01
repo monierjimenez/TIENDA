@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3><a href="product-details.html">{{ $product->name }}</a></h3>
+                                    <h3><a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">{{ $product->name }}</a></h3>
                                     <div class="product-price">
                                         <span>${{ $product->sale_price }}</span>
                                         @if($product->sale_price_before != 0 )

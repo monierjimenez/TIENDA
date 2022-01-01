@@ -30,7 +30,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="quickview-content">
-                    <h2>{{ __('You may also like') }}</h2><br></div>
+                    <h2>{{ __('You may also like') }}</h2><br>
+                </div>
             </div>
         </div>
     </div>
@@ -48,15 +49,15 @@
                 <div class="col-12">
                     <div class="owl-carousel popular-slider" style="margin-top: -75px;margin-bottom: 15px;">
                         <!-- Start Single Product -->
-                        @foreach( $products as $product )
+                        @foreach( $productsinter as $productsin )
                             <div class="single-product">
                                 <div class="product-img">
-                                    <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">
-                                        <img class="default-img" src="/images/{{primeraPhotoProduct($product)}}" alt="#">
+                                    <a href="{{ route('productdetails', array($productsin->categorie->url, $productsin)) }}">
+                                        <img class="default-img" src="/images/{{primeraPhotoProduct($productsin)}}" alt="#">
                                         {{--<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">--}}
                                         {{--                                        new, out-of-stock --}}
                                         @if($product->sale_price_before != 0 )
-                                            <span class="out-of-stock">Ahorras {{ $product->sale_price_before-$product->sale_price }}</span>
+                                            <span class="out-of-stock">Ahorras {{ $productsin->sale_price_before-$productsin->sale_price }}</span>
                                         @endif
                                     </a>
                                     <div class="button-head">
@@ -66,17 +67,21 @@
                                         {{--                                        <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
                                         {{--                                    </div>--}}
                                         <div class="product-action-2">
-                                            @include('layouts.menu_cart_or_option')
+                                            @include('layouts.menu_cart_or_option_copy')
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3><a href="product-details.html">{{ $product->name }}</a></h3>
+                                    <h3>
+                                        <a href="{{ route('productdetails', array($productsin->categorie->url, $productsin)) }}">
+                                            {{ $productsin->name }}
+                                        </a>
+                                    </h3>
                                     <div class="product-price">
-                                        <span>${{ $product->sale_price }}</span>
-                                        @if($product->sale_price_before != 0 )
-                                            <span class="old">${{ $product->sale_price_before }}</span>
+                                        <span>${{ $productsin->sale_price }}</span>
+                                        @if($productsin->sale_price_before != 0 )
+                                            <span class="old">${{ $productsin->sale_price_before }}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -87,63 +92,4 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-{{--        <div class="">--}}
-{{--            <div class="">--}}
-{{--                <div class="modal-body">--}}
-{{--                    <div class="">--}}
-{{--                        <div >--}}
-{{--                            <div class="owl-carousel popular-slider collections" style="margin-top: -75px;margin-bottom: 15px;">--}}
-{{--                                <!-- Start Single Product -->--}}
-{{--                                @foreach( $products as $product )--}}
-{{--                                    <div class="single-product collection-item">--}}
-{{--                                        <div class="product-img">--}}
-{{--                                            <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">--}}
-{{--                                                <img class="default-img" src="/images/{{primeraPhotoProduct($product)}}" alt="#">--}}
-{{--                                                --}}{{--<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">--}}
-{{--                                                --}}{{--                                        new, out-of-stock --}}
-{{--                                                <span class="out-of-stock">{{ __('You save') }} {{ $product->sale_price_before-$product->sale_price }}</span>--}}
-{{--                                            </a>--}}
-{{--                                            <div class="button-head">--}}
-{{--                                                <div class="product-action">--}}
-{{--                                                    <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#">--}}
-{{--                                                        <i class=" ti-eye" style="margin-right: 6px;"></i><span>Quick Shop</span>--}}
-{{--                                                    </a>--}}
-{{--                                                    --}}{{--                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>--}}
-{{--                                                    --}}{{--                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="product-action-2">--}}
-{{--                                                    @include('layouts.menu_cart_or_option')--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="product-content">--}}
-{{--                                            <h3>--}}
-{{--                                                <a href="{{ route('productdetails', array($product->categorie->url, $product)) }}">--}}
-{{--                                                    {{ $product->name }}--}}
-{{--                                                </a>--}}
-{{--                                            </h3>--}}
-{{--                                            <div class="product-price">--}}
-{{--                                                <span>${{ $product->sale_price }}</span>--}}
-{{--                                                @if( $product->sale_price_before != '0' )--}}
-{{--                                                    <span class="old">${{ $product->sale_price_before }}</span>--}}
-{{--                                                @endif--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
 @stop

@@ -20,7 +20,7 @@
         </div>
     </div>
     <hr>
-
+{{--<br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br><br>wqw<br>--}}
     <section class="product-area shop-sidebar shop section">
         @livewire('carts.carts', ['shoppingcartdetails' => $shoppingcartdetails, 'shopping_cart' => $shopping_cart])
     </section>

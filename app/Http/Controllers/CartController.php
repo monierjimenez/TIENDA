@@ -25,13 +25,13 @@ class CartController extends Controller
 //            ->get() ;
 
         $shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))
-            ->orderBy('updated_at', 'desc')->get() ;
+            ->orderBy('id', 'desc')->get() ;
         $nam = '';
 //        foreach ( $products->product as $product )
 //        {
 //            $nam = $name."-".$product->name ;
 //        }
-        //return $products ;
+       // dd($shoppingcartdetails);
         return view('pages.shopping-cart', compact('shoppingcartdetails'));
     }
 

@@ -188,10 +188,10 @@
 
                         <div class="quickview-peragraph">
                             <p>
-                                @if($product->brand != '')
+                                @if($product->brand != '0')
                                     {{ __('Brand') }}:  {{ $product->brands[0]['name'] }}
                                 @endif
-                                @if($product->model != '')
+                                @if($product->model != '0')
                                     <br>{{ __('Model') }}:  {{ $product->modelp[0]['name'] }}
                                 @endif
                             </p>

@@ -20,29 +20,31 @@
     <!-- StyleSheet -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <!-- Magnific Popup -->
+{{--    <!-- Magnific Popup -->--}}
     <link rel="stylesheet" href="/css/magnific-popup.min.css">
-    <!-- Font Awesome -->
+{{--    <!-- Font Awesome -->--}}
     <link rel="stylesheet" href="/css/font-awesome.css">
-    <!-- Fancybox -->
+{{--    <!-- Fancybox -->--}}
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
-    <!-- Themify Icons -->
+{{--    <!-- Themify Icons -->--}}
     <link rel="stylesheet" href="/css/themify-icons.css">
-    <!-- Nice Select CSS -->
+{{--    <!-- Nice Select CSS -->--}}
     <link rel="stylesheet" href="/css/niceselect.css">
-    <!-- Animate CSS -->
+{{--    <!-- Animate CSS -->--}}
     <link rel="stylesheet" href="/css/animate.css">
-    <!-- Flex Slider CSS -->
+{{--    <!-- Flex Slider CSS -->--}}
     <link rel="stylesheet" href="/css/flex-slider.min.css">
-    <!-- Owl Carousel -->
+{{--    <!-- Owl Carousel -->--}}
     <link rel="stylesheet" href="/css/owl-carousel.css">
-    <!-- Slicknav -->
+{{--    <!-- Slicknav -->--}}
     <link rel="stylesheet" href="/css/slicknav.min.css">
 
-    <!-- Eshop StyleSheet -->
+{{--    <!-- Eshop StyleSheet -->--}}
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
+{{--    <link rel="stylesheet" href="/css/app.css">--}}
+
 
     <!-- Css para los mensages de notificaciones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">

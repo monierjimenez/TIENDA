@@ -46,7 +46,7 @@
                         <div class="logo">
                             <a href="index.html"><img src="/images/logo2.png" alt="#"></a>
                         </div>
-                        <p class="text">Envie su productoa a sus familiares.</p>
+                        <p class="text">Envie su productos a sus familiares.</p>
                         <p class="text"><i class="fa fa-map"></i> {{ __('Address') }}: 60-49 Road 11378 New York</p>
                         <p class="text"><i class="fa fa-phone"></i> {{ __('Phone') }}: +65 11.188.888</p>
                         <p class="text"><i class="fa fa-envelope-o"></i> Email: hello.colorlib@gmail.com</p>

@@ -20,13 +20,13 @@ class Carts extends Component
         $this->shoppingcartdetails = $shoppingcartdetails;
         $this->total_price_products = 0;
         $this->total_save_mony = 0;
-        $this->shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->get();
+        $this->shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->orderBy('id', 'desc')->get();
     }
 
     public function render()
     {
         if ( session('shopping_cart_id') ) {
-            $this->shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->get();
+            $this->shoppingcartdetails = ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->orderBy('id', 'desc')->get();
         }
         $this->total_save_mony = $this->total_save_mony();
         $this->total_price_products = $this->total_price_products();
@@ -61,7 +61,7 @@ class Carts extends Component
     public function shoppingDetailsCount()
     {
         if ( session('shopping_cart_id') ) {
-            return ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->get();
+            return ShoppingCartDetail::where('shopping_cart_id', '=', session('shopping_cart_id'))->orderBy('id', 'desc')->get();
         }
     }
 

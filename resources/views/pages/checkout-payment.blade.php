@@ -62,8 +62,10 @@
                 </div>
             </div>
         </div>
+{{--        1{{ env('PAYPAL_CLIENT_ID') }}1--}}
     </section>
     <!--/ End Checkout -->
+
 @stop
 
 @push('styles')
@@ -114,7 +116,6 @@
                         const msg = 'Sorry, your transaction could not be processed.';
                         return alert(msg);
                     }
-
                     location.href = response.url;
 
 

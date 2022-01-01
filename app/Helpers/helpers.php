@@ -86,3 +86,9 @@ use App\Spec;
     function dameColor($id) {
         return Colore::find($id);
     }
+
+    //return the price all include 5%
+    function totalPrice($price, $porcentaje)
+    {
+        return number_format($price*$porcentaje/100 ,2) ;
+    }

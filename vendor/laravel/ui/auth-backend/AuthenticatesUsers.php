@@ -31,7 +31,7 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
-       // dd($request);
+        //dd($request);
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -162,6 +162,7 @@ trait AuthenticatesUsers
      */
     public function logout(Request $request)
     {
+        //dd(4);
         $this->guard()->logout();
 
         $request->session()->invalidate();

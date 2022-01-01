@@ -13,10 +13,10 @@
     class CartShopping
     {
         public function compose(View $view)
-        { //dd(session('shopping_cart_id'));
+        {
             if ( Auth::guest() ){
                 $shopping_cart = shoppingCartGuest();
-                //dd($shopping_cart->shopping_cart_details);
+               // $shopping_cart = ShoppingCart::find(Session::get('shopping_cart_id'));
             }else{
                 $shopping_cart = ShoppingCart::where('user_id', '=', auth()->user()->id)->where('status', '=', 'PENDING')->get();
                 if ( $shopping_cart == '[]' ) {

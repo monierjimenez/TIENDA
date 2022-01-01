@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use Cookie;
+//use Cookie;
 
 use Illuminate\Http\Request;
 
