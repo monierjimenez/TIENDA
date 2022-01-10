@@ -185,7 +185,7 @@
                                                 @foreach( $order->order_detail as $orderdtail )
                                                     <tr>
                                                         <td>{{ $orderdtail->order_id }}</td>
-                                                        <td>{{ $orderdtail->name_product }} ({{$orderdtail->model_product}})</td>
+                                                        <td>{{ $orderdtail->name_product }} @if( $orderdtail->model_product != '0' )  ({{$orderdtail->model_product}}) @endif</td>
                                                         <td>{{ $orderdtail->cant_product }}</td>
                                                         <td>
                                                             ${{ $orderdtail->price_product }}/${{ $orderdtail->profit_sale }}

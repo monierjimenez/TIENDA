@@ -180,6 +180,7 @@
                                     <div class="box-header with-border">
                                         <h4>Order products</h4>
                                     </div>
+{{--                                    {{$order->shopping_cart->shopping_cart_details}}--}}
 
                                         <div class="box-body table-responsive no-padding">
                                             <table class="table table-hover">
@@ -190,13 +191,24 @@
                                                     <th>Price/Profit</th>
                                                     <th>Details</th>
                                                 </tr>
-                                                @foreach( $order->order_detail as $orderdtail )
+                                                @foreach( $order->shopping_cart->shopping_cart_details as $orderdtail )
+{{--                                                    {{dd($orderdtail->spec['id'])}}--}}
                                                     <tr>
-                                                        <td>{{ $orderdtail->order_id }}</td>
-                                                        <td>{{ $orderdtail->name_product }} ({{$orderdtail->model_product}})</td>
-                                                        <td>{{ $orderdtail->cant_product }}</td>
+                                                        <td>{{ $order->id }}</td>
                                                         <td>
-                                                            ${{ $orderdtail->price_product }}/${{ $orderdtail->profit_sale }}
+{{--                                                            {{ dd($orderdtail->spec) }}--}}
+                                                            {{ $orderdtail->product->name }}
+                                                            @if( $orderdtail->modelo != 0 && $orderdtail->spec != null )
+                                                                ({{ $orderdtail->spec->name }})
+                                                            @elseif ( $orderdtail->modelo != 0 && $orderdtail->spec == null )
+                                                                ({{ $orderdtail->product->modelp[0]['name'] }})
+                                                            @elseif( $orderdtail->modelo == 0 && $orderdtail->spec == null)
+                                                                (------)
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ $orderdtail->quantity }}</td>
+                                                        <td>
+                                                            ${{ $orderdtail->price }}/${{ $orderdtail->save }}
                                                         </td>
                                                         <td>
                                                             <a class="label label-success" data-toggle="collapse" href="#collapseExample{{ $orderdtail->id }}" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -219,15 +231,21 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            @if( $orderdtail->model_product == "0" ) ----- @else {{ $orderdtail->model_product }} @endif
+                                                                            @if( $orderdtail->modelo != 0 && $orderdtail->spec != null )
+                                                                                {{ $orderdtail->spec->name }}
+                                                                            @elseif ( $orderdtail->modelo != 0 && $orderdtail->spec == null )
+                                                                                {{ $orderdtail->product->modelp[0]['name'] }}
+                                                                            @elseif( $orderdtail->modelo == 0 && $orderdtail->spec == null)
+                                                                                ------
+                                                                            @endif
                                                                         </td>
                                                                         <td>
-                                                                            @if( $orderdtail->color_product == "0" ) ----- @else {{ $orderdtail->color_product }} @endif
+                                                                            @if( $orderdtail->color == "0" ) ----- @else {{ $orderdtail->colore->name }} @endif
                                                                         </td>
-                                                                        <td>{{ $orderdtail->sku_product }}</td>
-                                                                        <td>{{ $orderdtail->category_product }}</td>
+                                                                        <td>{{ $orderdtail->product->sku }}</td>
+                                                                        <td>{{ $orderdtail->product->categorie->name }}</td>
                                                                         <td>
-                                                                            @if( $orderdtail->brand_product == "0" ) ----- @else {{ $orderdtail->brand_product }} @endif
+                                                                            @if( $orderdtail->product->brands == "[]" ) ----- @else {{ $orderdtail->product->brands[0]['name'] }} @endif
                                                                         </td>
                                                                     </tr>
                                                                 </table>

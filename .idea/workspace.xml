@@ -2,32 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="231ecdfb-84ca-481b-9551-96d8819b70f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Helpers/helpersOrders.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/OrdersforgottenController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/products/mvOErc2mlLdsuSYanyVom9y6JcN9qHTj0OFC8Aik.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/products/rZNZ3fdqK5sDNjr2Qh31k8kaWWvkl2CZMbR4YtOR.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/datatablesajax/datatablesforgottenorders.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/forgottenorders/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/forgottenorders/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/forgottenorders/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/forgottenorders/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_11_14_052614_create_details_order_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_11_14_052614_create_details_order_clients_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/errors555/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/OrdersforgottenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/OrdersforgottenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ShoppingCartDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCartDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/forgottenorders/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/forgottenorders/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/orders/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/orders/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/partials/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/partials/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu_cart_or_option_copy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu_cart_or_option_copy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/carts/carts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/myordersdetails.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/myordersdetails.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +201,7 @@
       <workItem from="1637899361421" duration="15919000" />
       <workItem from="1638530779718" duration="37723000" />
       <workItem from="1640055618645" duration="7654000" />
-      <workItem from="1640969525901" duration="38900000" />
+      <workItem from="1640969525901" duration="44336000" />
     </task>
     <task id="LOCAL-00001" summary="Primer comit">
       <created>1626662323520</created>
@@ -476,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640995883918</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="cambios en la compra">
+      <created>1641777295959</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1641777295959</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

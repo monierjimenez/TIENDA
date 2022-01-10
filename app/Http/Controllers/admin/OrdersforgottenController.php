@@ -37,7 +37,6 @@ class OrdersforgottenController extends Controller
 
     public function show($id)
     {
-       // dd($id);
         if ( !checkrights('PUORSV', auth()->user()->permissions) )
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
         $order = Order::findorfail($id);

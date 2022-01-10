@@ -10,6 +10,11 @@ class ShoppingCartDetail extends Model
         'shopping_cart_id', 'product_id', 'quantity', 'price', 'save', 'modelo', 'color',
     ];
 
+//    public function shopping_cart()
+//    {
+//        return $this->belongsTo(ShoppingCart::class, 'shopping_cart_id');
+//    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);
