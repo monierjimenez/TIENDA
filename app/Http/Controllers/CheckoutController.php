@@ -92,8 +92,6 @@ class CheckoutController extends Controller
             ]);
             $order->save();
 
-            $
-
             $shopping_cart->update([
                 'status' => 'FINISHED',
             ]);
@@ -174,6 +172,7 @@ class CheckoutController extends Controller
 
                     DetailsOrderClient::create([
                         'order_id' => $order->id,
+                        'type' => 'OC',
                         'accion' => 'Order created by '. auth()->user()->name,
                         'cant' => '1',
                     ]);
@@ -194,6 +193,7 @@ class CheckoutController extends Controller
                     {
                         DetailsOrderClient::create([
                             'order_id' => $order->id,
+                            'type' => 'OPP',
                             'accion' => 'The order for possible purchase was seen, customer '. auth()->user()->name,
                             'cant' => '1',
                         ]);
@@ -221,7 +221,7 @@ class CheckoutController extends Controller
             'identity_card' => 'required|numeric|digits:11',
             'phone_number' => 'required|numeric',
             'address' => 'required',
-            'numero' => 'required',
+            'numero' => 'required|numeric',
             'selectedEstado' => 'required|numeric',
             'selectedMunicipio' => 'required|numeric',
             'payment' => 'required',
@@ -250,6 +250,7 @@ class CheckoutController extends Controller
         {
             DetailsOrderClient::create([
                 'order_id' => $order->id,
+                'type' => 'OLS',
                 'accion' => 'Last step to pay the order '. auth()->user()->name,
                 'cant' => '1',
             ]);

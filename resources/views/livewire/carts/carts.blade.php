@@ -23,7 +23,7 @@
 {{--                    {{ round(3.5) }}--}}
 {{--                    {{ round(3.6) }}--}}
 
-                    {{ session('shopping_cart_id') }}
+                    -{{ session('shopping_cart_id') }}-
                     @if ( count($shoppingcartdetails) != 0 )
                         <div class="row">
                             <div class="col-lg-8 col-md-12 col-12">

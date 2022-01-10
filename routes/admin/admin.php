@@ -32,6 +32,9 @@ use Illuminate\Support\Facades\Route;
     Route::resource('orders', 'OrdersController', ['except' => ['create'], 'as' => 'admin']);
     Route::get('order/generales', 'OrdersController@orderGeneral');
 
+    Route::resource('forgottenorders', 'OrdersforgottenController', ['except' => ['create'], 'as' => 'admin']);
+    Route::get('order/ordersforgotten', 'OrdersforgottenController@orderGeneral');
+
     //photo articulos
     Route::post('products/{product}/photos', 'PhotosController@store')->name('admin.products.photos.store');
     Route::delete('photos/{photo}', 'PhotosController@destroy')->name('admin.photos.destroy');

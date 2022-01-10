@@ -1,8 +1,8 @@
     @if( $productsin->spec == '[]' && $productsin->colore_id == '' )
-        <form method="GET" action="{{ route('store_a_product.store', $productsin) }}" id="cerrarSesion{{$productsin->id}}">
-            @csrf
+{{--        <form method="POST" action="{{ route('store_a_product.store', $productsin) }}" id="cerrarSesion{{$productsin->id}}">--}}
+{{--            @csrf--}}
 {{--            <a href="" id="salir" onclick="cerrar();" title="Add to cart">{{ __('Add to cart') }}</a>--}}
-            <a href="{{ route('store_a_product.store', $product) }}" onclick="document.getElementById('cerrarSesion{{$product->id}}').submit();">
+            <a href="{{ route('store_a_product.store', $productsin) }}" onclick="document.getElementById('cerrarSesion{{$productsin->id}}').submit();">
 {{--            <a href="{{ route('store_a_product.store', $product) }}" >--}}
                 <i class="fa fa-plus"></i>
                 {{ __('Add to cart') }}
@@ -12,7 +12,7 @@
 {{--            <form method="GET" action="{{ route('store_a_product.store', $product) }}">--}}
 {{--                @csrf--}}
 {{--            <button type="submit" class='btn btn-block'>{{ __('Add to cart') }}</button>--}}
-        </form>
+{{--        </form>--}}
     @endif
 
     @if( $productsin->spec != '[]' || $productsin->colore_id != null)

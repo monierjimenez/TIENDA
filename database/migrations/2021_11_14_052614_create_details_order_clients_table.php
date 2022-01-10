@@ -16,6 +16,7 @@ class CreateDetailsOrderClientsTable extends Migration
         Schema::create('details_order_clients', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('order_id');
+            $table->string('type');
             $table->longText('accion')->nullable();
             $table->unsignedInteger('cant');
             $table->timestamps();

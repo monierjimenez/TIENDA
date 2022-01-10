@@ -90,10 +90,18 @@
                                         {{ __('Color') }}: {{ $orderdetails->color_product }}
                                     @endif
                                     <p style="margin-bottom: 0px;margin-top: 0px;">
-                                        @if( $orderdetails->product->spec != '[]' )
-                                            {{ __('Model') }}: {{ $orderdetails->spec->name }}
-                                        @else
-                                            {{ __('Model') }}: {{ $orderdetails->modelp->name }}
+                                        @if( $orderdetails->brand_product != "0" )
+                                            {{ __('Brand') }}: {{ $orderdetails->brand_product }}
+                                        @endif
+                                    </p>
+                                    <p style="margin-bottom: 0px;margin-top: 0px;">
+{{--                                        @if( $orderdetails->product->spec != '[]' )--}}
+{{--                                            {{ __('Model') }}: {{ $orderdetails->spec->name }}--}}
+{{--                                        @else--}}
+{{--                                            {{ __('Model') }}: {{ $orderdetails->modelp->name }}--}}
+{{--                                        @endif--}}
+                                        @if( $orderdetails->model_product != "0" )
+                                            {{ __('Model') }}: {{ $orderdetails->model_product }}
                                         @endif
                                     </p>
                                 </td>

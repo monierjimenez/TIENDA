@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class OrdersforgottenController extends Controller
 {
     public function index()
     {
@@ -17,34 +17,33 @@ class OrdersController extends Controller
         if ( !checkrights('PUORSV', auth()->user()->permissions) )
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
 
-        return view('admin.orders.index');
+        return view('admin.forgottenorders.index');
     }
 
     public function orderGeneral()
     {
         return Datatables()->of(Order::with("estado", "municipio", "user")
-            ->where('paymentstatus', '=', 'PAID'))
-            ->editColumn('order_date', function ($record) {
+            ->where('paymentstatus', '=', 'PENDING'))
+            ->editColumn('created_at', function ($record) {
                 return [
-                    'display' => $record->order_date->format('Y-m-d, G:i'), //, G:i:s format('M d, Y, G:i')
-                    'timestamp' => $record->order_date->timestamp
+                    'display' => $record->created_at->format('Y-m-d, G:i'), //, G:i:s format('M d, Y, G:i')
+                    'timestamp' => $record->created_at->timestamp
                 ];
             })
-            ->addColumn('btnv', 'admin.datatablesajax.datatablesorders')
-            ->rawColumns(['btnv'])
+            ->addColumn('btn', 'admin.datatablesajax.datatablesforgottenorders')
+            ->rawColumns(['btn'])
             ->toJson();
     }
 
-    public function show(Order $order)
+    public function show($id)
     {
+       // dd($id);
         if ( !checkrights('PUORSV', auth()->user()->permissions) )
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
-
-        if ( $order->paymentstatus != 'PAID')
-            return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
-
+        $order = Order::findorfail($id);
         $user = auth()->user();
-        return view('admin.orders.show', compact('order', 'user'));
+
+        return view('admin.forgottenorders.show', compact('order', 'user'));
     }
 
     public function store(Request $request)

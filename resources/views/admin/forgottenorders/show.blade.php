@@ -12,7 +12,7 @@
     <h1>ORDER: #{{ $order->id }} (Total paid: ${{ $order->total_price_products() }} / ${{ $order->profit_sale }})</h1>
     <ol class="breadcrumb">
       <li><a href="{{ route('admin') }}"><i class="fa fa-home"></i> Home</a></li>
-	  <li><a href="{{ route('admin.orders.index') }}"><i class="fa fa-reorder"></i>List Orders</a></li>
+	  <li><a href="{{ route('admin.forgottenorders.index') }}"><i class="fa fa-reorder"></i>List Forgotten Orders</a></li>
 	  <li><i class='fa fa-minus'></i> Order</li>
     </ol>
   </section>
@@ -29,7 +29,7 @@
 {{--                    @else--}}
 {{--						<img src="/images/unname.jpg" class="profile-user-img img-responsive img-circle"  alt="{{ $user->name }}">--}}
 {{--                    @endif--}}
-
+{{--                {{ dd($order->id) }}--}}
 					<h3 class="profile-username text-center">{{ $order->user->name }} {{ $order->user->last_name }}</h3>
 {{--					<p class="text-muted text-center">{{ $user->cargo }}sadsd</p>--}}
 					<ul class="list-group list-group-unbordered">
@@ -68,7 +68,12 @@
                         </li>
 
                         <li class="list-group-item">
-                            <b>Payment method</b> <a class="pull-right"><span class="label label-success">{{ $order->payment_method }}</span></a>
+                            <b>Payment method</b>
+                            <a class="pull-right">
+                                <span class="label label-success">
+                                    @if( $order->payment_method != null ) {{ $order->payment_method }} @else ------- @endif
+                                </span>
+                            </a>
                         </li>
 					</ul>
 				</div>
@@ -108,7 +113,9 @@
 										<p>
                                             <b>De: {{ $order->user->name.' '. $order->user->second_name.' '. $order->user->last_name }}</b><br>
                                             {{ $order->address }}, #{{ $order->numero }} @if( $order->apto != null ) {{ $order->apto }}, @endif  @if( $order->entre_calle != null )  entre {{ $order->entre_calle }} @endif,
-                                            {{ $order->estado->name }}, {{ $order->municipio->name }}.
+{{--                                            {{ $order->estado->name }}, {{ $order->municipio->name }}--}}
+                                            @if( $order->estado != null ) {{ $order->estado->name }} @else ------- @endif,
+                                            @if( $order->municipio != null ) {{ $order->municipio->name }} @else ------- @endif.
 										</p>
 									</div>
 								  </div>
@@ -125,7 +132,8 @@
                                           <p>
                                               <b>A: {{ $order->name.' '. $order->second_name.' '. $order->last_name }}</b><br>
                                               {{ $order->address }}, #{{ $order->numero }} @if( $order->apto != null ) {{ $order->apto }}, @endif  @if( $order->entre_calle != null )  entre {{ $order->entre_calle }} @endif,
-                                              {{ $order->estado->name }}, {{ $order->municipio->name }}.
+                                              @if( $order->estado != null ) {{ $order->estado->name }} @else ------- @endif,
+                                              @if( $order->municipio != null ) {{ $order->municipio->name }} @else ------- @endif.
                                           </p>
                                       </div>
                                   </div>

@@ -56,7 +56,7 @@
     @endif
 
     @if( checkrights('PUORSV', auth()->user()->permissions) )
-        <li class="treeview {{ request()->is('admin/orders*') ? 'active' : '' }}">
+        <li class="treeview {{ request()->is('admin/orders*') ? 'active' : '' }} {{ request()->is('admin/forgottenorders*') ? 'active' : '' }}">
             <a href="{{ route('admin.orders.index') }}"><i class="fa fa-tasks"></i> <span>ORDERS</span>
                 <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -67,8 +67,8 @@
                     <a href="{{ route('admin.orders.index') }}"><i class="fa fa-reorder"></i>Orders Paid</a>
                 </li>
 
-                <li class="{{ request()->is('admin/orders') ? 'active' : '' }}">
-                    <a href=""><i class="fa fa-paint-brush"></i>List municipalities</a>
+                <li class="{{ request()->is('admin/forgottenorders') ? 'active' : '' }}">
+                    <a href="{{ route('admin.forgottenorders.index') }}"><i class="fa fa-server"></i>Forgotten orders</a>
                 </li>
             </ul>
         </li>
