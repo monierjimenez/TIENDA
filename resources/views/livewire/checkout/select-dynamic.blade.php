@@ -260,9 +260,9 @@
                                     {{ __('Payment by PayPal') }}
                                 </label>
 
-                                <label style="padding-left: 0px;position: inherit;">
-                                    <input type="radio" name="payment" value="cast" style="display: initial;"> {{ __('Credit or debit card') }}
-                                </label>
+{{--                                <label style="padding-left: 0px;position: inherit;">--}}
+{{--                                    <input type="radio" name="payment" value="cast" style="display: initial;"> {{ __('Credit or debit card') }}--}}
+{{--                                </label>--}}
                                 {!! $errors->first('payment', '<span class="help-block">Debe de seleccionar un metodo de pago.</span>') !!}
                             </div>
                         </div>

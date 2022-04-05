@@ -40,6 +40,10 @@ class OrdersforgottenController extends Controller
         if ( !checkrights('PUORSV', auth()->user()->permissions) )
             return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
         $order = Order::findorfail($id);
+        if ( $order->paymentstatus != 'PENDING')
+            return redirect()->route('admin')->with('flasherror', 'Permissions denied to perform this operation, contact the administrator.');
+
+
         $user = auth()->user();
 
         return view('admin.forgottenorders.show', compact('order', 'user'));

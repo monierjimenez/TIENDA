@@ -1,8 +1,10 @@
+8502Rmonier*
+
 Hoy no estaré cerca de alguien tan especial como ere tú para mi
 
-Es difícil hacerse a la idea de que hoy sera otro año que estaré lejos de ti, pero sé que pronto todo volverá a la normalidad, y estremos juntos, te prometo que sera el ultimo 31 de diciembre que etaremos separados, hemos aprendido a superar los obstáculos.
+Es difícil hacerse a la idea de que hoy sera otro año que estaré lejos de ti, pero sé que pronto todo volverá a la normalidad, y estremos juntos, te prometo que sera el ultimo 31 de diciembre que estaremos separados, hemos aprendido a superar muchos obstáculos.
 
-Pudiera predecir el deseo pedirás hoy cuando soples las velas, pero yo lo tengo claro, y es que pronto podamos pasar todos los años de la vida juntos y festejando cada dia. Me gustaría tenerte a mi lado, para decirte en persona lo especial que eres para mi.
+Pudiera predecir el deseo que pedirás hoy cuando soples las velas, pero yo lo tengo claro, y es que pronto podamos pasar todos los años de la vida juntos y festejando cada dia. Me gustaría tenerte a mi lado, para decirte en persona lo especial que eres para mi.
 
 Espero que conserves esa energía que te hace ser quien eres para siempre, que tu visión no cambie pues es lo que nos da fuerzas para seguir adelante como hasta ahora.  TE AMO MI FLACA HERMOSA.
 
@@ -21,6 +23,10 @@ job para email a los carritos que le user dejo articulos pendientes...
 
 para intalar un proyecyo de laravel con version 7.24
 	composer create-project --prefer-dist laravel/laravel:^7.30 nombreproyecto
+			or the last version
+	composer  create-project laravel/laravel aereolivewire --prefer-dist
+
+===============================
 
 para importar una BD grande a phpmyadmin, mediante la consola de windox
 	mysql -h localhost -u USER -pPASS --default-character-set=utf8 nameBD<direccion donde se encuentra 

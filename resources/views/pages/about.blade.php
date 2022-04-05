@@ -13,7 +13,7 @@
                 <div class="col-lg-12" >
                     <div class="breadcrumb-text">
                         <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> {{ __('Home') }}</a>
-                        <span> > About Us</span>
+                        <span> > About Us hoo kkm</span>
                     </div>
                 </div>
             </div>
